@@ -10,17 +10,17 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{p33k_@_b00_19
 - **Difficulty Level:** [easy]
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
-
+- zbar-tools libray
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
-### Final Solution
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+### Steps
+- This challenge was rather easy
+- First `unzip flag.png` whereby the user was provided a QR-code
+- Run `zbarimg flag.png` which is library which enables the creation and decoding of QR Codes. 
+- The user obtains the flag simply from running the above command
 
 ## Lessons Learned
 - Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
 
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- https://medium.com/@anshulgarwal45/title-generating-and-reading-qr-codes-from-the-command-line-in-rhel-b314e6108bb0

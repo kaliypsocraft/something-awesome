@@ -1,8 +1,8 @@
+# Something Awesome Project COMP6841
 
-
-# Project Name
-
-Short description or introduction of your project.
+The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
+beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
+CTF consisting of challenges related to 
 
 ## Table of Contents
 - [Diary](#diary)

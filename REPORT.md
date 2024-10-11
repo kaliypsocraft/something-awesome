@@ -34,6 +34,26 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
   Each week consists of a more detailed overview of what is conducted in order to advance the state of the project. 
   The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis.
 ## Week 1
+  ### What I did?
+  Week 1 was just getting the cogs moving and selecting between projects. At this stage I was debating between a cryptography 
+  research project or a CTF write-up. 
+  ### What I need to improve?
+  Perhaps be more 
+  ### How to fix errors?
+  Be mindful and deliberate with the selection of tasks and projects.
+## Week 2
+  - Solving SQL Injections and Buffer Overflows (being hands on)
+  - These tasks further assists me on my CTF write-ups/tutorial project.
+  - They exposed me to more CTF related challenges and gave me some insight into the thinking patterns required for CTF's and the psychology behind them.
+## Week 3
+  - Conducted Wargames specifically XSS Injection related tasks
+  - Continued my Something Awesome Project - made a website via Canva.
+  - Wrote Something Awesome Project Write-Ups on a markdown file ready to transfer over
+  - Finished 12 CTF challenges related to SAP
+  - B-Sides!
+## Week 4
+
+## Week 5
   
 ## Challenges
 List the key features of your project.

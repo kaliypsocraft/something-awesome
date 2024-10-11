@@ -2,8 +2,7 @@
 
 The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
 beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
-CTF consisting of challenges related to [cryptography](#cryptography), 
-
+CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
 ## Table of Contents
 - [Diary](#diary)
   - [Week 1](#week-1)
@@ -37,9 +36,18 @@ CTF consisting of challenges related to [cryptography](#cryptography),
 ## Week 1
   
 ## Challenges
-  
-
 List the key features of your project.
+## General Skills
+
+## Cryptography
+
+## Web Exploitation
+
+## Forensics
+
+## Reverse Engineering
+
+## Binary Exploitation
 
 ## Getting Started
 

@@ -20,7 +20,12 @@ CTF consisting of challenges related to [cryptography](#cryptography),
   - [Building](#building)
   - [Running](#running)
 - [Challenges](#challenges)
-  - [Cryptography]
+  - [General Skills](#general-skills)
+  - [Cryptography](#cryptography)
+  - [Web Exploitation](#web-exploitation)
+  - [Forensics](#forensics)
+  - [Reverse Engineering](#reverse-engineering)
+  - [Binary Exploitation](#binary-exploitation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -28,9 +33,11 @@ CTF consisting of challenges related to [cryptography](#cryptography),
 ## Diary
   The diary serves as a logbook for weekly evaluations in order to enhance productivity and to maintain purpose. 
   Each week consists of a more detailed overview of what is conducted in order to advance the state of the project. 
+  The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis.
 ## Week 1
-
-## Features
+  
+## Challenges
+  
 
 List the key features of your project.
 

@@ -1,13 +1,13 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Operation Oni][Forensics]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
+![alt text](image.png)
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
 
 ## Difficulty
-- **Difficulty Level:** [easy/medium/hard]
+- **Difficulty Level:** [medium]
 
 ## Tools Used
 - List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
@@ -15,13 +15,16 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 ## Write-Up
 
 ### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
-
+- I had to understand what a disk image was first. 
 ### Step 2: [Second Step Title]
-- Describe the second step in your process. Detail your thought process and any obstacles encountered.
-
+- Upon downloading the `disk.img.gz` file I had to decompress it since `.gz` is a compressed file. 
+- This was conducted via `gzip -d disk.img.gz`
 ### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
+- Running `xxd disk.img` broke the web-shell
+- Therefore I ran `xxd disk.img | grep picoCTF` but it didn't work
+- I then ran `xxd disk.img | grep password`
+![](image-1.png)
+- Quite interesting as I found 
 
 ### Final Solution/Payload
 - Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.

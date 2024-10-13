@@ -75,9 +75,16 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 ## Challenges
 List the key features of your project.
 ## General Skills
-
+General skills consist of using the basic tools and tricks of the trade such as Linux commands e.t.c. The skills learnt from these
+challenges form the prequesite knowledge required for not just CTFs but computing literacy for a computer-science student. 
 ## Cryptography
-
+Cryptography is the process of obsfucating information from unauthorised people. Usually modern cryptographic algorithms must
+satisfy three properties: 
+1. Confidentiality
+2. Integrity
+3. Authentication
+Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
+a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack. 
 ## Web Exploitation
 
 ## Forensics

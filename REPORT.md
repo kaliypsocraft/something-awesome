@@ -1,4 +1,4 @@
-# Something Awesome Project COMP6841
+# Something Awesome Project 
 
 The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
 beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style

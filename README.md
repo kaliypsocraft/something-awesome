@@ -21,7 +21,7 @@ write-up contains challenge-type, difficulty-level, the flag, thought-process an
 each challenge directory.
 
 ### Scripts
-`generate_write_ups.sh` is a shell script which takes in two arguments `<challenge_type> <challenge_name>` and creates a directory and markdown file associated with the challenge. This automated the process in creating 
+`generate_challenge_file.sh` is a shell script which takes in two arguments `<challenge_type> <challenge_name>` and creates a directory and markdown file associated with the challenge. This automated the process in creating 
 
 Explain how to build the project. Include any specific commands or build systems used.
 

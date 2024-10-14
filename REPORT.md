@@ -86,10 +86,19 @@ satisfy three properties:
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
 #### Medium
+-[Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/la_cifra_de.md)
+-[Mini RSA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
+-[Pixelated](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/pixelated/pixelated.md)
+-[RSA Oracle](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/rsa_oracle/rsa_oracle.md)
+-[Dachshund Attacks](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/dachshund_attacks/dachshund_attacks.md)
+-[Mind Your P and Qs](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mind_your_p_and_qs/mind_your_p_and_qs.md)
+-[No Padding No Prob](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/no_padding_no_prob/no_padding_no_prob.md)
+-[Spelling Quiz](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/spelling_quiz/spelling_quiz.md)
+-[Substitution 1](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_1/substitution_1.md)
+-[Substitution 2](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_2/substitution_2.md)
 
 #### Hard
 - [SRA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
-
 - [Power Analysis: Warm Up](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
 
 ## Web Exploitation

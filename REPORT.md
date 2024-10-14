@@ -65,6 +65,7 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 - Wrote Something Awesome Project Write-Ups on a markdown file ready to transfer over.
 - Finished 12 CTF challenges related to SAP.
 - Attended B-Sides!
+- There was a talk on exploitation of AI models and modern cryptographic attacks which intrigued me.
 - Engaged in discussions with industry professionals during the B-Sides event, gaining insights into emerging trends in cybersecurity.
 - Developed a better understanding of different types of XSS attacks and their mitigations.
 
@@ -81,7 +82,6 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 - Completed advanced web exploitation challenges, particularly focusing on session management vulnerabilities.
 - Began learning about heap exploitation techniques, which will add depth to my Something Awesome Project.
 - Drafted additional CTF write-ups for the ongoing project, covering techniques like Cross-Site Scripting (XSS) and SQL Injection.
-- Attended a guest lecture on modern cryptographic attacks, which helped me explore new areas for research.
 
 ### What I need to improve?
 - Refine my understanding of heap exploitation, as some concepts are still unclear.

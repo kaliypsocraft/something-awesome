@@ -88,8 +88,9 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
 #### Medium
 
 #### Hard
-[SRA](#https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
-[Power Analysis: Warm Up](#https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
+- [SRA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
+
+- [Power Analysis: Warm Up](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
 
 ## Web Exploitation
 

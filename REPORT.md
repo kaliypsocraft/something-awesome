@@ -38,6 +38,7 @@ challenges form the prequesite knowledge required for not just CTFs but computin
 ## Cryptography
 Cryptography is the process of obsfucating information from unauthorised people. Usually modern cryptographic algorithms must
 satisfy three properties: 
+TODO: Add definitions
 1. Confidentiality
 2. Integrity
 3. Authentication
@@ -65,6 +66,8 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
   It is one of the first web exploitation techniques a student learns when undertaking an introduction to security course. It involves an 
   attacker inserting malicious SQL queries into an entry field. It is a common attack vector against websites. It is an example of the dangers of 
   mixing **data** and **control**. 
+
+TODO: Add other web exploitation attack vectors
 ### picoCTF Challenges
 #### Medium
 - [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
@@ -88,6 +91,7 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
 - [Win Anti Dbg 0x100]()
 
 ## Binary Exploitation
+TODO: Add format strings and buffer overflow definition
 #### Medium
 - [Basic File Exploit](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/basic_file_exploit/basic_file_exploit.md)
 - [Buffer Overflow 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_2/buffer_overflow_2.md)

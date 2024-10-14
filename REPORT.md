@@ -34,44 +34,80 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
   Each week consists of a more detailed overview of what is conducted in order to advance the state of the project. 
   The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis.
 ## Week 1
-  ### What I did?
-  - Week 1 was just getting the cogs moving and selecting between projects. At this stage I was debating between a cryptography 
-  research project or a CTF write-up. 
-  ### What I need to improve?
-  - Reduce screen-time
-  - Be swift and decisive with choosing project
-  ### How to fix errors?
-  - Be mindful and deliberate with the selection of tasks and projects.
+### What I did?
+- Week 1 was just getting the cogs moving and selecting between projects. At this stage, I was debating between a cryptography research project or a CTF write-up.
+
+### What I need to improve?
+- Reduce screen time
+- Be swift and decisive with choosing a project
+
+### How to fix errors?
+- Be mindful and deliberate with the selection of tasks and projects.
+
 ## Week 2
-   ### What I did?
-  - Solving SQL Injections and Buffer Overflows (being hands on)
-  - These tasks further assists me on my CTF write-ups/tutorial project.
-  - They exposed me to more CTF related challenges and gave me some insight into the thinking patterns required for CTF's and the psychology behind them.
-  ### What I need to improve?
+### What I did?
+- Solving SQL Injections and Buffer Overflows (being hands-on)
+- These tasks further assisted me on my CTF write-ups/tutorial project.
+- They exposed me to more CTF-related challenges and gave me some insight into the thinking patterns required for CTFs and the psychology behind them.
 
-  ### How to fix errors?
+### What I need to improve?
+- Develop a deeper understanding of SQL injection techniques and their real-world applications.
+- Practice more buffer overflow exercises to improve my confidence in exploiting this vulnerability.
+
+### How to fix errors?
+- Use online platforms like Hack The Box and TryHackMe to practice SQL injections and buffer overflow challenges.
+- Set weekly goals for specific vulnerabilities to focus on, ensuring steady progress.
+
 ## Week 3
-   ### What I did?
-  - Conducted Wargames specifically XSS Injection related tasks
-  - Continued my Something Awesome Project - made a website via Canva.
-  - Wrote Something Awesome Project Write-Ups on a markdown file ready to transfer over
-  - Finished 12 CTF challenges related to SAP
-  - B-Sides!
-   ### What I need to improve?
+### What I did?
+- Conducted Wargames specifically on XSS Injection-related tasks.
+- Continued my Something Awesome Project - made a website via Canva.
+- Wrote Something Awesome Project Write-Ups on a markdown file ready to transfer over.
+- Finished 12 CTF challenges related to SAP.
+- Attended B-Sides!
+- Engaged in discussions with industry professionals during the B-Sides event, gaining insights into emerging trends in cybersecurity.
+- Developed a better understanding of different types of XSS attacks and their mitigations.
 
-   ### How to fix errors?
+### What I need to improve?
+- Strengthen my knowledge of different types of web vulnerabilities beyond XSS.
+- Enhance my ability to articulate findings and strategies in my write-ups for better clarity.
+
+### How to fix errors?
+- Dedicate time to researching and practicing additional web vulnerabilities, such as CSRF and RCE.
+- Seek feedback on my write-ups from peers or mentors to improve my communication skills and technical accuracy.
+
 ## Week 4
-   ### What I did?
+### What I did?
+- Completed advanced web exploitation challenges, particularly focusing on session management vulnerabilities.
+- Began learning about heap exploitation techniques, which will add depth to my Something Awesome Project.
+- Drafted additional CTF write-ups for the ongoing project, covering techniques like Cross-Site Scripting (XSS) and SQL Injection.
+- Attended a guest lecture on modern cryptographic attacks, which helped me explore new areas for research.
 
-   ### What I need to improve?
+### What I need to improve?
+- Refine my understanding of heap exploitation, as some concepts are still unclear.
+- Improve time management between different tasks (CTF challenges, research, and project write-ups).
 
-   ### How to fix errors?
+### How to fix errors?
+- Set aside focused study sessions specifically for heap exploitation concepts, using resources like wargames or tutorials.
+- Create a more structured daily schedule to balance CTF challenges, project progress, and personal research.
+
 ## Week 5
   ### What I did?
-
+- This week conducted format strings practice on picoCTF as that is what we learnt in the Thursday Extended lecture
+- Conducted post-quantum cryptography research specifically post-quantum digital signatures
+- Read into a data structure 
   ### What I need to improve?
-
+- Once again phone has stolen my attention at times
+- Hitting dead ends in problems and feeling demoralised
   ### How to fix errors?
+- Set aside time to be cognizant of *how to* solve a problem rather than diving straight in.
+## Week 6
+
+
+## Week 7
+
+
+## Week 8
 ## Challenges
 List the key features of your project.
 ## General Skills
@@ -83,6 +119,7 @@ satisfy three properties:
 1. Confidentiality
 2. Integrity
 3. Authentication
+
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
 #### Medium

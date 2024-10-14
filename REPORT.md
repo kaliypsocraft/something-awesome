@@ -22,6 +22,7 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
   - [General Skills](#general-skills)
   - [Cryptography](#cryptography)
   - [Web Exploitation](#web-exploitation)
+      - [SQL Injection](#sql-injection)
   - [Forensics](#forensics)
   - [Reverse Engineering](#reverse-engineering)
   - [Binary Exploitation](#binary-exploitation)
@@ -139,10 +140,18 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
 - [Power Analysis: Warm Up](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
 
 ## Web Exploitation
+### SQL Injection
+  It is one of the first web exploitation techniques a student learns when undertaking an introduction to security course. It involves an 
+  attacker inserting malicious SQL queries into an entry field. It is a common attack vector against websites. It is an example of the dangers of 
+  mixing **data** and **control**.
+### picoCTF Challenges
 #### Medium
 - [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
 - [SQL Direct](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/sql_direct/sql_direct.md)
 - [Web Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_cookies/web_cookies.md)
+- [More SQLi]()
+- [Web Gauntlet 1]()
+- [Web Gauntlet 2]()
 ## Forensics
 #### Medium
 - [Endianess v2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
@@ -155,6 +164,7 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
 - [Picker 1](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_1/picker_1.md)
 - [Picker 2](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_2/picker_2.md)
 - [Picker 3](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_3/picker_3.md)
+- [Win Anti Dbg 0x100]()
 
 ## Binary Exploitation
 #### Medium

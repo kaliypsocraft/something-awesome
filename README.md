@@ -9,9 +9,6 @@ crypto/ will contain all CTF challenges related to cryptography.
 
 - [Features](#features)
 - [Scripts](#scripts)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Features
@@ -23,8 +20,7 @@ each challenge directory.
 ### Scripts
 `generate_challenge_file.sh` is a shell script which takes in two arguments `<challenge_type> <challenge_name>` and creates a directory and markdown file associated with the challenge. This automated the process in creating 
 
-Explain how to build the project. Include any specific commands or build systems used.
+`generate_write_ups.sh` is a shell script which when run within a challenge directory i.e. /crypto, it will generate a `.md` file associated with each challenge within the directory. This was good for existing directories which did not have a write-up file associated with it. 
 
-```bash
-# Example build command
-make
+### Acknowledgements
+

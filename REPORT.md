@@ -87,8 +87,31 @@ List the key features of your project.
 ## Binary Exploitation
 
 ## Getting Started
+The following script creates a directory containing the challenge along with 
+a write-up file.
+```bash
+#!/bin/bash
 
-Provide instructions on how to get a copy of the project and run it on the local machine.
+challenge=$1
+name=$2
+
+if [ $# -lt 2 ]; then
+    echo "Incorrect usage: bash generate_challenge_file.sh <challenge_type> <name>"
+    exit 1
+elif [ ! -d $challenge ]; then
+    echo "Incorrect challenge name"
+    exit 1
+fi
+
+mkdir "$challenge/$name"
+
+echo "Created $challenge/$name"
+
+cp WRITE_UP_TEMPLATE.md $challenge/$name/$name.md
+
+echo "Created $challenge/$name.md"
+
+```
 
 ### Prerequisites
 

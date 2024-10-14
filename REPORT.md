@@ -84,7 +84,13 @@ satisfy three properties:
 2. Integrity
 3. Authentication
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
-a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack. 
+a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
+#### Medium
+
+#### Hard
+[SRA](#https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
+[Power Analysis: Warm Up](#https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
+
 ## Web Exploitation
 
 ## Forensics

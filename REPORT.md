@@ -5,10 +5,7 @@ beginners to learn about the foundations of capture-the-flag challenges. PicoCTF
 CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
 ## Table of Contents
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Building](#building)
-  - [Running](#running)
+  TODO: Add instructions on the basic flow of the report
 - [Challenges](#challenges)
   - [General Skills](#general-skills)
   - [Cryptography](#cryptography)
@@ -45,6 +42,10 @@ TODO: Add definitions
 
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
+
+TODO: Insert typical challenges
+
+TODO: Insert more information about broader topics
 #### Medium
 - [Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/la_cifra_de.md)
 - [Mini RSA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
@@ -68,14 +69,19 @@ a substitution cipher or Vigenere ciphers which may require a more sophisticated
   mixing **data** and **control**. 
 
 TODO: Add other web exploitation attack vectors
+
+TODO: Insert typical challenges
+
+TODO: Insert more information about broader topics
 ### picoCTF Challenges
 #### Medium
+- [More SQLi](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/more_sqli/more_sqli.md)
 - [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
 - [SQL Direct](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/sql_direct/sql_direct.md)
 - [Web Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_cookies/web_cookies.md)
-- [More SQLi]()
-- [Web Gauntlet 1]()
-- [Web Gauntlet 2]()
+- [Web Gauntlet 1](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_1/web_gauntlet_1.md)
+- [Web Gauntlet 2](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_2/web_gauntlet_2.md)
+
 ## Forensics
 #### Medium
 - [Endianess v2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
@@ -84,27 +90,38 @@ TODO: Add other web exploitation attack vectors
 - [Scan Surprise](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/scan_surprise/scan_surprise.md)
 
 ## Reverse Engineering
+TODO: Define Reverse Engineering
+
+TODO: Insert typical challenges
+
+TODO: Insert more information about broader topics
 #### Medium
 - [Picker 1](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_1/picker_1.md)
 - [Picker 2](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_2/picker_2.md)
 - [Picker 3](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_3/picker_3.md)
-- [Win Anti Dbg 0x100]()
+- [Win Anti Dbg 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x100/win_anti_dbg_0x100.md)
 
 ## Binary Exploitation
 TODO: Add format strings and buffer overflow definition
+
+TODO: Insert typical challenges
+
+TODO: Insert more information about broader topics
 #### Medium
 - [Basic File Exploit](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/basic_file_exploit/basic_file_exploit.md)
 - [Buffer Overflow 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_2/buffer_overflow_2.md)
-- [Buffer Overflow 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_3/buffer_overflow_3.md)
 - [Clutter Overflow](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/clutter_overflow/clutter_overflow.md)
 - [Fmt Str 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/fmt_str_2/fmt_str_2.md)
 - [Fmt Str 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/fmt_str_3/fmt_str_3.md)
-- [Function Overwrite](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/function_overwrite/function_overwrite.md)
 - [Heap 1](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_1/heap_1.md)
 - [Heap 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_2/heap_2.md)
 - [Heap 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_3/heap_3.md)
+- [VNE](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/vne/vne.md)
 - [Two Sum](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/two_sum/two_sum.md)
-
+#### Hard
+- [Buffer Overflow 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_3/buffer_overflow_3.md)
+- [Function Overwrite](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/function_overwrite/function_overwrite.md)
+- [Ropfu](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/ropfu/ropfu.md)
 ## Getting Started
 The following script creates a directory containing the challenge along with 
 a write-up file.
@@ -204,10 +221,12 @@ List any software or libraries that need to be installed before running the proj
 - Conducted post-quantum cryptography research specifically post-quantum digital signatures
 - Read into a data structure 
   ### What I need to improve?
-- Once again phone has stolen my attention at times
-- Hitting dead ends in problems and feeling demoralised
+- Once again phone has stolen my attention at times.
+- Rushing into a problem rather than taking the time to slow down and think.
+- Hitting dead ends in problems and feeling demoralised.
   ### How to fix errors?
 - Set aside time to be cognizant of *how to* solve a problem rather than diving straight in.
+- Be mindful and intentional in everything I do and be methodical in my thinking
 ## Week 6
 
 

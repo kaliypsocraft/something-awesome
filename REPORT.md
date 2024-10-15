@@ -5,7 +5,6 @@ beginners to learn about the foundations of capture-the-flag challenges. PicoCTF
 CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
 ## Table of Contents
 - [Features](#features)
-  TODO: Add instructions on the basic flow of the report
 - [Challenges](#challenges)
   - [General Skills](#general-skills)
   - [Cryptography](#cryptography)
@@ -27,6 +26,8 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
+## Features
+TODO: Add instructions on the basic flow of the report
 ## Challenges
 List the key features of your project.
 ## General Skills

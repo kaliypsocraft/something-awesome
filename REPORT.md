@@ -60,7 +60,6 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 ## Features
 TODO: Add instructions on the basic flow of the report
 ## Challenges
-List the key features of your project.
 ## General Skills
 General skills consist of using the basic tools and tricks of the trade such as Linux commands e.t.c. The skills learnt from these
 challenges form the prequesite knowledge required for not just CTFs but computing literacy for a computer-science student. 
@@ -335,8 +334,6 @@ TODO: Insert more information about broader topics
 ## Week 8
 
 ### Building
-
-Explain how to build the project. Include any specific commands or build systems used.
 
 ```bash
 # Example build command

@@ -1,4 +1,4 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Win Anti Dbg 0x100][Reverse Engineering]
 
 ## Description
 ![alt text](image.png)
@@ -16,15 +16,13 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{d3bug_f0r_th3
 ## Write-Up
 
 ### Step 1: [Prepartory]
-- As per the name I likely need to install `windbg` in order to do the challenge
+- As per the name I likely need to install `windbg` in order to do the challenge. I realised later that the challenge is called Win **Anti Debug**, therefore this deduction was wrong :(.
 - Upon running the executable via I obtain: 
 ![alt text](image-1.png)
 - Playing around with `windbg` was abit confusing at first, so I switched to BinaryNinja during the attack phase.
 
 ### Step 2: [Attack]
-- Opening up in winDbg I obtain: 
-![alt text](image-2.png)
-- Using winDbg I did not initially understand how to use it so I ran the executable on BinaryNinja instead.
+- Open the executable in BinaryNinja
 ![alt text](image-3.png)
 - Another clue was when running the binary there was a riddle which alluded to `patching`. Patching a binary essentially alters the flow of the program to work in our favour. 
 - The key area to alter is the `if (isDebuggerPresent() == 0)` in order to obtain our flag.

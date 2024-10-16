@@ -1,0 +1,38 @@
+# CTF Write-Up: [Challenge Name]
+
+## Description
+A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
+
+## Flag
+The flag you obtained after solving the challenge. (e.g., `picoCTF{4_d14m0nd_1n_7h3_r0ugh_6e04440d}`)
+
+## Difficulty
+- **Difficulty Level:** [easy/medium/hard]
+
+## Tools Used
+- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
+
+## Write-Up
+
+### Step 1: [First Step Title]
+- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+
+### Step 2: [Second Step Title]
+- ![alt text](image.png)
+- ![alt text](image-1.png)
+- ![alt text](image-2.png)
+- ![alt text](image-3.png)
+
+
+### Step 3: [Third Step Title]
+- Continue to describe subsequent steps until the solution is reached. 
+
+### Final Solution/Payload
+- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+
+## Lessons Learned
+- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
+
+## References
+- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+

@@ -139,18 +139,12 @@ TODO: Insert typical challenges
 TODO: Insert more information about broader topics
 ### picoCTF Challenges
 #### Medium
-- [Java Code Analysis](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md)
 - [More SQLi](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/more_sqli/more_sqli.md)
 - [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
-- [Picobrowser](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/picobrowser/picobrowser.md)
 - [SQL Direct](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/sql_direct/sql_direct.md)
 - [Web Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_cookies/web_cookies.md)
 - [Web Gauntlet 1](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_1/web_gauntlet_1.md)
 - [Web Gauntlet 2](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_2/web_gauntlet_2.md)
-
-#### Hard
-- [Notepad](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/notepad/notepad.md)
-- [Javascript Kiddie](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javascript_kiddie/javascript_kiddie.md)
 
 ## Forensics
 ### File Formats
@@ -165,23 +159,12 @@ TODO: Add content for Disk Imaging.
 ### Steganography
 TODO: Add content for Steganography.
 #### Medium
-- [Disk Disk Sleuth](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/disk_disk_sleuth/disk_disk_sleuth.md)
-- [Endianess V2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
+- [Endianess v2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
 - [Op Oni](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_oni/op_oni.md)
-- [Packets Primer](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/packets_primer/packets_primer.md)
-- [Sleuthkit Apprentice](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_apprentice/sleuthkit_apprentice.md)
-- [Trivial Flag Transfer Protocol](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md)
-- [Eavesdropping](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/eavesdropping/eavesdropping.md)
-- [Like 1000](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/like_1000/like_1000.md)
 - [Op Orchid](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_orchid/op_orchid.md)
 - [Scan Surprise](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/scan_surprise/scan_surprise.md)
-- [Sleuthkit Intro](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_intro/sleuthkit_intro.md)
-
 #### Hard
-- [Web Net 0](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/web_net_0/web_net_0.md)
-- [Investigative Reversing 1](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/investigative_reversing_1/investigative_reversing_1.md)
-- [Investigative Reversing 2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/investigative_reversing_2/investigative_reversing_2.md)
-
+- 
 
 ## Reverse Engineering
 TODO: Define Reverse Engineering
@@ -194,21 +177,10 @@ TODO: Add content for Disassemblers.
 TODO: Add content for Debuggers.
 TODO: Insert more information about broader topics
 #### Medium
-- [Crack Me 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/crack_me_0x100/crack_me_0x100.md)
 - [Picker 1](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_1/picker_1.md)
 - [Picker 2](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_2/picker_2.md)
 - [Picker 3](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_3/picker_3.md)
-- [Win Anti Dbg 0x200](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x200/win_anti_dbg_0x200.md)
-- [GDB Baby Step 4](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/gdb_baby_step_4/gdb_baby_step_4.md)
-- [Packer](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/packer/packer.md)
 - [Win Anti Dbg 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x100/win_anti_dbg_0x100.md)
-- [Win Anti Dbg 0x300](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x300/win_anti_dbg_0x300.md)
-
-#### Hard
-- [Keygenme](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/keygenme/keygenme.md)
-- [OTP Implementation](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/otp_implementation/otp_implementation.md)
-- [Not Crypto](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/not_crypto/not_crypto.md)
-
 
 ## Binary Exploitation
 TODO: Add format strings and buffer overflow definition

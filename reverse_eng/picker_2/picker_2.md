@@ -1,7 +1,7 @@
 # CTF Write-Up: [Challenge Name]
 
 ## Description
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{f1l73r5_f41l_c0d3_r3f4c70r_m1gh7_5ucc33d_0b5f1131}`)
@@ -18,8 +18,8 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{f1l73r5_f41l_
 - Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
 
 ### Step 2: [Second Step Title]
-- ![alt text](image-2.png)
-- ![alt text](image-1.png)
+- ![alt text](images/image-2.png)
+- ![alt text](images/image-1.png)
 
 ### Step 3: [Third Step Title]
 - Continue to describe subsequent steps until the solution is reached. 

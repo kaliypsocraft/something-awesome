@@ -1,7 +1,7 @@
 # CTF Write-Up: [Challenge Name]
 
 ## Description
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
@@ -16,16 +16,16 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 
 ### Step 1: [First Step Title]
 - Given a binary so I first attempted to gather intelligence from gdb. I used the command `maint print symbols` in order to obtain all the symbols.
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 - Using binaryninja I find the secret value is stored in variable named `var_68.`
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](images/image-2.png)
+![alt text](images/image-3.png)
 - It appears the password is `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`
 
 ### Step 2: [Second Step Title]
 - Upon running the binary and inputting `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`, I receive an error saying `FAILED!`.
 - Inspecting the code, it appears that the binary encodes the user input and my suspscions under `gdb` were confirmed.
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 - Going back to binaryninja I was able to obtain the code for the encoding and developed a decoding algorithm. 
 
 ### Step 3: [Third Step Title]

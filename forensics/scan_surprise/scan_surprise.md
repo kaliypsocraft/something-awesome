@@ -1,7 +1,7 @@
 # CTF Write-Up: [Scan_Surprise][Forensics]
 
 ## Description
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{p33k_@_b00_19eccd10}`)

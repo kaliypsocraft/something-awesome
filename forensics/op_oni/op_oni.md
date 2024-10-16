@@ -1,7 +1,7 @@
 # CTF Write-Up: [Operation Oni][Forensics]
 
 ## Description
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
@@ -23,7 +23,7 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 - Running `xxd disk.img` broke the web-shell
 - Therefore I ran `xxd disk.img | grep picoCTF` but it didn't work
 - I then ran `xxd disk.img | grep password`
-![](image-1.png)
+![alt text](images/image-1.png)
 - Quite interesting as I found 
 
 ### Final Solution/Payload

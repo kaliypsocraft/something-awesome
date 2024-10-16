@@ -1,7 +1,7 @@
 # CTF Write-Up: [Challenge Name]
 
 ## Description
-![alt text](image.png)
+![alt text](images/image.png)
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{R0UND_N_R0UND_79C18FB3}`)
 

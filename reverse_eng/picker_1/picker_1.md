@@ -18,10 +18,10 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{4_d14m0nd_1n_
 - Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
 
 ### Step 2: [Second Step Title]
-- ![alt text](image.png)
-- ![alt text](image-1.png)
-- ![alt text](image-2.png)
-- ![alt text](image-3.png)
+- ![alt text](images/image.png)
+- ![alt text](images/image-1.png)
+- ![alt text](images/image-2.png)
+- ![alt text](images/image-3.png)
 
 
 ### Step 3: [Third Step Title]

@@ -16,7 +16,7 @@ def reset_table():
   # This table is formatted for easier viewing, but it is really one line
   func_table = \
 '''\
-print_table                     \
+win                             \
 read_variable                   \
 write_variable                  \
 getRandomNumber                 \
@@ -24,7 +24,6 @@ getRandomNumber                 \
 
 def check_table():
   global func_table
-
   if( len(func_table) != FUNC_TABLE_ENTRY_SIZE * FUNC_TABLE_SIZE):
     return False
 
@@ -58,7 +57,6 @@ def print_table():
   if( not check_table() ):
     print(CORRUPT_MESSAGE)
     return
-
   for i in range(0, FUNC_TABLE_SIZE):
     j = i + 1
     print(str(j)+': ' + get_func(i))
@@ -179,6 +177,7 @@ Here's the current table:
 reset_table()
 
 while(USER_ALIVE):
+  print(len(func_table))
   choice = input('==> ')
   if( choice == 'quit' or choice == 'exit' or choice == 'q' ):
     USER_ALIVE = False

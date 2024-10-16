@@ -18,9 +18,14 @@ write-up contains challenge-type, difficulty-level, the flag, thought-process an
 each challenge directory.
 
 ### Scripts
-`generate_challenge_file.sh` is a shell script which takes in two arguments `<challenge_type> <challenge_name>` and creates a directory and markdown file associated with the challenge. This automated the process in creating 
+TODO: deprecate `generate_challenge_file.sh`
+`generate_challenge_file.sh` is a shell script which takes in two arguments `<challenge_type> <challenge_name>` and creates a directory and markdown file associated with the challenge. 
+#### Use Case:
+This automated the process in creating a 
 
-`generate_write_ups.sh` is a shell script which when run within a challenge directory i.e. /crypto, it will generate a `.md` file associated with each challenge within the directory. This was good for existing directories which did not have a write-up file associated with it. 
+`generate_write_ups.sh` is a shell script which when run within a challenge directory i.e. /crypto, it will generate a `.md` file associated with each exercise within a challenge type e.g. `/crypto/<exercise>.md`. 
+#### Use Case:
+This was good for existing directories which did not have a write-up file associated with it. 
 
 ### Acknowledgements
 

@@ -17,6 +17,7 @@ for challenge in *; do
                     tmp_file="$md_file.tmp"
                     > "$tmp_file"
                     while IFS= read -r line; do
+                        # Used ChatGPT to obtain the Regex
                         if [[ $line =~ \!\[.*\]\(image-([0-9]+)\.png\) ]]; then
                             # Obtain the capture group
                             image_number="${BASH_REMATCH[1]}"

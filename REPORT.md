@@ -293,7 +293,8 @@ TODO: Add format strings and buffer overflow definition
 TODO: Add content for Stack.
 
 ### Registers
-TODO: Add content for Registers.
+Registers is an accessible location of memory located in a computer's processor. Within the context of CTFs they are important in understanding
+the return address, stack pointer and base pointers. 
 
 ### Calling Conventions
 TODO: Add content for Calling Conventions.

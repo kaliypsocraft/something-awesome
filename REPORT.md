@@ -73,9 +73,12 @@ TODO: Add definitions
 
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
-### Assumptions
+## Classical Ciphers
+These tend to be part of the easy-medium level challenges within the CTF. Classical ciphers in the real world refers to cryptographic schemes which typically were used prior to the 1970s where *strong* algorithms which relied on computers paved the way for modern cryptography. 
+### Classical Ciphers Notation 
 - $c_i$ is the $i^{th}$ character of the ciphertext.
 - $m_i$ is the $i^{\text{th}}$ character of the decrypted plaintext.
+- $k_i$ is the $i^{\text{th}}$ character of the key.
 - $k$ is the key used during encryption.
 - $||$ means concatentation
 ### Caesar Cipher
@@ -99,7 +102,7 @@ $$
 D(k) = (c_i - k) \mod 26 = m_i
 $$
 ![image](https://github.com/user-attachments/assets/7c7de9e7-0ea4-4136-bd1a-496de73eeb3b)
-#### Caesar Crypt-analysis
+### Caesar Crypt-analysis
 Assuming the key-space is consisting of English letters [A-Z], there are only 26 possible keys. Therefore it would be 
 trivial for any attacker to brute force all keys. For example,
 ```
@@ -121,13 +124,45 @@ def caesar_cipher_brute_force(ciphertext):
     return results
 ```
 ### Vigenere Cipher
-TODO: Add content for Vigenere Cipher.
+
+The Vigenère cipher is a method of encrypting alphabetic text using a simple form of polyalphabetic substitution. A keyword is used to determine the shift for each letter in the plaintext. It essentially encrypts each letter of the plain-text
+
+Given a plaintext $m = m_1 || m_2 || m_3 || ... || m_n$ and a keyword $k = k_1 || k_2 || k_3 || ... || k_n$, the encryption algorithm $E$ is defined as:
+
+$$c_i = (m_i + k_i) \mod 26$$
+
+Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and a repeating key $k = k_1 || k_2 || k_3 || ... || k_n$, the decryption algorithm $D$ is defined as:
+
+$$m_i = (c_i - k_i + 26) \mod 26$$
+
+### Vigenere Crypt-analysis
 
 ### Substitution Cipher
-TODO: Add content for Substitution Cipher.
+Suppose an example substitution dict is as follows `dict` is as follows 
+| Plaintext | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+|-----------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ciphertext| Q | W | E | R | T | Y | U | I | O | P | A | S | D | F | G | H | J | K | L | Z | X | C | V | B | N | M |
 
-### Classical Cipher Crypt-analysis
-Within CTFs commonly there 
+Given a plaintext $m = m_1 || m_2 || m_3 || ... || m_n$ and a substitution dictionary `dict`, the encryption algorithm $E$ is defined as:
+
+$$c_i = dict(m_i)$$
+
+For example, $dict(A) = Q, dict(B) = W \cdots dict(Z) = M$
+
+Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and the substitution dictionary `dict`, the decryption algorithm $D$ is defined as:
+
+$$m_i = dict^{-1}(c_i)$$
+where, $dict^{-1}$ is as follows (the inverse table)
+
+| Ciphertext | Q | W | E | R | T | Y | U | I | O | P | A | S | D | F | G | H | J | K | L | Z | X | C | V | B | N | M |
+|------------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Plaintext  | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+
+### Substitution Crypt-analysis
+
+
+## Modern Cryptography
+These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes
 
 ### RSA
 TODO: Add content for RSA.

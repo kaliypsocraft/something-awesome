@@ -406,7 +406,15 @@ TODO: Insert more information about broader topics
 - Set aside time to be cognizant of *how to* solve a problem rather than diving straight in.
 - Be mindful and intentional in everything I do and be methodical in my thinking
 ## Week 6
+ ### What I did?
 
+  ### What I need to improve?
+- 
+  ### How to fix errors?
+- Given a deadline of approximately 14 days. I need to conduct approximately 8-10 exercises a day. Since there is five challenge types, it would be wise
+to conduct one-two exercises per challenge-type a day.
+- The end-state of this is that I will be finished within a week. This will enable me another week to edit and flesh out the responses. I will give myself 30 minutes per challenge. Therefore at the very least it will be 3 - 5 hours of work per day.
+- Break this up into 2-3 deep work blocks. 
 
 ## Week 7
 

@@ -73,9 +73,53 @@ TODO: Add definitions
 
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
+### Assumptions
+- $c_i$ is the $i^{th}$ character of the ciphertext.
+- $m_i$ is the $i^{\text{th}}$ character of the decrypted plaintext.
+- $k$ is the key used during encryption.
+- $||$ means concatentation
 ### Caesar Cipher
-TODO: Add content for Caesar Cipher.
+The Caesar Cipher is one of the most simple and recognizable ciphers in the world named after the Roman leader Julius Caesar. It functions by shifting all letters of the alphabet by a fixed number. They are amongst the most **beginner** friendly cryptography challenges.
 
+Suppose we want to encrypt the message $m = m_1 || m_2 || m_3 || ... || m_n$. The encryption algorithm $E$ is defined as:
+
+$$
+E(k) = (m_i + k) \mod 26 = c_i
+$$
+
+The ciphertext would be:
+
+$$
+c = c_1 || c_2 || ... || c_n
+$$
+
+Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$, the decryption algorithm $D$ is defined as:
+
+$$
+D(k) = (c_i - k) \mod 26 = m_i
+$$
+![image](https://github.com/user-attachments/assets/7c7de9e7-0ea4-4136-bd1a-496de73eeb3b)
+#### Caesar Crypt-analysis
+Assuming the key-space is consisting of English letters [A-Z], there are only 26 possible keys. Therefore it would be 
+trivial for any attacker to brute force all keys. For example,
+```
+def caesar_cipher_brute_force(ciphertext):
+    english_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    candidate_plaintext = []
+    ciphertext = ciphertext.upper()
+
+    # Loops through all possible shifts 
+    for shift in range(0, 25):
+        decrypted_message = ''
+        for char in ciphertext:
+            if char in alphabet:
+                original_index = (alphabet.index(char) - shift) % 26
+                decrypted_message += alphabet[original_index]
+            else:
+                decrypted_message += char  # Non-alphabet characters remain unchanged       
+        candidate_plaintext.append((shift, decrypted_message))
+    return results
+```
 ### Vigenere Cipher
 TODO: Add content for Vigenere Cipher.
 
@@ -83,7 +127,7 @@ TODO: Add content for Vigenere Cipher.
 TODO: Add content for Substitution Cipher.
 
 ### Classical Cipher Crypt-analysis
-TODO: Add content for Classical Cipher Crypt-analysis.
+Within CTFs commonly there 
 
 ### RSA
 TODO: Add content for RSA.

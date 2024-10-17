@@ -1,16 +1,21 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Packer][Reverse Engineering]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
+`Reverse this linux executable?
+binary`
 
+Given just a binary file we must manipulate and examine it such that we obtain the flag.
 ## Flag
-The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
+The flag you obtained after solving the challenge. (e.g., `picoCTF{U9X_UnP4ck1N6_B1n4Ri3S_5dee4441}`)
 
 ## Difficulty
-- **Difficulty Level:** [easy/medium/hard]
+- **Difficulty Level:** [medium]
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
+- CyberChef
+- `strings` and `file` command in Linux
+- `upx -d` in Linux
+- `gdb`
 
 ## Write-Up
 
@@ -29,7 +34,10 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 - ![alt text](images/image-4.png)
 - Referencing the `man` page there was a decompress flag. In order to decompress a file I must conduct `upx -d <file_name>.`
 ![alt text](images/image-6.png)
-- Upon doing this I ran `gdb` and was finally able to see `disass main` and obtain information from `info functions.`
+- Upon doing this I ran `strings out` and was finally able to see alot more information. I ran `strings out | grep -i password` (Case-insensitive) in order to obtain the password: 
+![alt text](images/image-10.png.png)
+- `7069636f4354467b5539585f556e5034636b314e365f42316e34526933535f35646565343434317d`, appeared to likely be a hexadecimal number therefore used CyberChef to obtain and decode: 
+![alt text](images/image-9.png.png)
 
 
 ### Step 3: [Third Step Title]

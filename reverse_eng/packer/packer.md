@@ -35,9 +35,9 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{U9X_UnP4ck1N6
 - Referencing the `man` page there was a decompress flag. In order to decompress a file I must conduct `upx -d <file_name>.`
 ![alt text](images/image-6.png)
 - Upon doing this I ran `strings out` and was finally able to see alot more information. I ran `strings out | grep -i password` (Case-insensitive) in order to obtain the password: 
-![alt text](images/image-10.png.png)
+![alt text](images/image-10.png)
 - `7069636f4354467b5539585f556e5034636b314e365f42316e34526933535f35646565343434317d`, appeared to likely be a hexadecimal number therefore used CyberChef to obtain and decode: 
-![alt text](images/image-9.png.png)
+![alt text](images/image-9.png)
 
 
 ### Step 3: [Third Step Title]

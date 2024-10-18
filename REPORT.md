@@ -290,7 +290,7 @@ TODO: Insert more information about broader topics
 ## Binary Exploitation
 TODO: Add format strings and buffer overflow definition
 ### Stack
-TODO: Add content for Stack.
+The stack exists in a computer's RAM and 
 
 ### Registers
 Registers is an accessible location of memory located in a computer's processor. Within the context of CTFs they are important in understanding
@@ -312,8 +312,11 @@ TODO: Add content for ret2libc.
 TODO: Add content for GOT.
 
 ### Format String Vulnerabilities
-TODO: Add content for Format String Vulnerabilities.
-TODO: Insert typical challenges
+A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. These functions interpret **format specifiers** (e.g., `%d`, `%x`, `%s`) to access and format data. If an attacker controls the format string, they can manipulate how the function reads from the stack, potentially leaking sensitive information or even writing to memory.
+
+For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or private keys. Additionally, format strings like "`%n$x`" allow an attacker to specify which stack argument to read, providing more control over what is accessed.
+
+One of the most dangerous format specifiers is `%n`, which causes `printf` to write the number of characters printed so far into a memory address specified by the attacker. This can be exploited to overwrite sensitive areas in memory.
 
 TODO: Insert more information about broader topics
 #### Medium

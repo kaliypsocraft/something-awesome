@@ -4,13 +4,19 @@ The project provides write-ups of picoCTF. The purpose of this is to provide a l
 beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
 CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
 ## Table of Contents
+- [Disclaimer](#disclaimer)
 - [Features](#features)
 - [Challenges](#challenges)
   - [General Skills](#general-skills)
   - [Cryptography](#cryptography)
+  - [Classical Ciphers](#classical-ciphers)
+    - [Classical Cipher Notation](#classical-ciphers-notation)
     - [Caesar Cipher](#caesar-cipher)
+    - [Caesar Crypt-analysis](#caesar-crypt-analysis)
     - [Vigenere Cipher](#vigenere-cipher)
+    - [Vigenere Crypt-analysis](#vigenere-crypt-analysis)
     - [Substitution Cipher](#substitution-cipher)
+    - [Substitution Crypt-analysis](#substitution-crypt-analysis)
     - [Classical Cipher Crypt-analysis](#classical-cipher-crypt-analysis)
     - [RSA](#rsa)
     - [RSA Crypt-analysis](#rsa-crypt-analysis)
@@ -57,8 +63,11 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
+
+## Disclaimer
+The information below is to be taken with a grain of salt. It has been my intepretation from the resources I've consumed. There may be some mistakes and details which may be incorrect.
 ## Features
-TODO: Add instructions on the basic flow of the report
+TODO: Include how the report is to be read/marked
 ## Challenges
 ## General Skills
 General skills consist of using the basic tools and tricks of the trade such as Linux commands e.t.c. The skills learnt from these

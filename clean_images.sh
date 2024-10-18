@@ -47,4 +47,5 @@ for challenge in *; do
     fi
 done
 
+echo "Complete!"
 

@@ -301,9 +301,22 @@ TODO: Add format strings and buffer overflow definition
 ### Stack
 The stack exists in a computer's RAM and 
 
+
+![alt text](image-2.png)
+> Image courtesy of [here](#https://www.cameronwickes.co.uk/stack-frames-pointers/)
+
 ### Registers
-Registers is an accessible location of memory located in a computer's processor. Within the context of CTFs they are important in understanding
-the return address, stack pointer and base pointers. 
+Registers is an accessible location of memory located in a computer's processor. It stores data such as memory addreses, instructions and numbers used for calculations. Within the context of CTFs they are important in understanding the return address, stack pointer and base pointers. 
+
+Modern-day processors typically use either 32-bit or 64-bit registers. This means that they can hold up to 32 and 64 bits of data respectively. Within the context of binary exploitation understanding the instruction pointer (`eip` on 32-bit architectutre | `rip` on 64-bit architecture) and stack pointer 
+(`esp` on 32-bit architectutre | `rsp` on 64-bit architecture) can be useful for most challenges.
+
+
+![alt text](image-1.png)
+> Example of 32-bit registers denoted by `e`
+
+![alt text](image.png)
+>Example of 64-bit registers denoted by `r`
 
 ### Calling Conventions
 TODO: Add content for Calling Conventions.
@@ -311,21 +324,57 @@ TODO: Add content for Calling Conventions.
 ### Buffer Overflow
 TODO: Add content for Buffer Overflow.
 
-### ret2win
-TODO: Add content for ret2win.
-
-### ret2libc
-TODO: Add content for ret2libc.
-
 ### GOT
 TODO: Add content for GOT.
 
-### Format String Vulnerabilities
-A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. These functions interpret **format specifiers** (e.g., `%d`, `%x`, `%s`) to access and format data. If an attacker controls the format string, they can manipulate how the function reads from the stack, potentially leaking sensitive information or even writing to memory.
+### ret2win
 
-For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or private keys. Additionally, format strings like "`%n$x`" allow an attacker to specify which stack argument to read, providing more control over what is accessed.
+These challenges involve overriding the return address usually denoted within `eip` or `rip` with the address of a function which contains the flag. These types of binary exploitation can range in difficulty. 
+
+### ret2libc
+
+These challenge usually require students to gain shell-access to a remote server. This involves utilising the global offset table (GOT) to obtain the `libc` base address and obtaining the addresses of the `system` function and `/bin/sh` string. 
+
+### Format String Vulnerabilities
+A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. For example, 
+```c
+char str[] = "Hello world!"
+printf("%s", &str)
+```
+> The `printf` function expects a single argument.
+
+A vulnerable example is, 
+
+```c
+printf("%p %p %p %p %p %p")
+```
+> The `printf` function expects 5 arguments but receives none from the user. It then reads data from the stack which it may unauthorised to do so.
+
+For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or hidden values. 
+
+Additionally, format strings like "`%n$x`" allow an attacker to specify which stack argument to read, providing more control over what is accessed.
 
 One of the most dangerous format specifiers is `%n`, which causes `printf` to write the number of characters printed so far into a memory address specified by the attacker. This can be exploited to overwrite sensitive areas in memory.
+
+For example, suppose we want to override a variable on the stack. We can write to this address with a new value we want.
+
+Example payload 1:
+Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
+> `%3$llnaaH\xa0\x04\x08`
+
+Example payload 2:
+Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 10 $\rightarrow$ 0x0804a04c
+>`%5c%6$lln%5c%7$hhnaaH\xa0\x04\x08L\xa0\x04\x08`
+
+Example payload 3:
+Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
+>`%5c%4$llnaaaH\xa0\x04\x0`
+
+Example payload 4:
+Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 5 $\rightarrow$ 0x0804a04c
+>`%5$lln%5c%6$hhnaH\xa0\x04\x08L\xa0\x04\x08`
+
+NOTE: `L` $\rightarrow$ `\x4c` and `H` $\rightarrow$ `\x48`
 
 TODO: Insert more information about broader topics
 #### Medium

@@ -3,6 +3,13 @@
 The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
 beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
 CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
+
+## How to Mark
+There includes five main-subsections corresponding to each challenge-type. Within each challenge there are two components. A theortical component which is compilation of my background research on the topics and a practical component which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 10-15 write-ups per challenge-type. 
+
+Within each write-up it is divided up as per the template provided on the Github repo. There is a initial prepartory stage which involves the initial research, static and dynamic analysis of the program. There is then an attack phase which dictates the payload and method of exploitation utilised in order to obtain the flag. There is then a lessons-learnt tab which dictates the challenges which were required in order to overcome the problem. 
+
+As per the Table of Contents below this section there is a diary entry which is a weekly reflection on the progress of the project. It is divided up into **'what I did?'**, **'What challenges I faced'** and **'How to fix these errors'**.
 ## Table of Contents
 - [Disclaimer](#disclaimer)
 - [Features](#features)
@@ -66,8 +73,6 @@ CTF consisting of challenges related to [general skills](#general-skills), [cryp
 
 ## Disclaimer
 The information below is to be taken with a grain of salt. It has been my intepretation from the resources I've consumed. There may be some mistakes and details which may be incorrect.
-## Features
-TODO: Include how the report is to be read/marked
 ## Challenges
 ## General Skills
 General skills consist of using the basic tools and tricks of the trade such as Linux commands e.t.c. The skills learnt from these
@@ -241,8 +246,9 @@ TODO: Insert more information about broader topics
 
 
 ## Forensics
+Forensics challenges typically involve analysing a static file compared to other challenge-types whereby an executable program/remote server is involved. Within the context of CTFs they require candidates to find or reconstruct hidden information within these static files.
 ### File Formats
-TODO: Add content for File Formats.
+Recognising file formats and signatures 
 
 ### Meta-Data
 TODO: Add content for Meta-Data.
@@ -275,11 +281,13 @@ TODO: Define Reverse Engineering
 Reverse engineering often requires students to interpret machine code or bytecode to understand its functionality. Once they can interpret the machine code, they typically manipulate it to obtain the flag. In a challenge, a candidate is usually presented with a compiled C program. They must use a combination of disassemblers and debuggers to analyze the program's control flow.
 TODO: Insert typical challenges
 ### Disassemblers
-TODO: Add content for Disassemblers.
+Disassemblers converts machine code into human readable assembly code - in some cases even into 'pseudo' C such as in BinaryNinja and Ghidra for example. This makes it an excellent tool for reverse engineering challenges as it enables the candidate to have an enhanced understanding of the control flow. Disassemblers such as BinaryNinja also provide a control-flow graph view to provide a clearer picture of the logic-flow of code.
+
+![alt text](image-3.png)
+> BinaryNinja's graph view - Credits: https://binary.ninja/
 
 ### Debuggers
-TODO: Add content for Debuggers.
-TODO: Insert more information about broader topics
+Debuggers are used for dynamic code analysis enabling a user to view and alter the state of a program in run-time. `gdb` (GNU debugger) is a common debugger used in CTFs in general, for example above in [binary exploitation](#binary-exploitation).
 #### Medium
 - [Crack Me 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/crack_me_0x100/crack_me_0x100.md)
 - [Picker 1](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_1/picker_1.md)
@@ -324,8 +332,8 @@ TODO: Add content for Calling Conventions.
 ### Buffer Overflow
 TODO: Add content for Buffer Overflow.
 
-### GOT
-TODO: Add content for GOT.
+### GOT/PLT
+The Global Offset Table (GOT) and Procedure Linakge Table (PLT)
 
 ### ret2win
 

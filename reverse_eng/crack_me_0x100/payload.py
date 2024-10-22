@@ -4,7 +4,7 @@ host = 'titan.picoctf.net'
 port = 65045
 
 io = remote(host, port)
-payload = b'hhorrTTWQTTWTWWZQTTWTWWZTWWZWZZ]^TTWTWWZUWWZWZZ]UW'
+payload = b'qezjdvjltvuxavgiibmkrsncqrntxfykgmntwsepmyvyguzwtv'
 
 io.sendline(payload)
 resp = io.recvall()

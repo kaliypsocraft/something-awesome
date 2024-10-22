@@ -18,7 +18,7 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{4_d14m0nd_1n_
 ### Step 1: [Preparatory Phase]
 Static analysis of the code-base suggests that inputing a function name will cause the program to call it via the `eval` function.
  ![alt text](images/image-1.png)
-![alt text](image.png)
+![alt text](images/image.png)
 > Example usage of eval - Credits: https://realpython.com/python-eval-function/ 
 ### Step 2: [Attack Phase]
 Using the above knowledge I inputted `win` into the program in order for `eval` to call it. Within the function the program reads the `flag.txt` file and converts it into hexadecimal representation.

@@ -1,3 +1,2 @@
-break *0x0000000000401367
-break puts
+break strlen
 

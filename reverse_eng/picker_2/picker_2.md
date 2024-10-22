@@ -20,7 +20,7 @@ Unlike the previous exercise we cannot directly use `eval` to call the win funct
 
 This suggested I likely needed to directly inject the code within the `win` function into the `eval` call.
 
-![alt text](image.png)
+![alt text](images/image.png)
 > I wanted to print this
 
 ### Step 2: [Attack Phase]
@@ -30,7 +30,7 @@ Using the above knowledge I inputted `print(open('flag.txt', 'r').read` (since t
 
 ## Lessons Learned
 `eval` will still call the function even if its of the form `print()()` as shown here: 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 ## References
 
 https://realpython.com/python-eval-function/

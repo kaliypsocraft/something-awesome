@@ -1,4 +1,4 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Picker 2][Binary Exploitation]
 
 ## Description
 ![alt text](images/image.png)
@@ -7,29 +7,31 @@
 The flag you obtained after solving the challenge. (e.g., `picoCTF{f1l73r5_f41l_c0d3_r3f4c70r_m1gh7_5ucc33d_0b5f1131}`)
 
 ## Difficulty
-- **Difficulty Level:** [easy/medium/hard]
+- **Difficulty Level:** medium
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
+- Python documentation
 
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Step 1: [Prepartory Phase]
+Unlike the previous exercise we cannot directly use `eval` to call the win function as there is no a filter.
+![alt text](images/image-2.png)
 
-### Step 2: [Second Step Title]
-- ![alt text](images/image-2.png)
-- ![alt text](images/image-1.png)
+This suggested I likely needed to directly inject the code within the `win` function into the `eval` call.
 
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
+![alt text](image.png)
+> I wanted to print this
 
-### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+### Step 2: [Attack Phase]
+
+Using the above knowledge I inputted `print(open('flag.txt', 'r').read` (since the program appends () to the end of the string) into the function but it did not work. However upon inputting `print(open('flag.txt', 'r').read()` revealing the flag.
+![alt text](images/image-1.png)
 
 ## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
-
+`eval` will still call the function even if its of the form `print()()` as shown here: 
+![alt text](image-1.png)
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+
+https://realpython.com/python-eval-function/
 

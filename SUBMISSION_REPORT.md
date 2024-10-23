@@ -45,6 +45,7 @@ As per the Table of Contents below this section there is a diary entry which is 
 
 
 ## Challenges Experienced 
+The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 ### Binary Exploitation
 ### Web Exploitation
 ### Cryptography
@@ -52,6 +53,7 @@ As per the Table of Contents below this section there is a diary entry which is 
 ### Reverse Engineering
 
 ## Fixes
+Over time the general fix that rectified much of the challenges was time on tools - namely conducting deliberate practice. The following sub-sections dictates specific fixes to the challenges experienced above.
 ### Binary Exploitation
 ### Web Exploitation
 ### Cryptography

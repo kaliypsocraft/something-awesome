@@ -1,7 +1,9 @@
 # CTF Write-Up: [Crack Me 0x100][Reverse Engineering]
 
 ## Description
-![alt text](images/image.png)
+>A classic Crackme. Find the password, get the flag!
+Binary can be downloaded here.
+Crack the Binary file locally and recover the password. Use the same password on the server to get the flag!
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{s0lv3_angry_symb0ls_e1ad09b7}`)
@@ -16,19 +18,18 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{s0lv3_angry_s
 ## Write-Up
 
 ### Step 1: [Prepartory Phase]
-Given a binary so I first attempted to gather information from gdb. I used the command `maint print symbols` in order to obtain all the symbols.
-![alt text](images/image-1.png)
-Using binaryninja I find the secret value is stored in variable named `var_68`
-![alt text](images/image-2.png)
-![alt text](images/image-3.png)
+Given a binary so I first attempted to gather information from gdb. I used the command `main print symbols` in order to obtain all the symbols. This proved futile and just provided me with junk which I could not intepret.
 
-Upon analysing further within the `var_68` variable the password is revealed as `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`. 
+Using Binaryninja I find the secret value is stored in variable named `var_68`. The password is revealed as `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`. 
+![alt text](image-1.png)
+> NOTE: this binary is the newer version
 
 ### Step 2: [Attack Phase]
-Upon running the binary and inputting the provided password `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`, I receive an error saying `FAILED!`.
+Upon running the binary and inputting the provided password `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`, I receive an error saying `FAILED!`. This was somewhat expected since it seemed a bit too good to be true that the password was 
 
-Inspecting the code, it appears that the binary encodes the user input and my suspicions under `gdb` were confirmed as the `rax` register which holds my user input was not equal to what I intended on providing the program.
-![alt text](images/image-4.png)
+Inspecting the code, it appears that the binary encodes the user input. My suspicions under `gdb` were confirmed as the `rsi` register which holds my user input was not equal to what I intended on providing the program.
+![alt text](image.png)
+
 Going back to BinaryNinja I was able to obtain the code for the encoding and developed a decoding algorithm. 
 ![alt text](images/image.png)
 Upon reading this code, I will need to extract the original value from the circled red location; with the LHS of the equation mapping to my intended password:
@@ -67,9 +68,8 @@ print(c)
 2. Be aware of the correct version of the binary, as owners may alter the challenges slightly. I likely bulk downloaded these challenges in the past few weeks and did not think the owner would actively alter the binaries. 
 
 3. Have attention to detail with regards to parathesis in equations. I spent so long manipulating the equation only to realise I misplaced a bracket which led to a wrong answer. 
-
  
 
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- 
 

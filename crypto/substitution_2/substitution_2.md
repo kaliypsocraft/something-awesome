@@ -1,7 +1,8 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Substitution 2][Cryptography]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
+>It seems that another encrypted message has been intercepted. The encryptor seems to have learned their lesson though and now there isn't any punctuation! Can you still crack the cipher?
+
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
@@ -14,21 +15,16 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Preparatory Phase
 
-### Step 2: [Second Step Title]
-- Describe the second step in your process. Detail your thought process and any obstacles encountered.
 
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
+### Attack Phase
 
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
 
-## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
 
+### Lessons Learnt
+Creating my own script in order to conduct frequency analysis was surprisingly more tricky than I imagined. This is because as with most 
 ## References
 - Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
 

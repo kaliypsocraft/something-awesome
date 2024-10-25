@@ -1,7 +1,8 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Substitution 1][Cryptography]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
+>A message has come in but it seems to be all scrambled. Luckily it seems to have the key at the beginning. Can you crack this substitution cipher?
+
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
@@ -14,20 +15,18 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Preparatory Phase
+Prior to any frequency analysis which is a common threat for substitution ciphers was for me to analyse the text file. ![alt text](image.png)
+Because punctuation and word lengths are maintained we can ascertain alot of information. Furthermore it appeared the flag was denoted at the bottom in cipher-text. Hence we can conclude `pvncNDM` maps to `picoCTF`.
 
-### Step 2: [Second Step Title]
-- Describe the second step in your process. Detail your thought process and any obstacles encountered.
 
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
+### Attack Phase
 
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
 
-## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
+
+### Lessons Learnt
+Learning some basic command line tools made finding the frequency quite seamless - `grep -o . <file> | sort -f | uniq -ic | sort`
 
 ## References
 - Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.

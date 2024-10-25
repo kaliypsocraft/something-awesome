@@ -1,2 +1,2 @@
-break strlen
+break *(main + 531)
 

@@ -45,7 +45,7 @@ As per the Table of Contents below this section there is a diary entry which is 
 
 
 ## Challenges Experienced 
-The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference. The following sub-sections dictates the specific challenges experienced within each challenge-type.
+The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, tackling  The following sub-sections dictates the specific challenges experienced within each challenge-type.
 ### Binary Exploitation
 Binary exploitation required a deeper understanding of low-level programming. This required research into registers, hardware, instruction sets, memory and the stack. I had limited knowledge in these areas prior so therefore it was a relatively steep learning curve. The nuances between `32-bit` and `64-bit` architectures and their calling conventions also presented more research.
 ### Web Exploitation
@@ -53,7 +53,7 @@ Web exploitation had alot of challenges associated with it due to my limited kno
 ### Cryptography
 I had some experience in cryptography so I was more familiar with the conduct of these challenges. However, learning how pwntools worked and the way to optimise payloads was a learning curve aswell. New techniques such as side-channel attacks such as in the `Power Analysis` exercise was a new 
 ### Forensics
-Forensics required research into file formats, forensic tools and intepreting hexdumps. 
+Forensics required research into file formats, forensic tools and intepreting hexdumps. Understanding the flow of 
 ### Reverse Engineering
 Like in the binary exploitation challenges, I had to develop some low-level programming experience. I also had to learn how disassemblers and debuggers worked.
 ## Fixes

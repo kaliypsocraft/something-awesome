@@ -248,17 +248,24 @@ TODO: Insert more information about broader topics
 
 ## Forensics
 Forensics challenges typically involve analysing a static file compared to other challenge-types whereby an executable program/remote server is involved. Within the context of CTFs they require candidates to find or reconstruct hidden information within these static files.
-### File Formats
-Recognising file formats and signatures 
+### File Formats/Signatures
+Recognising file formats and signatures can be useful in CTF challenges.
+File formats are a way for data to be encoded for computer storage. For example, `.pdf` or `.png` files.
 
-### Meta-Data
-TODO: Add content for Meta-Data.
+ File signatures are used to identify and verify the contents of a file.  It can be found via running `xxd <file_name> | head`. This prints the first 10 lines (given by the `head` command) of a [hexdump](#hexdump) of a file. Running `xxd image-1.png | head` provided the following output: ![alt text](image-4.png) 
+> Note: first line is PNG
+
+This [page](#https://en.wikipedia.org/wiki/List_of_file_signatures) has a table of file signatures. For example this can be useful in challenges where the endianness of a file is swapped. Therefore knowing or revising magic numbers associated with common file types such as `.jpg` can be useful. 
+
+Another useful command is `exiftool <filename>` which also provides the meta-data in the form: ![alt text](image-5.png)
 
 ### Disk Imaging
 TODO: Add content for Disk Imaging.
 
 ### Steganography
 TODO: Add content for Steganography.
+### Hexdump
+
 #### Medium
 - [Disk Disk Sleuth](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/disk_disk_sleuth/disk_disk_sleuth.md)
 - [Endianess V2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
@@ -477,7 +484,9 @@ TODO: Insert more information about broader topics
 - Be mindful and intentional in everything I do and be methodical in my thinking
 ## Week 6
  ### What I did?
-
+- Finished half my picoCTF wargame challenges
+- About a 1/3 way through the write-ups
+- Did some research into a cryptographic data structure called a vector commitment. 
   ### What I need to improve?
 - 
   ### How to fix errors?

@@ -1,8 +1,7 @@
 # Something Awesome Project 
-
 ## How to Mark
 The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
-beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
+beginners to learn about the foundations of capture-the-flag challenges. The following report showcases the key obstacles faced and the methods of overcoming such challenges. PicoCTF is a Jeopardy-style
 CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
 
 There includes five main-subsections corresponding to each challenge-type. Within each challenge there are two components. A theortical component which is compilation of my background research on the topics and a practical component which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 10-15 write-ups per challenge-type. 
@@ -45,15 +44,19 @@ As per the Table of Contents below this section there is a diary entry which is 
 
 
 ## Challenges Experienced 
-The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, tackling  The following sub-sections dictates the specific challenges experienced within each challenge-type.
+The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 ### Binary Exploitation
-Binary exploitation required a deeper understanding of low-level programming. This required research into registers, hardware, instruction sets, memory and the stack. I had limited knowledge in these areas prior so therefore it was a relatively steep learning curve. The nuances between `32-bit` and `64-bit` architectures and their calling conventions also presented more research.
+Binary exploitation required a deeper understanding of low-level programming.This required research into registers, hardware, instruction sets, memory and the stack. I had limited knowledge in these areas prior so therefore it was a relatively steep learning curve. The nuances between `32-bit` and `64-bit` architectures and their calling conventions also presented more research.
 ### Web Exploitation
-Web exploitation had alot of challenges associated with it due to my limited knowledge of web development and networks. These challenges required research into `SQL`, `html`, web tokens and understanding request types. 
+Web exploitation had alot of challenges associated with it due to my limited knowledge of web development and networks. These challenges required research into `SQL`, `html`, web tokens and understanding request types. With any injection related challenges the main obstacle was having depth in understanding of the syntax. For example for SQL related tasks which filtered certain key words, it required more research into. There was also nuances associated with different variants of SQL. 
+
+
 ### Cryptography
-I had some experience in cryptography so I was more familiar with the conduct of these challenges. However, learning how pwntools worked and the way to optimise payloads was a learning curve aswell. New techniques such as side-channel attacks such as in the `Power Analysis` exercise was a new 
+I had some experience in cryptography so I was more familiar with the conduct of these challenges. However, learning how pwntools worked and the way to optimise payloads was a learning curve aswell. A self-imposed challenge was to develop my own decrypter for classical ciphers such as Vigenere ciphers and Subsitution ciphers. Usually online-decrypters conducted all the heavy lifting via frequency analysis e.t.c.
+
+New techniques such as side-channel attacks such as in the `Power Analysis` exercise was a new 
 ### Forensics
-Forensics required research into file formats, forensic tools and intepreting hexdumps. Understanding the flow of 
+Forensics required research into file formats, forensic tools and intepreting hexdumps. This section required a deeper understanding of file signatures, types and intepreting Linux commands such as `strings` and `xxd`. 
 ### Reverse Engineering
 Like in the binary exploitation challenges, I had to develop some low-level programming experience. I also had to learn how disassemblers and debuggers worked.
 ## Fixes

@@ -1,4 +1,4 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [No Padding No Problem][Cryptography]
 
 ## Description
 ![image](https://github.com/user-attachments/assets/edddecf1-25d6-40b2-bd55-1804b2247ccc)
@@ -32,10 +32,6 @@ We can query $2 \times c$ to the oracle to obtain $c_1 = (2c)^{d} \mod n$. We th
 With these two decryptions we can obtain $m$ by the following: $$= \frac{(2c)^{d} \mod n}{2^{d} \mod n}$$ $$= \frac{2^{d}c^{d} \mod n}{2^{d} \mod n}$$
 $$= c^{d} \mod n$$
 $$= m$$
-
-### Step 3: [Reorganisation]
-- Be careful when conducting division when dealing with moduli. It is non-trivial to not consider the moduli when dividing two numbers.
-- Do not overthink the decoding of a big integer, usually `Cryptodome.Util.numbers.long_to_bytes()` does the trick.
 
 ### Final Solution/Payload
 ```python
@@ -73,8 +69,8 @@ print(f"Flag: {long_to_bytes(plain_text_in_bytes)}")
 ```
 
 ## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
-
+- Be careful when conducting division when dealing with moduli. It is non-trivial to not consider the moduli when dividing two numbers.
+- Do not overthink the decoding of a big integer, usually `Cryptodome.Util.numbers.long_to_bytes()` does the trick.
 ## References
 - Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
 

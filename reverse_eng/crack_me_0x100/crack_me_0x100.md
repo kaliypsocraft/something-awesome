@@ -21,14 +21,14 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{s0lv3_angry_s
 Given a binary so I first attempted to gather information from gdb. I used the command `main print symbols` in order to obtain all the symbols. This proved futile and just provided me with junk which I could not intepret.
 
 Using Binaryninja I find the secret value is stored in variable named `var_68`. The password is revealed as `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`. 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 > NOTE: this binary is the newer version
 
 ### Step 2: [Attack Phase]
 Upon running the binary and inputting the provided password `qhcpgbpuwbaggepulhstxbwowawfgrkzjstccbnbshekpgllze`, I receive an error saying `FAILED!`. This was somewhat expected since it seemed a bit too good to be true that the password was 
 
 Inspecting the code, it appears that the binary encodes the user input. My suspicions under `gdb` were confirmed as the `rsi` register which holds my user input was not equal to what I intended on providing the program.
-![alt text](image.png)
+![alt text](images/image.png)
 
 Going back to BinaryNinja I was able to obtain the code for the encoding and developed a decoding algorithm. 
 ![alt text](images/image.png)

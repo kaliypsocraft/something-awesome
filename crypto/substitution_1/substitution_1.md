@@ -16,7 +16,7 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}
 ## Write-Up
 
 ### Preparatory Phase
-Prior to any frequency analysis which is a common threat for substitution ciphers was for me to analyse the text file. ![alt text](image.png)
+Prior to any frequency analysis which is a common threat for substitution ciphers was for me to analyse the text file. ![alt text](images/image.png)
 Because punctuation and word lengths are maintained we can ascertain alot of information. Furthermore it appeared the flag was denoted at the bottom in cipher-text. Hence we can conclude `pvncNDM` maps to `picoCTF`.
 
 

@@ -1,10 +1,25 @@
 # Something Awesome Project 
+## Purpose
+The purpose of the project was to assist in my learning of broader fundamental cyber-security concepts and by extension provide a tool to other beginners of what I learnt. 
+
+The CTF medium provides immediate feedback on the progress of tasks. The concepts and techniques required were often just out-of-reach and required reading documentation and online material in order to attack problems. 
+
+TODO: Include purpose
+
 ## How to Mark
 The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
 beginners to learn about the foundations of capture-the-flag challenges. The following report showcases the key obstacles faced and the methods of overcoming such challenges. PicoCTF is a Jeopardy-style
-CTF consisting of challenges related to [general skills](#general-skills), [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
+CTF consisting of challenges related to [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
 
-There includes five main-subsections corresponding to each challenge-type. Within each challenge there are two components. A theortical component which is compilation of my background research on the topics and a practical component which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 10-15 write-ups per challenge-type. 
+There includes **five main-subsections** corresponding to **each challenge-type**. Within each challenge-type there are two components. A theoretical component which is compilation of my background research on the topics and a practical component which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 10-15 write-ups per challenge-type. 
+
+![alt text](image-12.png)
+> Example of theoretical component 
+
+![alt text](image-13.png)
+> Example of practical component
+
+
 
 Within each write-up it is divided up as per the template provided on the Github repo. There is a initial prepartory stage which involves the initial research, static and dynamic analysis of the program. There is then an attack phase which dictates the payload and method of exploitation utilised in order to obtain the flag. There is then a lessons-learnt tab which dictates the challenges which were required in order to overcome the problem. 
 Good examples where I gained the most in each exercise include .... TODO: INSERT TO MAKE EASIER
@@ -15,19 +30,19 @@ As per the Table of Contents below this section there is a diary entry which is 
 - [Features](#features)
 - [Challenges Experienced](#challenges-experienced)
   - [Binary Exploitation](#binary-exploitation)
+  - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-)
   - [Web Exploitation](#web-exploitation)
+  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-)
   - [Cryptography](#cryptography)
+  - [Cryptography Fixes 🔧](#cryptography-fixes-)
   - [General Skills](#general-skills)
+  - [General Skills Fixes 🔧](#general-skills-fixes-)
   - [Forensics](#forensics)
+  - [Forensics Fixes 🔧](#forensics-fixes-)
   - [Reverse Engineering](#reverse-engineering)
-- [Fixes](#fixes)
-  - [Binary Exploitation](#binary-exploitation)
-  - [Web Exploitation](#web-exploitation)
-  - [Cryptography](#cryptography)
-  - [General Skills](#general-skills)
-  - [Forensics](#forensics)
-  - [Reverse Engineering](#reverse-engineering)
-- [Diary](#diary)
+  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-)
+
+- [Diary Reflection](#diary)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
   - [Week 3](#week-3)
@@ -45,30 +60,80 @@ As per the Table of Contents below this section there is a diary entry which is 
 
 ## Challenges Experienced 
 The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
+
+---
+
+![alt text](image-7.png)
+> Image credits: [here](#https://infosecwriteups.com/into-the-art-of-binary-exploitation-0x000001-stack-based-overflow-50fe48d58f10)
+
+
 ### Binary Exploitation
-Binary exploitation required a deeper understanding of low-level programming.This required research into registers, hardware, instruction sets, memory and the stack. I had limited knowledge in these areas prior so therefore it was a relatively steep learning curve. The nuances between `32-bit` and `64-bit` architectures and their calling conventions also presented more research.
+Binary exploitation required a deeper understanding of low-level programming, which included intensive research into registers, hardware, instruction sets, memory management, and stack mechanics. I had limited knowledge of these areas prior, so it was a steep learning curve to grasp concepts such as 
+  1. Buffer Overflows
+  2. Format String vulnerabilities
+  3. Return-oriented programming (ROP). 
+
+The nuances between `32-bit` and `64-bit` architectures, including calling conventions and instruction differences, presented further complexity. 
+
+Visualizing what was happening "under the hood" was challenging, as I often had to learn how to intepret debuggers. By extension this also meant learning how to take advantage of powerful tools such as `gdb`. 
+
+This required me to simulate scenarios to understand how each component affected program flow and memory allocation, helping me slowly build a mental model of low-level system operations. Limited prior exposure to assembly languages initially made disassembly and debugging a trial-and-error process, requiring multiple attempts and consistent troubleshooting to identify mistakes and refine my understanding.
+
+
+### Binary Exploitation Fixes :wrench:
+To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visual aids, such as online stack visualization tools, also allowed me to grasp the flow of stack frames and memory layouts. 
+
+Studying `32-bit` and `64-bit` calling conventions separately enabled me to identify architectural differences and increased my comfort with function prologues and epilogues.
+
+---
+
+![alt text](image-8.png)
+> Image credits: [here](#https://www.wallarm.com/what/what-is-exploit)
 ### Web Exploitation
-Web exploitation had alot of challenges associated with it due to my limited knowledge of web development and networks. These challenges required research into `SQL`, `html`, web tokens and understanding request types. With any injection related challenges the main obstacle was having depth in understanding of the syntax. For example for SQL related tasks which filtered certain key words, it required more research into. There was also nuances associated with different variants of SQL. 
+Web exploitation posed several challenges due to my limited knowledge of web development and network principles. Tackling these challenges involved studying various components, including SQL, HTML, web tokens, and HTTP request types. SQL injection challenges, in particular, required an in-depth understanding of syntax. For example, some tasks filtered certain keywords, necessitating research into alternative SQL commands or obfuscation techniques to bypass these filters. 
 
+Different SQL dialects (such as MySQL, PostgreSQL, and SQLite) presented syntax variations that affected query construction, and these differences required further exploration to identify compatible queries. Understanding the interactions between front-end and back-end processes helped me bridge my knowledge gaps in network requests and HTTP headers. Each of these steps was essential to gain the competency required to identify potential web vulnerabilities.
+### Web Exploitation Fixes :wrench:
+Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols. For SQL injection tasks, I experimented with different dialects to understand their syntax differences, which helped me tackle injection challenges more efficiently. Additionally, using web proxies like `Burp Suite` improved my understanding of request/response patterns and helped in identifying and exploiting vulnerabilities.
 
+---
+
+![alt text](image-9.png)
+> Image credits: [here](#https://www.technologyreview.com/2019/07/12/134211/explainer-what-is-post-quantum-cryptography/)
 ### Cryptography
-I had some experience in cryptography so I was more familiar with the conduct of these challenges. However, learning how pwntools worked and the way to optimise payloads was a learning curve aswell. A self-imposed challenge was to develop my own decrypter for classical ciphers such as Vigenere ciphers and Subsitution ciphers. Usually online-decrypters conducted all the heavy lifting via frequency analysis e.t.c.
+Having some experience in cryptography allowed me to approach challenges with a bit more familiarity. However, learning to integrate `pwntools` to craft and optimize payloads was still a challenge, as was fine-tuning scripts for efficiency. I also imposed a self-challenge to develop my own decryptors for classical ciphers, such as Vigenère and substitution ciphers, rather than relying on automated tools. This helped me gain a more profound understanding of manual cryptanalysis techniques like frequency analysis, letter pattern recognition, and ciphertext structure.
 
-New techniques such as side-channel attacks such as in the `Power Analysis` exercise was a new 
-### Forensics
-Forensics required research into file formats, forensic tools and intepreting hexdumps. This section required a deeper understanding of file signatures, types and intepreting Linux commands such as `strings` and `xxd`. 
+Encountering new cryptographic techniques like side-channel attacks was enlightening. For instance, working on a `Power Analysis` exercise introduced me to physical attack vectors that exploit unintentional information leakage, which was a fascinating area of research within cryptography that required me to learn about hardware vulnerabilities.
+### Cryptography Fixes :wrench:
+Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. I also studied cryptographic attacks and algorithms in-depth, which helped me optimize payloads and understand advanced cryptographic techniques. Building custom decryptors taught me practical cryptanalysis skills, which I complemented by researching side-channel attacks to better understand physical vulnerabilities in cryptographic systems.
+
+---
+![alt text](image-10.png)
+> Image credits: [here](#https://ermprotect.com/blog/what-is-digital-forensics-and-when-do-you-need-it/)
+### Forensics 
+Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved a comprehensive understanding of file signatures, types, and low-level data structures. I worked with Linux command-line tools such as `strings` and `xxd` to extract hidden data and identify file characteristics, which helped build an understanding of file system layouts and common forensic analysis techniques.
+
+Decoding file types and distinguishing legitimate data from corrupted or malicious code required a keen eye for patterns within hex dumps and metadata. This skill was critical when exploring altered files or partial data, where even slight changes in byte sequences could significantly impact analysis. I also had to learn about specific forensic tools and workflows, including data carving and extracting deleted or partially overwritten files.
+### Forensics Fixes :wrench:
+To build my forensics skills, I spent time learning Linux commands more thoroughly, focusing on tools like `xxd`, `strings`, and `hexdump` to analyze file structures and metadata. Studying specific file formats and signatures enabled me to better identify unusual patterns in hex dumps. I also practiced using forensics tools such as `Autopsy` and `Volatility` for memory analysis, helping me develop a systematic approach to analyzing file data and hidden information.
+
+
+---
+![alt text](image-11.png)
+>Image credits: [here](#https://www.secureblink.com/blogs/top-9-reverse-engineering-hacking-tools-for-cyber-security-experts)
 ### Reverse Engineering
-Like in the binary exploitation challenges, I had to develop some low-level programming experience. I also had to learn how disassemblers and debuggers worked.
-## Fixes
-Over time the general fix that rectified much of the challenges was time on tools - namely conducting deliberate practice. The following sub-sections dictates specific fixes to the challenges experienced above.
-### Binary Exploitation
-### Web Exploitation
-### Cryptography
-### Forensics
-### Reverse Engineering
+Reverse engineering required similar foundational skills as binary exploitation, with an added emphasis on using disassemblers and debuggers. Since I had limited experience with assembly language and machine code, learning to interpret disassembly output required understanding each instruction's purpose, as well as recognizing common patterns such as loops, conditional branches, and function calls.
 
+I spent considerable time experimenting with different debugging techniques, using breakpoints and stepping through code to monitor how variables and memory addresses changed. As I developed more comfort with reverse engineering, I learned to recognize function patterns and optimize my approach to analyzing unfamiliar binary files.
+### Reverse Engineering Fixes :wrench:
+For reverse engineering, I used disassemblers like `Ghidra` and debuggers such as `Gdb` to develop a structured approach to understanding disassembly. Working with small, isolated assembly code snippets allowed me to grasp common instruction sets and patterns. Regular practice with breakpoints and step-through debugging helped me better interpret function calls and memory allocations in unfamiliar binary files, ultimately boosting my confidence with low-level code.
 
-## Diary
+---
+
+### General 'Petty' Challenges
+Other issues were more logistical but still affected my workflow. Commonly encountered PATH issues and package errors required time and patience to resolve. Often, I relied on Stack Overflow or community forums for troubleshooting, though in some cases, the solutions required manual adjustments to environment settings or reconfiguration of dependencies to ensure all tools functioned smoothly.
+
+## Diary Reflection
   The diary serves as a logbook for weekly evaluations in order to enhance productivity and to maintain purpose. 
   Each week consists of a more detailed overview of what is conducted in order to advance the state of the project. 
   The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis.
@@ -144,6 +209,7 @@ Over time the general fix that rectified much of the challenges was time on tool
 - Be mindful and intentional in everything I do and be methodical in my thinking
 ## Week 6
  ### What I did?
+  - 
 
   ### What I need to improve?
 - 
@@ -154,6 +220,12 @@ to conduct one-two exercises per challenge-type a day.
 - Break this up into 2-3 deep work blocks. 
 
 ## Week 7
+    ### What I did?
+  
+
+  ### What I need to improve?
+
+  ### How to fix errors?
 
 
 ## Week 8

@@ -88,6 +88,8 @@ TODO: Add definitions
 
 Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
 a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
+## Basic Mathematical Notation
+
 ## Classical Ciphers
 These tend to be part of the easy-medium level challenges within the CTF. Classical ciphers in the real world refers to cryptographic schemes which typically were used prior to the 1970s where *strong* algorithms which relied on computers paved the way for modern cryptography. 
 ### Classical Ciphers Notation 
@@ -209,7 +211,6 @@ TODO: Insert more information about broader topics
 - [No Padding No Prob](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/no_padding_no_prob/no_padding_no_prob.md)
 - [Spelling Quiz](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/spelling_quiz/spelling_quiz.md)
 - [Substitution 1](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_1/substitution_1.md)
-- [Substitution 2](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_2/substitution_2.md)
 
 #### Hard
 - [SRA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
@@ -236,7 +237,6 @@ TODO: Insert more information about broader topics
 - [More SQLi](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/more_sqli/more_sqli.md)
 - [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
 - [Picobrowser](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/picobrowser/picobrowser.md)
-- [SQL Direct](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/sql_direct/sql_direct.md)
 - [Web Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_cookies/web_cookies.md)
 - [Web Gauntlet 1](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_1/web_gauntlet_1.md)
 - [Web Gauntlet 2](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_2/web_gauntlet_2.md)
@@ -304,10 +304,9 @@ Debuggers are used for dynamic code analysis enabling a user to view and alter t
 - [Packer](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/packer/packer.md)
 - [Win Anti Dbg 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x100/win_anti_dbg_0x100.md)
 - [Win Anti Dbg 0x200](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x200/win_anti_dbg_0x200.md)
-- [Win Anti Dbg 0x300](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x300/win_anti_dbg_0x300.md)
+
 #### Hard
 - [Keygenme](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/keygenme/keygenme.md)
-- [OTP Implementation](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/otp_implementation/otp_implementation.md)
 - [GDB Baby Step 4](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/gdb_baby_step_4/gdb_baby_step_4.md)
 - [Not Crypto](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/not_crypto/not_crypto.md)
 
@@ -488,7 +487,8 @@ TODO: Insert more information about broader topics
 - About a 1/3 way through the write-ups
 - Did some research into a cryptographic data structure called a vector commitment. 
   ### What I need to improve?
-- 
+- Increase the speed at which I output write-ups
+- There is some formatting errors in the write-ups namely with the pictures not correctly aligned.
   ### How to fix errors?
 - Given a deadline of approximately 14 days. I need to conduct approximately 8-10 exercises a day. Since there is five challenge types, it would be wise
 to conduct one-two exercises per challenge-type a day.

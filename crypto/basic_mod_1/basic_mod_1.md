@@ -19,8 +19,6 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{R0UND_N_R0UND
 ### Step 2: [Attack]
 - Describe the second step in your process. Detail your thought process and any obstacles encountered.
 
-### Step 3: [Reorganisation]
-- Continue to describe subsequent steps until the solution is reached. 
 
 ### Final Solution/Payload
 ```python

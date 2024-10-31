@@ -1,4 +1,25 @@
 # Something Awesome Project 
+
+
+- [ ] Evidence and summary of any research conducted, including a list of all relevant references
+
+- [ ] Evidence and quality of your analysis/findings/outcomes in the report to extend on what is not obvious on the face of the output
+
+- [ ] Any issues you had and how you addressed them
+
+- [ ] Any professional/ethical issues you encountered or analysed what you did, and how effective it was.
+
+- [ ] Anything else you did that is evidence of you developing and demonstrating professional behaviour
+
+- [ ] Strengths and weaknesses of your approach. Evidence of claimed strengths, reflections on weaknesses.
+
+- [ ] Why this project was challenging for you and how you changed as a result of doing it
+
+Course Objectives (as per the course outline)
+- [ ] Analysis 
+- [ ] Critical thinking 
+- [ ] Design 
+
 ## Purpose
 The purpose of the project was to assist in my learning of broader fundamental cyber-security concepts and by extension provide a tool to other beginners of what I learnt. 
 
@@ -13,13 +34,13 @@ CTF consisting of challenges related to [cryptography](#cryptography), [web expl
 
 There includes **five main-subsections** corresponding to **each challenge-type**. Within each challenge-type there are two components. A theoretical component which is compilation of my background research on the topics and a practical component which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 10-15 write-ups per challenge-type. 
 
-![alt text](image-12.png)
+![alt text](images/image-12.png)
 > Example of theoretical component 
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 > Example of practical component
 
-
+TODO: GIVE an exemplar write-up for each challenge
 
 Within each write-up it is divided up as per the template provided on the Github repo. There is a initial prepartory stage which involves the initial research, static and dynamic analysis of the program. There is then an attack phase which dictates the payload and method of exploitation utilised in order to obtain the flag. There is then a lessons-learnt tab which dictates the challenges which were required in order to overcome the problem. 
 Good examples where I gained the most in each exercise include .... TODO: INSERT TO MAKE EASIER
@@ -63,7 +84,7 @@ The general consensus with most of the challenges was knowing where to start and
 
 ---
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 > Image credits: [here](#https://infosecwriteups.com/into-the-art-of-binary-exploitation-0x000001-stack-based-overflow-50fe48d58f10)
 
 
@@ -79,6 +100,8 @@ Visualizing what was happening "under the hood" was challenging, as I often had 
 
 This required me to simulate scenarios to understand how each component affected program flow and memory allocation, helping me slowly build a mental model of low-level system operations. Limited prior exposure to assembly languages initially made disassembly and debugging a trial-and-error process, requiring multiple attempts and consistent troubleshooting to identify mistakes and refine my understanding.
 
+TODO: Include screenshots of each challenge 
+
 
 ### Binary Exploitation Fixes :wrench:
 To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visual aids, such as online stack visualization tools, also allowed me to grasp the flow of stack frames and memory layouts. 
@@ -87,7 +110,7 @@ Studying `32-bit` and `64-bit` calling conventions separately enabled me to iden
 
 ---
 
-![alt text](image-8.png)
+![alt text](images/image-8.png)
 > Image credits: [here](#https://www.wallarm.com/what/what-is-exploit)
 ### Web Exploitation
 Web exploitation posed several challenges due to my limited knowledge of web development and network principles. Tackling these challenges involved studying various components, including SQL, HTML, web tokens, and HTTP request types. SQL injection challenges, in particular, required an in-depth understanding of syntax. For example, some tasks filtered certain keywords, necessitating research into alternative SQL commands or obfuscation techniques to bypass these filters. 
@@ -98,7 +121,7 @@ Addressing challenges in web exploitation required learning web fundamentals, so
 
 ---
 
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 > Image credits: [here](#https://www.technologyreview.com/2019/07/12/134211/explainer-what-is-post-quantum-cryptography/)
 ### Cryptography
 Having some experience in cryptography allowed me to approach challenges with a bit more familiarity. However, learning to integrate `pwntools` to craft and optimize payloads was still a challenge, as was fine-tuning scripts for efficiency. I also imposed a self-challenge to develop my own decryptors for classical ciphers, such as Vigenère and substitution ciphers, rather than relying on automated tools. This helped me gain a more profound understanding of manual cryptanalysis techniques like frequency analysis, letter pattern recognition, and ciphertext structure.
@@ -108,7 +131,7 @@ Encountering new cryptographic techniques like side-channel attacks was enlighte
 Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. I also studied cryptographic attacks and algorithms in-depth, which helped me optimize payloads and understand advanced cryptographic techniques. Building custom decryptors taught me practical cryptanalysis skills, which I complemented by researching side-channel attacks to better understand physical vulnerabilities in cryptographic systems.
 
 ---
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 > Image credits: [here](#https://ermprotect.com/blog/what-is-digital-forensics-and-when-do-you-need-it/)
 ### Forensics 
 Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved a comprehensive understanding of file signatures, types, and low-level data structures. I worked with Linux command-line tools such as `strings` and `xxd` to extract hidden data and identify file characteristics, which helped build an understanding of file system layouts and common forensic analysis techniques.
@@ -119,7 +142,7 @@ To build my forensics skills, I spent time learning Linux commands more thorough
 
 
 ---
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 >Image credits: [here](#https://www.secureblink.com/blogs/top-9-reverse-engineering-hacking-tools-for-cyber-security-experts)
 ### Reverse Engineering
 Reverse engineering required similar foundational skills as binary exploitation, with an added emphasis on using disassemblers and debuggers. Since I had limited experience with assembly language and machine code, learning to interpret disassembly output required understanding each instruction's purpose, as well as recognizing common patterns such as loops, conditional branches, and function calls.
@@ -220,7 +243,7 @@ to conduct one-two exercises per challenge-type a day.
 - Break this up into 2-3 deep work blocks. 
 
 ## Week 7
-    ### What I did?
+  
   
 
   ### What I need to improve?
@@ -230,9 +253,5 @@ to conduct one-two exercises per challenge-type a day.
 
 ## Week 8
 
-### Building
-
-```bash
-# Example build command
-make
-
+### References
+- 

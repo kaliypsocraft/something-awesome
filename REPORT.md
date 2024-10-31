@@ -252,12 +252,12 @@ Forensics challenges typically involve analysing a static file compared to other
 Recognising file formats and signatures can be useful in CTF challenges.
 File formats are a way for data to be encoded for computer storage. For example, `.pdf` or `.png` files.
 
- File signatures are used to identify and verify the contents of a file.  It can be found via running `xxd <file_name> | head`. This prints the first 10 lines (given by the `head` command) of a [hexdump](#hexdump) of a file. Running `xxd image-1.png | head` provided the following output: ![alt text](image-4.png) 
+ File signatures are used to identify and verify the contents of a file.  It can be found via running `xxd <file_name> | head`. This prints the first 10 lines (given by the `head` command) of a [hexdump](#hexdump) of a file. Running `xxd image-1.png | head` provided the following output: ![alt text](images/image-4.png) 
 > Note: first line is PNG
 
 This [page](#https://en.wikipedia.org/wiki/List_of_file_signatures) has a table of file signatures. For example this can be useful in challenges where the endianness of a file is swapped. Therefore knowing or revising magic numbers associated with common file types such as `.jpg` can be useful. 
 
-Another useful command is `exiftool <filename>` which also provides the meta-data in the form: ![alt text](image-5.png)
+Another useful command is `exiftool <filename>` which also provides the meta-data in the form: ![alt text](images/image-5.png)
 
 ### Disk Imaging
 TODO: Add content for Disk Imaging.
@@ -291,7 +291,7 @@ TODO: Insert typical challenges
 ### Disassemblers
 Disassemblers converts machine code into human readable assembly code - in some cases even into 'pseudo' C such as in BinaryNinja and Ghidra for example. This makes it an excellent tool for reverse engineering challenges as it enables the candidate to have an enhanced understanding of the control flow. Disassemblers such as BinaryNinja also provide a control-flow graph view to provide a clearer picture of the logic-flow of code.
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 > BinaryNinja's graph view - Credits: https://binary.ninja/
 
 ### Debuggers
@@ -317,41 +317,82 @@ TODO: Add format strings and buffer overflow definition
 The stack exists in a computer's RAM and 
 
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 > Image courtesy of [here](#https://www.cameronwickes.co.uk/stack-frames-pointers/)
 
-### Registers
-Registers is an accessible location of memory located in a computer's processor. It stores data such as memory addreses, instructions and numbers used for calculations. Within the context of CTFs they are important in understanding the return address, stack pointer and base pointers. 
+## Registers
+Registers are accessible memory locations within a processor that hold data crucial for computation, such as memory addresses, instructions, and numbers used for calculations. In CTFs, understanding various registers is essential for tracking the **return address**, **stack pointer**, and **base pointers**.
 
-Modern-day processors typically use either 32-bit or 64-bit registers. This means that they can hold up to 32 and 64 bits of data respectively. Within the context of binary exploitation understanding the instruction pointer (`eip` on 32-bit architectutre | `rip` on 64-bit architecture) and stack pointer 
-(`esp` on 32-bit architectutre | `rsp` on 64-bit architecture) can be useful for most challenges.
+Modern processors typically have either 32-bit or 64-bit registers, meaning they can hold up to 32 or 64 bits of data, respectively. Key registers for binary exploitation include:
+- **Instruction Pointer**: Holds the address of the next instruction to be executed.
+  - `eip` (32-bit)
+  - `rip` (64-bit)
+- **Stack Pointer**: Points to the top of the stack.
+  - `esp` (32-bit)
+  - `rsp` (64-bit)
 
+![Example of 32-bit registers denoted by `e`](images/image-1.png)
+> Example of 32-bit registers
 
-![alt text](image-1.png)
-> Example of 32-bit registers denoted by `e`
+![Example of 64-bit registers denoted by `r`](images/image.png)
+> Example of 64-bit registers
 
-![alt text](image.png)
->Example of 64-bit registers denoted by `r`
+---
 
-### Calling Conventions
-TODO: Add content for Calling Conventions.
+## Calling Conventions
+Calling conventions are standardized ways of passing function parameters, either on the stack or stored in registers. This standardization enables interoperability between machines and compilers. If `Machine A` and `Machine B` used different conventions for passing arguments, they could produce different outputs for the same function.
 
-### Buffer Overflow
-TODO: Add content for Buffer Overflow.
+In a 32-bit system, function arguments are typically pushed onto the stack **from right to left**. For example:
 
-### GOT/PLT
-The Global Offset Table (GOT) and Procedure Linakge Table (PLT)
+```c
+int equation(int a, int b, int c) {
+  return a + b - c;
+}
 
-### ret2win
+```
+The order of arguments pushed onto the stack would be: c $\rightarrow$ b $\rightarrow$ a. If this convention is not followed, the function may behave unexpectedly:
 
-These challenges involve overriding the return address usually denoted within `eip` or `rip` with the address of a function which contains the flag. These types of binary exploitation can range in difficulty. 
+```
+equation(1, 2, 3) = 0
+equation(3, 2, 1) = 4
 
-### ret2libc
+```
 
-These challenge usually require students to gain shell-access to a remote server. This involves utilising the global offset table (GOT) to obtain the `libc` base address and obtaining the addresses of the `system` function and `/bin/sh` string. 
+## Buffer Overflow
+A buffer overflow occurs when data exceeds the allocated memory buffer size, potentially accessing or overwriting other areas of memory. Unsafe functions like gets can lead to buffer overflows. For example:
+``` c
+Copy code
+void unsafe() {
+  int buffer[5];
+  gets(buffer);
+}
+```
 
+In this case, if a user inputs more than 5 bytes of data, they can access unintended areas of the stack.
+
+## Global Offset Table (GOT) and Procedure Linkage Table (PLT)
+The Global Offset Table (GOT) and Procedure Linkage Table (PLT) are tables used in dynamically linked executables to resolve function addresses at runtime. When a function is first called, its address is stored in the GOT via the PLT, so future calls can directly access the function without additional lookups.
+
+- PLT: Acts as an intermediary, initially directing calls to dynamically linked functions to their proper locations by using the GOT.
+- GOT: Stores the resolved addresses of functions, allowing direct access on subsequent calls.
+In binary exploitation, modifying the GOT can enable redirection of function calls, which is helpful in specific types of attacks like ret2libc.
+
+## ret2win
+In ret2win challenges, the goal is to override the return address (stored in eip on a 32-bit system or rip on a 64-bit system) with the address of a function that prints or contains the flag. These challenges typically involve:
+
+Finding the address of the target function.
+Using input to overflow the stack and overwrite the return address, redirecting it to the target function.
+
+## ret2libc
+ret2libc attacks aim to execute code in the C standard library (libc) to gain shell access or execute other functions on a remote server. To achieve this, the attacker:
+
+Leverages the GOT to obtain the libc base address.
+Locates the addresses of system, a command string like /bin/sh, and exit.
+Constructs an input that sets the return address to system, with /bin/sh as the argument.
+This approach allows attackers to bypass the need for shellcode by leveraging already-present code in the binary.
 ### Format String Vulnerabilities
 A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. For example, 
+
 ```c
 char str[] = "Hello world!"
 printf("%s", &str)
@@ -364,6 +405,10 @@ A vulnerable example is,
 printf("%p %p %p %p %p %p")
 ```
 > The `printf` function expects 5 arguments but receives none from the user. It then reads data from the stack which it may unauthorised to do so.
+
+![alt text](images/image-14.png)
+
+> Photo credits: [here](#https://www.youtube.com/watch?v=QOgD3jPHyRY)
 
 For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or hidden values. 
 
@@ -404,8 +449,7 @@ TODO: Insert more information about broader topics
 - [VNE](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/vne/vne.md)
 - [Two Sum](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/two_sum/two_sum.md)
 #### Hard
-- [Buffer Overflow 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_3/buffer_overflow_3.md)
-- [Function Overwrite](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/function_overwrite/function_overwrite.md)
+- [Here is Libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md)
 - [Ropfu](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/ropfu/ropfu.md)
 ## Diary
   The diary serves as a logbook for weekly evaluations in order to enhance productivity and to maintain purpose. 

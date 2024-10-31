@@ -13,8 +13,8 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{R0UND_N_R0UND
 
 ## Write-Up
 
-### Step 1: [Prepartory]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Step 1: [Preparatory]
+
 
 ### Step 2: [Attack]
 - Describe the second step in your process. Detail your thought process and any obstacles encountered.

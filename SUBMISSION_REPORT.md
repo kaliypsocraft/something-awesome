@@ -20,7 +20,7 @@ Course Objectives (as per the course outline)
 - [ ] Critical thinking 
 - [ ] Design 
 
->[!NOTE] Mission Statement
+> [!NOTE] 
     The purpose of the project was to assist in my learning of broader fundamental cyber-security concepts and by extension provide a tool to other beginners of what I learnt. 
 >  
  >   The end state is to provide a suite of basic teaching tools (non-exhaustive) which can later be built upon. 
@@ -33,7 +33,7 @@ TODO: Include purpose
 
 This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type 
 
->[!NOTE] Interpretation
+> [!NOTE] 
     At each section it includes a tree of obstacles/challenges. Along the way in learning how to solve these CTF problems
 
 ```
@@ -53,7 +53,7 @@ This document is solely to document the summary of obstacles experienced. includ
 #### Other Files
 The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF consisting of challenges related to [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
 
->[!NOTE] Interpretation
+> [!NOTE] 
      Within `REPORT.md` also includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type there are two components. A <font color="cyan">theoretical component</font> which is a compilation of my background research on the topics and a <font color="cyan">practical component </font>which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 5-10 write-ups per challenge-type. Below are some examples:
 
 ![alt text](image-1.png)
@@ -65,13 +65,14 @@ The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF c
 ![alt text](image-2.png)
 > Example template for each write-up
 
->[!NOTE] 
-    Within each **write-up** it is divided up as per the template provided on the Github repo.  
-    1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
-
-    2. There is then an **attack phase** which dictates the payload and method of exploitation utilised in order to obtain the flag. 
-
-    3. There is then a **lessons-learnt** tab which dictates the **challenges** which were required in order to overcome the problem. 
+> [!NOTE] 
+>    Within each **write-up** it is divided up as per the template provided on the Github repo.  
+>
+>  1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
+>    
+> 2. There is then an **attack phase** which dictates the payload and method of exploitation utilised in order to obtain the flag. 
+>
+> 3. There is then a **lessons-learnt** tab which dictates the **challenges** which were required in order to overcome the problem. 
 
 Good examples where I gained the most in each exercise include .... TODO: INSERT TO MAKE EASIER
 

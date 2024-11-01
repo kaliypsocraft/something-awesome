@@ -153,7 +153,7 @@ Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and a repeating key $k 
 $$m_i = (c_i - k_i + 26) \mod 26$$
 
 ### Vigenere Crypt-analysis
-
+Unlike a typical Caesar cipher it can be impractical to attempt all $26!$ possible keys. However a frequency analysis attack can be conducted after obtaining the key-size. 
 ### Substitution Cipher
 Suppose an example substitution dict is as follows `dict` is as follows 
 | Plaintext | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
@@ -176,7 +176,7 @@ where, $dict^{-1}$ is as follows (the inverse table)
 | Plaintext  | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
 
 ### Substitution Crypt-analysis
-
+Online software usually can easily defeat subsitution ciphers using frequency analysis. 
 
 ## Modern Cryptography
 These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes
@@ -187,20 +187,9 @@ TODO: Add content for RSA.
 ### RSA Crypt-analysis
 TODO: Add content for RSA Crypt-analysis.
 
-### Diffie Hellman
-TODO: Add content for Diffie Hellman.
-
-### Diffie Hellman Crypt-analysis
-TODO: Add content for Diffie Hellman Crypt-analysis.
-
 ### Side-Channel Attacks
 TODO: Add content for Side-Channel Attacks.
 
-### Post Quantum Cryptography
-TODO: Add content for Post Quantum Cryptography.
-TODO: Insert typical challenges
-
-TODO: Insert more information about broader topics
 #### Medium
 - [Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/la_cifra_de.md)
 - [Mini RSA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
@@ -209,7 +198,6 @@ TODO: Insert more information about broader topics
 - [Dachshund Attacks](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/dachshund_attacks/dachshund_attacks.md)
 - [Mind Your P and Qs](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mind_your_p_and_qs/mind_your_p_and_qs.md)
 - [No Padding No Prob](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/no_padding_no_prob/no_padding_no_prob.md)
-- [Spelling Quiz](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/spelling_quiz/spelling_quiz.md)
 - [Substitution 1](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_1/substitution_1.md)
 
 #### Hard
@@ -264,24 +252,22 @@ TODO: Add content for Disk Imaging.
 
 ### Steganography
 TODO: Add content for Steganography.
-### Hexdump
+### Network Analysis
 
 #### Medium
 - [Disk Disk Sleuth](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/disk_disk_sleuth/disk_disk_sleuth.md)
 - [Endianess V2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
 - [Op Oni](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_oni/op_oni.md)
-- [Packets Primer](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/packets_primer/packets_primer.md)
 - [Sleuthkit Apprentice](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_apprentice/sleuthkit_apprentice.md)
 - [Trivial Flag Transfer Protocol](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md)
 - [Eavesdropping](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/eavesdropping/eavesdropping.md)
 - [Like 1000](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/like_1000/like_1000.md)
 - [Op Orchid](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_orchid/op_orchid.md)
-- [Scan Surprise](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/scan_surprise/scan_surprise.md)
 - [Sleuthkit Intro](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_intro/sleuthkit_intro.md)
 
 #### Hard
 - [Investigative Reversing 1](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/investigative_reversing_1/investigative_reversing_1.md)
-- [Investigative Reversing 2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/investigative_reversing_2/investigative_reversing_2.md)
+
 - [Web Net 0](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/web_net_0/web_net_0.md)
 
 ## Reverse Engineering
@@ -410,11 +396,11 @@ printf("%p %p %p %p %p %p")
 
 > Photo credits: [here](#https://www.youtube.com/watch?v=QOgD3jPHyRY)
 
-For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or hidden values. 
+For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or hidden values. i.e. conduct arbitary reads
 
 Additionally, format strings like "`%n$x`" allow an attacker to specify which stack argument to read, providing more control over what is accessed.
 
-One of the most dangerous format specifiers is `%n`, which causes `printf` to write the number of characters printed so far into a memory address specified by the attacker. This can be exploited to overwrite sensitive areas in memory.
+One of the most dangerous format specifiers is `%n`, which causes `printf` to write the number of characters printed so far into a memory address specified by the attacker. This can be exploited to overwrite sensitive areas in memory - i.e. conduct arbitary writes.
 
 For example, suppose we want to override a variable on the stack. We can write to this address with a new value we want.
 
@@ -544,8 +530,3 @@ to conduct one-two exercises per challenge-type a day.
 
 ## Week 8
 
-### Building
-
-```bash
-# Example build command
-make

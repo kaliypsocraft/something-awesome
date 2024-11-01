@@ -29,7 +29,7 @@ TODO: Include purpose
 
 ## How to Mark
 
-This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type
+This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type 
 
 !!! note Interpretation
     At each section it includes a tree of obstacles/challenges. Along the way in learning how to solve these CTF problems
@@ -110,7 +110,7 @@ As per the Table of Contents below this section there is a diary entry which is 
 ## Challenges Experienced 
 The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 
-!!! info The purpose of this section is to outline the 
+!!! info Purpose is to outline the 
 ---
 
 ![alt text](images/image-7.png)
@@ -363,7 +363,7 @@ to conduct one-two exercises per challenge-type a day.
 
 ### How to fix errors?
 ## Overall Growth
-!!! Purpose
+> [!NOTE]
     This section summarises the overall personal growth provided by this project. It culminates all the challenges experienced with the weekly diary to provide the final output.
 To sum up, this project was relatively challenging mainly due to the wide-range of skills I was required to learn. Balancing the development of new skills with other tasks in the academic term was an intellectually stimulating and fulfilling experience. 
 ### References

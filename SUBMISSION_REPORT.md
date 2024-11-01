@@ -20,8 +20,10 @@ Course Objectives (as per the course outline)
 - [ ] Critical thinking 
 - [ ] Design 
 
-!!! note Mission Statement
+>[!NOTE] Mission Statement
     The purpose of the project was to assist in my learning of broader fundamental cyber-security concepts and by extension provide a tool to other beginners of what I learnt. 
+>  
+ >   The end state is to provide a suite of basic teaching tools (non-exhaustive) which can later be built upon. 
 
 The CTF medium provides immediate feedback on the progress of tasks. The concepts and techniques required were often just out-of-reach and required reading documentation and online material in order to attack problems. 
 
@@ -31,7 +33,7 @@ TODO: Include purpose
 
 This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type 
 
-!!! note Interpretation
+>[!NOTE] Interpretation
     At each section it includes a tree of obstacles/challenges. Along the way in learning how to solve these CTF problems
 
 ```
@@ -51,7 +53,7 @@ This document is solely to document the summary of obstacles experienced. includ
 #### Other Files
 The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF consisting of challenges related to [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
 
-!!! note Interpretation
+>[!NOTE] Interpretation
      Within `REPORT.md` also includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type there are two components. A <font color="cyan">theoretical component</font> which is a compilation of my background research on the topics and a <font color="cyan">practical component </font>which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 5-10 write-ups per challenge-type. Below are some examples:
 
 ![alt text](image-1.png)
@@ -63,7 +65,7 @@ The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF c
 ![alt text](image-2.png)
 > Example template for each write-up
 
-!!! note 
+>[!NOTE] 
     Within each **write-up** it is divided up as per the template provided on the Github repo.  
     1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
 
@@ -110,7 +112,7 @@ As per the Table of Contents below this section there is a diary entry which is 
 ## Challenges Experienced 
 The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 
-!!! info Purpose is to outline the 
+>[!NOTE] Purpose is to outline the 
 ---
 
 ![alt text](images/image-7.png)
@@ -136,7 +138,13 @@ The general consensus with most of the challenges was knowing where to start and
     └── 
 ```
 
-Binary exploitation required a deeper understanding of low-level programming, which included intensive research into registers, hardware, instruction sets, memory management, and stack mechanics. I had limited knowledge of these areas prior, so it was a steep learning curve.
+Binary exploitation required a deeper understanding of low-level programming. This included researching
+- registers
+- stack
+- instruction sets
+- 
+
+I had limited knowledge of these areas prior, so it was a steep learning curve.
 
 The main challenges with binary exploitation exercises was getting accustomed to canonical attacks such as buffer overflows, format string exploitations and return-oriented programming.  
 
@@ -152,6 +160,8 @@ TODO: Include screenshots of each challenge
 
 
 ### Binary Exploitation Fixes :wrench:
+Improvements in binary exploitation
+
 To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visual aids, such as online stack visualization tools, also allowed me to grasp the flow of stack frames and memory layouts. 
 
 Studying `32-bit` and `64-bit` calling conventions separately enabled me to identify architectural differences and increased my comfort with function prologues and epilogues.
@@ -173,7 +183,7 @@ Studying `32-bit` and `64-bit` calling conventions separately enabled me to iden
     │   
     └── PHP
 ```
-Web exploitation posed several challenges due to my limited knowledge of web development and network principles. Tackling these challenges involved studying various components, including SQL, HTML, web tokens, and HTTP request types. SQL injection challenges, in particular, required an in-depth understanding of syntax. For example, some tasks filtered certain keywords, necessitating research into alternative SQL commands or obfuscation techniques to bypass these filters. 
+Web exploitation posed several challenges due to my limited knowledge of web development and network principles. I had zero to limtited exposure to Tackling these challenges involved studying various components, including SQL, HTML, web tokens, and HTTP request types. SQL injection challenges, in particular, required an in-depth understanding of syntax. For example, some tasks filtered certain keywords, necessitating research into alternative SQL commands or obfuscation techniques to bypass these filters. 
 
 - Different SQL dialects (such as MySQL, PostgreSQL, and SQLite) presented syntax variations that affected query construction. 
 - Understanding the interactions between front-end and back-end processes helped me bridge my knowledge gaps in network requests and HTTP headers. Each of these steps was essential to gain the competency required to identify potential web vulnerabilities.
@@ -263,8 +273,8 @@ The diary serves as a logbook for weekly evaluations in order to enhance product
 
 Each week consists of a more detailed overview of what is conducted in order to advance the state of the project. 
 
-!!! info Intention
-    The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis. It also gives a high-level overview of consistent weaknesses and picking up on some strengths too :).
+> [!NOTE] Intention
+The intention behind the diary is to be mindful and to maximise intent with all activities on a day to day basis. It also gives a high-level overview of consistent weaknesses and picking up on some strengths too :).
 
 ## Week 1
 ### What I did?

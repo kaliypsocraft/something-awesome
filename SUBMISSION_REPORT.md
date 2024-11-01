@@ -78,23 +78,20 @@ Good examples where I gained the most in each exercise include .... TODO: INSERT
 
 As per the Table of Contents below this section there is a diary entry which is a weekly reflection on the progress of the project. It is divided up into **'what I did?'**, **'What challenges I faced'** and **'How to fix these errors'**. These simple headings provide a way to document my professional development and to find consistent weaknesses and some strengths along the way. 
 ## Table of Contents
-- [Disclaimer](#disclaimer)
 - [Features](#features)
 - [Challenges Experienced](#challenges-experienced)
   - [Binary Exploitation](#binary-exploitation)
-  - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-)
+  - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-wrench)
   - [Web Exploitation](#web-exploitation)
-  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-)
+  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-wrench)
   - [Cryptography](#cryptography)
-  - [Cryptography Fixes 🔧](#cryptography-fixes-)
-  - [General Skills](#general-skills)
-  - [General Skills Fixes 🔧](#general-skills-fixes-)
+  - [Cryptography Fixes 🔧](#cryptography-fixes-wrench)
   - [Forensics](#forensics)
-  - [Forensics Fixes 🔧](#forensics-fixes-)
+  - [Forensics Fixes 🔧](#forensics-fixes-wrench)
   - [Reverse Engineering](#reverse-engineering)
-  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-)
-
-- [Diary Reflection](#diary)
+  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-wrench)
+  - [General 'Petty' Obstacles](#general-petty-challenges)
+- [Diary Reflection](#diary-reflection)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
   - [Week 3](#week-3)
@@ -103,10 +100,8 @@ As per the Table of Contents below this section there is a diary entry which is 
   - [Week 6](#week-6)
   - [Week 7](#week-7)
   - [Week 8](#week-8)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Overall Growth](#overall-growth)
+- [References](#references)
 ## Features
 
 
@@ -377,7 +372,7 @@ to conduct one-two exercises per challenge-type a day.
 > [!NOTE]
     This section summarises the overall personal growth provided by this project. It culminates all the challenges experienced with the weekly diary to provide the final output.
 To sum up, this project was relatively challenging mainly due to the wide-range of skills I was required to learn. Balancing the development of new skills with other tasks in the academic term was an intellectually stimulating and fulfilling experience. 
-### References
+## References
 #### Binary Exploitation
 - 
 - 

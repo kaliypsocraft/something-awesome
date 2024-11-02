@@ -20,7 +20,7 @@ Course Objectives (as per the course outline)
 - [ ] Critical thinking 
 - [ ] Design 
 
-> [!NOTE] 
+>[!NOTE] Mission Statement
     The purpose of the project was to assist in my learning of broader fundamental cyber-security concepts and by extension provide a tool to other beginners of what I learnt. 
 >  
  >   The end state is to provide a suite of basic teaching tools (non-exhaustive) which can later be built upon. 
@@ -33,7 +33,7 @@ TODO: Include purpose
 
 This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type 
 
-> [!NOTE] 
+>[!NOTE] Interpretation
     At each section it includes a tree of obstacles/challenges. Along the way in learning how to solve these CTF problems
 
 ```
@@ -53,7 +53,7 @@ This document is solely to document the summary of obstacles experienced. includ
 #### Other Files
 The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF consisting of challenges related to [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](#https://github.com/kaliypsocraft/something-awesome) contains a `REPORT.md` file which contains the following:
 
-> [!NOTE] 
+>[!NOTE] Interpretation
      Within `REPORT.md` also includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type there are two components. A <font color="cyan">theoretical component</font> which is a compilation of my background research on the topics and a <font color="cyan">practical component </font>which is the write-ups. The write-ups are represented by a hyper-link to a particular challenge with approximately 5-10 write-ups per challenge-type. Below are some examples:
 
 ![alt text](image-1.png)
@@ -65,33 +65,35 @@ The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF c
 ![alt text](image-2.png)
 > Example template for each write-up
 
-> [!NOTE] 
->    Within each **write-up** it is divided up as per the template provided on the Github repo.  
->
->  1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
->    
-> 2. There is then an **attack phase** which dictates the payload and method of exploitation utilised in order to obtain the flag. 
->
-> 3. There is then a **lessons-learnt** tab which dictates the **challenges** which were required in order to overcome the problem. 
+>[!NOTE] 
+    Within each **write-up** it is divided up as per the template provided on the Github repo.  
+    1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
+
+    2. There is then an **attack phase** which dictates the payload and method of exploitation utilised in order to obtain the flag. 
+
+    3. There is then a **lessons-learnt** tab which dictates the **challenges** which were required in order to overcome the problem. 
 
 Good examples where I gained the most in each exercise include .... TODO: INSERT TO MAKE EASIER
 
 As per the Table of Contents below this section there is a diary entry which is a weekly reflection on the progress of the project. It is divided up into **'what I did?'**, **'What challenges I faced'** and **'How to fix these errors'**. These simple headings provide a way to document my professional development and to find consistent weaknesses and some strengths along the way. 
 ## Table of Contents
+- [Disclaimer](#disclaimer)
 - [Features](#features)
 - [Challenges Experienced](#challenges-experienced)
   - [Binary Exploitation](#binary-exploitation)
   - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-wrench)
   - [Web Exploitation](#web-exploitation)
-  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-wrench)
+  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-)
   - [Cryptography](#cryptography)
-  - [Cryptography Fixes 🔧](#cryptography-fixes-wrench)
+  - [Cryptography Fixes 🔧](#cryptography-fixes-)
+  - [General Skills](#general-skills)
+  - [General Skills Fixes 🔧](#general-skills-fixes-)
   - [Forensics](#forensics)
-  - [Forensics Fixes 🔧](#forensics-fixes-wrench)
+  - [Forensics Fixes 🔧](#forensics-fixes-)
   - [Reverse Engineering](#reverse-engineering)
-  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-wrench)
-  - [General 'Petty' Obstacles](#general-petty-challenges)
-- [Diary Reflection](#diary-reflection)
+  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-)
+
+- [Diary Reflection](#diary)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
   - [Week 3](#week-3)
@@ -100,8 +102,10 @@ As per the Table of Contents below this section there is a diary entry which is 
   - [Week 6](#week-6)
   - [Week 7](#week-7)
   - [Week 8](#week-8)
-- [Overall Growth](#overall-growth)
-- [References](#references)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 ## Features
 
 
@@ -111,8 +115,6 @@ The general consensus with most of the challenges was knowing where to start and
 >[!NOTE] Purpose is to outline the 
 ---
 
-![alt text](images/image-7.png)
-> Image credits: [here](#https://infosecwriteups.com/into-the-art-of-binary-exploitation-0x000001-stack-based-overflow-50fe48d58f10)
 
 
 ### Binary Exploitation
@@ -164,8 +166,6 @@ Studying `32-bit` and `64-bit` calling conventions separately enabled me to iden
 
 ---
 
-![alt text](images/image-8.png)
-> Image credits: [here](#https://www.wallarm.com/what/what-is-exploit)
 ### Web Exploitation
 ```
 └── Web Exploitation
@@ -188,8 +188,6 @@ Addressing challenges in web exploitation required learning web fundamentals, so
 
 ---
 
-![alt text](images/image-9.png)
-> Image credits: [here](#https://www.technologyreview.com/2019/07/12/134211/explainer-what-is-post-quantum-cryptography/)
 ### Cryptography
 ```
 └── Cryptography
@@ -213,8 +211,6 @@ Encountering new cryptographic techniques like side-channel attacks was enlighte
 Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. I also studied cryptographic attacks and algorithms in-depth, which helped me optimize payloads and understand advanced cryptographic techniques. Building custom decryptors taught me practical cryptanalysis skills, which I complemented by researching side-channel attacks to better understand physical vulnerabilities in cryptographic systems.
 
 ---
-![alt text](images/image-10.png)
-> Image credits: [here](#https://ermprotect.com/blog/what-is-digital-forensics-and-when-do-you-need-it/)
 ### Forensics 
 ```
 └── Forensics
@@ -236,8 +232,6 @@ To build my forensics skills, I spent time learning Linux commands more thorough
 
 
 ---
-![alt text](images/image-11.png)
->Image credits: [here](#https://www.secureblink.com/blogs/top-9-reverse-engineering-hacking-tools-for-cyber-security-experts)
 ### Reverse Engineering
 ```
 └── Reverse Engineering
@@ -372,7 +366,7 @@ to conduct one-two exercises per challenge-type a day.
 > [!NOTE]
     This section summarises the overall personal growth provided by this project. It culminates all the challenges experienced with the weekly diary to provide the final output.
 To sum up, this project was relatively challenging mainly due to the wide-range of skills I was required to learn. Balancing the development of new skills with other tasks in the academic term was an intellectually stimulating and fulfilling experience. 
-## References
+### References
 #### Binary Exploitation
 - 
 - 

@@ -167,27 +167,37 @@ where, $dict^{-1}$ is as follows (the inverse table)
 Online software usually can easily defeat subsitution ciphers using frequency analysis. 
 
 !!! info Modern Cryptography
-    These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes
+    These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes when used correctly are deemed mathematically strong and secure. However, side-channe
 
 ### RSA
-TODO: Add content for RSA.
+
+Perhaps one of the most famous modern-day ciphers, RSA has become a hall of fame candidate in the world of public key cryptography. The security of RSA is derived from the assumed hardness of factoring large integers.  
 
 ### RSA Crypt-analysis
-TODO: Add content for RSA Crypt-analysis.
+For small private keys $d$, we can conduct Wieners attack
+
+For small modulus $n$, one can easily bruteforce the factoring with `gmpy`.
+
+For small exponent $e$ and 
 
 ### Side-Channel Attacks
-TODO: Add content for Side-Channel Attacks.
+
+Modern cryptography when used following correct procedures regarding parameter size and operational security are often infeasible to attack directly. For example it is considered impractical to obtain an AES's 128-bit key using any traditional cryptanalysis. 
+
+However, side-channel attacks can in some cases obtain them using unintended information leaks. An example of a side-channel attack we can conduct in the real world is, consider the following scenario. 
+> Suppose you suspect your friend of taking your popsticle.
+
+Within the cryptography world side channel attacks come in many forms from timing attacks to power analysis. In the case of `picoCTF` the challenges I conducted focused around power analysis. 
 
 ### Cryptography Write-Ups
-- [Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/la_cifra_de.md)
+- [Lac Cifre De](ttps://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/custom_encryption.md)
+- [Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/custom_encryption.md)
 - [Mini RSA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
 - [Pixelated](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/pixelated/pixelated.md)
-- [RSA Oracle](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/rsa_oracle/rsa_oracle.md)
 - [Dachshund Attacks](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/dachshund_attacks/dachshund_attacks.md)
 - [Mind Your P and Qs](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mind_your_p_and_qs/mind_your_p_and_qs.md)
 - [No Padding No Prob](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/no_padding_no_prob/no_padding_no_prob.md)
 - [Substitution 1](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_1/substitution_1.md)
-- [SRA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/sra_hard/sra_hard.md)
 - [Power Analysis: Warm Up](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
 
 ## Web Exploitation
@@ -244,7 +254,6 @@ Analysing network traffic is an essential aspect of security engineering.
 - [Like 1000](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/like_1000/like_1000.md)
 - [Op Orchid](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_orchid/op_orchid.md)
 - [Sleuthkit Intro](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_intro/sleuthkit_intro.md)
-- [Investigative Reversing 1](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/investigative_reversing_1/investigative_reversing_1.md)
 - [Web Net 0](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/web_net_0/web_net_0.md)
 
 !!! info ## Reverse Engineering
@@ -321,7 +330,7 @@ equation(3, 2, 1) = 4
 ### Buffer Overflow
 A buffer overflow occurs when data exceeds the allocated memory buffer size, potentially accessing or overwriting other areas of memory. Unsafe functions like gets can lead to buffer overflows. For example:
 ``` c
-Copy code
+
 void unsafe() {
   int buffer[5];
   gets(buffer);
@@ -350,6 +359,8 @@ Leverages the GOT to obtain the libc base address.
 Locates the addresses of system, a command string like /bin/sh, and exit.
 Constructs an input that sets the return address to system, with /bin/sh as the argument.
 This approach allows attackers to bypass the need for shellcode by leveraging already-present code in the binary.
+
+Note there are differences between 32-bit and 64-bit architectures.
 ### Format String Vulnerabilities
 A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. For example, 
 
@@ -400,14 +411,11 @@ TODO: Insert more information about broader topics
 ### Binary Exploitation Write-Ups
 - [Basic File Exploit](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/basic_file_exploit/basic_file_exploit.md)
 - [Buffer Overflow 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_2/buffer_overflow_2.md)
-- [Clutter Overflow](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/clutter_overflow/clutter_overflow.md)
 - [Fmt Str 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/fmt_str_2/fmt_str_2.md)
-- [Fmt Str 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/fmt_str_3/fmt_str_3.md)
 - [Heap 1](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_1/heap_1.md)
 - [Heap 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_2/heap_2.md)
 - [Heap 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_3/heap_3.md)
 - [VNE](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/vne/vne.md)
-- [Two Sum](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/two_sum/two_sum.md)
 - [Here is Libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md)
 - [Ropfu](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/ropfu/ropfu.md)
 

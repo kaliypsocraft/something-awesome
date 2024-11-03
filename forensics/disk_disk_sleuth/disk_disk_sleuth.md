@@ -1,7 +1,7 @@
-# CTF Write-Up: [Challenge Name][Challenge Type]
+# CTF Write-Up: [Disk Disk Sleuth][Forensics]
 
 ## Description
->Download the disk image and use mmls on it to find the size of the Linux partition. Connect to the remote checker service to check your answer and get the flag.
+>All we know is the file with the flag is named `down-at-the-bottom.txt`... Disk image: dds2-alpine.flag.img.gz
 
 ## Flag
 The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)

@@ -1,34 +1,29 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Challenge Name][Challenge Type]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
-
+>A brief description of the challenge
 ## Flag
-The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
+`picoCTF{example_flag}`
 
 ## Difficulty
 - **Difficulty Level:** [easy/medium/hard]
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
-
+- Use of `gdb` or other tools?
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Preparatory Phase
+- Research phase
+- Conducting basic static analysis and/or dynamic analysis
 
-### Step 2: [Second Step Title]
-- Describe the second step in your process. Detail your thought process and any obstacles encountered.
-
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
-
+### Attack Phase
+- Using the prep from above, walking through the steps taken to conduct a successful attack
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+- If a payload was used place into here, otherwise use screenshot of the flag
 
-## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
-
+### Lessons Learnt
+- A key part of professional development and overcoming challenges
+- Enables iterative progress
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- TODO: Ensure these go into the `SUBMISSION_REPORT.md`
 

@@ -20,25 +20,25 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{h1dd3n_1n_pLa
 I had limited knowledge in networking, let alone how Wireshark worked so in this phase it required some reading. The candidate obtains a `.pcapng` file. 
 
 I also need to know how to intepret Wireshark and how to use its basic features such as filtering e.g. I also needed how to know how to intepret the information provided to me in the packet capture file.
-![alt text](image.png)
+![alt text](images/image.png)
 
 Upon reading the capture file we notice the use of `TFTP` which upon a simple Google search we come across the [Trivial File Transfer Protocol](#https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol). It is a simple protocol which enables reading and writing of a file to a remote server. 
 
 My main goal was to attempt to download all the files being sent over this network using TFTP. I searched up on Google and on a [forum](#https://osqa-ask.wireshark.org/questions/46389/capturing-packets-and-extracting-files-from-pcap/) it said to go to File $\rightarrow$ Export Objects $\rightarrow$ TFTP. 
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### Attack Phase
 The first thing I did was run `cat instructions.txt` with the output being `GSGCQBRFAGRAPELCGBHEGENSSVPFBJRZHFGQVFTHVFRBHESYNTGENAFSRE.SVTHERBHGNJNLGBUVQRGURSYNTNAQVJVYYPURPXONPXSBEGURCYNA`. It looks like a cipher or a Base64 encoding. Using an online tool I trial and errored, Base 64 decoding, Vigenere and finally a Caesar cipher. I figured out it was a 13-shift Caesar cipher, also known as a ROT-13 cipher.
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 Running `cat plan` we again obtain `VHFRQGURCEBTENZNAQUVQVGJVGU-QHRQVYVTRAPR.PURPXBHGGURCUBGBF`. I assume it is encoded with ROT-13 again. Using a basic translate script `tr 'A-Za-z' 'N-ZA-Mn-za-m' < plan` this conducts a basic ROT-13 decryption (and encryption)
 
 The plain text we received: `IUSEDTHEPROGRAMANDHIDITWITH-DUEDILIGENCE.CHECKOUTTHEPHOTOS`
 
 The photos remaining in the packet are `.bmp` files. I have limited understanding of bitmap files. Viewing the photos directly produces no blatant signs of flag. 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 > Images appear to just be landscapes
 
 I assume there is some form of steganography. Searching up 'BMP file steganography' there is a common theme of `LSB` steganography. This didn't seem to give any form of breakthrough.
@@ -49,10 +49,10 @@ Upon using `dpkg -i program.deb` I obtained the following output which suggests 
 
 However with `steghide extract -sf picture3.bmp -p "DUEDILIGENCE"` it extracted a `flag.txt` file. Upon `cat flag.txt` we received our flag :).
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
 ### Final Solution/Payload
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 ### Lessons Learnt
 - **What is a packet**
 A packet is a segment of data which is typically divided up into two components. 
@@ -80,4 +80,3 @@ It is a Debian software package file. I can open it using `sudo dpkg -i /path/to
 
 - https://crypto.stackexchange.com/questions/48128/uncovering-file-hidden-in-bmp
 
-- https://www.lifewire.com/deb-file-2620596

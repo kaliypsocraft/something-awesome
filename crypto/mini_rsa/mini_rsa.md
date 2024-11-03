@@ -58,7 +58,7 @@ print(m)
 ```
 ![alt text](images/image-3.png)
 ### Lessons Learnt
-- Like in the [Mind Your P and Q's] exercise , dealing with big-integers can pose issues with precision. In this case using the generic functions from `math` were not enough to obtain the $n$th root of a number. It required the heavy lifting provided by `gmpy2`.
+- Like in the [Mind Your P and Q's](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mind_your_p_and_qs/mind_your_p_and_qs.md) exercise , dealing with big-integers can pose issues with precision. In this case using the generic functions from `math` were not enough to obtain the $n$th root of a number. It required the heavy lifting provided by `gmpy2`.
 ![alt text](images/image-2.png)
 
 - Converting into byte format such that I could decode the plain-text was abit finicky. A simple conversion using `long_to_bytes` followed by a `.decode()` function usally is enough to obtain the flags.

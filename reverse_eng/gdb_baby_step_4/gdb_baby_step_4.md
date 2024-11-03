@@ -16,7 +16,7 @@ Debug this.
 ### Preparatory Phase
 Using `gdb` on the binary I first run `info functions` in order to gain some information regarding what functions were present in the program. 
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 I notice a `func1` function which potentially could be of interest to me, hence I note it down for a potential breakpoint.
 
@@ -26,11 +26,11 @@ I now attempt to run the binary but it outputs nothing. Therefore it suggests to
 
 I first place a breakpoint at `func1`. Immediately I notice a `imul` instruction followed by `eax, eax, 0x3269`. 
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### Final Solution/Payload
 Using `python3`, we converted the hexadecimal representation into a decimal representation to obtain our flag.
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 ### Lessons Learnt
 Learning basic gdb commands such as stepping
 ## References

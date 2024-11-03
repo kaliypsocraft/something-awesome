@@ -1,34 +1,60 @@
-# CTF Write-Up: [Challenge Name]
+# CTF Write-Up: [Power Analysis][Cryptography]
 
 ## Description
-A brief description of the challenge, including its title, type (e.g., web, crypto, pwn)
-
+>This encryption algorithm leaks a "bit" of data every time it does a computation. Use this to figure out the encryption key.
 ## Flag
-The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
+`picoCTF{example_flag}`
 
 ## Difficulty
 - **Difficulty Level:** [easy/medium/hard]
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
-
+- pwntools
+- 
 ## Write-Up
 
-### Step 1: [First Step Title]
-- Describe the first step you took to approach the challenge. Include any commands, scripts, or techniques used.
+### Preparatory Phase
 
-### Step 2: [Second Step Title]
-- Describe the second step in your process. Detail your thought process and any obstacles encountered.
+The `leaky_aes_secret` function is of interest to us. It appears to conduct a bitwise xor with a plain-text byte and a key byte. It then uses the result from this as the index of the `SBox` or our substitution box. It then appends whether the last-bit of the output is set or not via bit-wise and operator.
+```py
+leak_buf = []
+def leaky_aes_secret(data_byte, key_byte):
+    out = Sbox[data_byte ^ key_byte]
+    leak_buf.append(out & 0x01)
+    return out
+```
 
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
+The user it then provided the number of 1's present in the `leak_buf` list.
+```py
+def encrypt_and_leak(plaintext):
+    ciphertext = encrypt(plaintext, SECRET_KEY)
+    ciphertext = None # throw away result
+    time.sleep(0.01)
+    return leak_buf.count(1)
 
+```
+
+### Attack Phase
+- Using the prep from above, walking through the steps taken to conduct a successful attack
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+- If a payload was used place into here, otherwise use screenshot of the flag
 
-## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
+### Lessons Learnt
+- **List comprehensions in python**
 
+```py 
+ciphertext = [leaky_aes_secret(plaintext[i], key[i]) for i in range(16)]
+```
+This is equivalent to 
+```py
+for i in range(16):
+    ciphertext[i] = leaky_aes_secret(plaintext[i], key[i])
+
+```
+- **What are side-channel attacks**
+
+
+- **What is a power analysis attack**
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- TODO: Ensure these go into the `SUBMISSION_REPORT.md`
 

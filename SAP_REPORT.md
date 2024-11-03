@@ -105,19 +105,30 @@ The `REPORT.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF c
 
 !!! info Examples
     Below are some stand-out write-ups conducted on exercises which I got alot out of them.
-    ### Binary Exploitation:
+    ### Binary Exploitation: [here](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/ropfu/ropfu.md)
 
-    ### 
-Good examples where I gained the most in each exercise include .... TODO: INSERT TO MAKE EASIER
+    ### Web Exploitation: [here](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md)
 
-As per the Table of Contents below this section there is a diary entry which is a weekly reflection on the progress of the project. It is divided up into **'what I did?'**, **'What challenges I faced'** and **'How to fix these errors'**. These simple headings provide a way to document my professional development and to find consistent weaknesses and some strengths along the way. 
+    ### Cryptography: 
+
+    ### Forensics: [here](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md)
+
+    ### Reverse Engineering: [here]()
 
 
 ## Challenges Experienced 
-The general consensus with most of the challenges was knowing where to start and what tools to use. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges. For example, most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
-
 !!! note
     The following sections outlines the specific obstacles experienced along the way during the conduct of the CTF and the writing of the report. There are two main components - first consists of the hurdles experienced and second the fixes utilised to rectify the issues.
+
+##  General Obstacles
+The general consensus with most of the challenges was knowing **where to start** and **what tools to use** - by extension **how to use the tools**. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges.
+
+Most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
+
+Often-times in medium-hard problems  I would be led down a rabbit-hole thinking it would solve the problem. However, it often would lead to deadends and further discourage the candidate. For example, spending an hour researching a topic and attempting to apply it to no avail. This obstacles span beyond CTFs and into real-world professional development. 
+
+These experiences were essential in the development of skills 
+
 ---
 
 
@@ -146,16 +157,14 @@ The general consensus with most of the challenges was knowing where to start and
 The main sub-challenge types I encountered in the binary-exploitation class were **buffer overflows** and **format string exploitations**. There was also one challenge which involved a **heap overflow**, exploiting a **use-after-free exploit**.
 
 #### Buffer Overflows
+The primary challenges with buffer overflows emerged when basic protections like NX and canaries were introduced, requiring a higher level of skill to bypass. Exploiting these vulnerabilities also demanded a solid understanding of gdb and stack mechanics. Initially, using gdb was challenging, but it became essential for navigating these attacks.
 
-Exploiting this vulnerability required being competent at the basics of `gdb` and how the stack worked. Using `gdb` although initially was quite 
+Another key skill was grasping calling conventions, especially for ret2libc challenges. Sometimes I would spend hours troubleshooting, only to discover that differences between 32-bit and 64-bit calling conventions were causing issues.
 
-The main challenges associated with buffer overflows occured when basic protections were introducted such as `NX-enabled` or `canary-enabled`. This required an enhanced-level of 
+In general, binary exploitation exercises required me to master canonical attacks, including buffer overflows, format string exploitations, and return-oriented programming. Within buffer-overflow attacks, overcoming protections like NX and canaries presented unique difficulties.
 
-The main challenges with binary exploitation exercises was getting accustomed to canonical attacks such as buffer overflows, format string exploitations and return-oriented programming.  
+For example, ret2libc challenges often involved complex concepts. Occasionally, I struggled to understand why certain steps—like selecting specific gadgets—were necessary in online tutorials. Tackling these new concepts often created a web of dependencies, which required focused study and practice to unravel.
 
-Within the buffer-overflow type attacks learning ways to overcome basic file protections such as `NX-enabled` or `canary-enabled` was difficult. 
-
-Learning new concepts such as these new concepts creates a tree of dependencies 
 #### Format String Vulnerabilities
 
 Learning format string exploits extended upon the knowledge from buffer overflows. The main challenges associated with format string vulnerabilities was understanding the impact of certain format specifiers. For example using `%p | %p` or `%x | %x` to find the offset was relatively straightforward. However, then using this information to conduct arbitary writes took some time to wrap my head around. 
@@ -188,17 +197,15 @@ Reading the documentation provided by `printf(3) man` ([link](https://man7.org/l
 ```
 
 #### Web Frameworks
-Web exploitation posed several challenges due to my limited knowledge of web development and network principles. Arguably it is one of the most important skills to have in my back-pocket.
+Web exploitation presented several challenges, primarily due to my limited knowledge of web development and network fundamentals. However, it has become one of the most valuable skills to have in my toolkit.
 
-Familiarity with web development frameworks and applications is paramount in this along with the other skills accustomed with penetration testing.
-
-I also had limited understanding HTTP request headers such as `GET`, `POST`,`PUT` and `DELETE`.
+Familiarity with web development frameworks and applications is essential for web exploitation, as is a strong grasp of the skills commonly used in penetration testing. My limited understanding of HTTP request headers, including `GET`, `POST`, `PUT`, and `DELETE`, initially hindered my progress.
 
 #### Web Tokens
-This linked closely with 
+This area of knowledge closely tied into my broader web exploitation efforts.
 
 #### Injection-based Attacks
- SQL injection challenges, in particular, required an in-depth understanding of syntax. For example, some tasks filtered certain keywords, necessitating research into alternative SQL commands or obfuscation techniques to bypass these filters. 
+SQL injection challenges, in particular, required a deep understanding of syntax. For example, certain tasks included keyword filters, prompting research into alternative SQL commands or obfuscation techniques to bypass these restrictions.
 ### Web Exploitation Fixes :wrench:
 Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols.
 
@@ -223,13 +230,13 @@ Using applications like `Burp Suite` improved my understanding of request/respon
 ```
 
 
-Having some experience in cryptography allowed me to approach challenges with a bit more familiarity. However, learning to integrate `pwntools` to craft and optimize payloads was still a challenge, as was fine-tuning scripts for efficiency. 
+My experience in cryptography provided a helpful foundation for tackling challenges, yet integrating pwntools for payload crafting and optimization still posed a learning curve. Developing efficient scripts required both experimentation and refinement to make them as streamlined as possible.
 
 #### Manual Decryption
-I also imposed a self-challenge to develop my own decryptors for classical ciphers, such as Vigenère and substitution ciphers, rather than relying on automated tools. 
+I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. This exercise helped deepen my understanding of encryption techniques and cipher mechanics.
 
-#### Side Channel Attacks
-Exercises which . For instance, working on a `Power Analysis` exercise introduced me to physical attack vectors that exploit unintentional information leakage, which was a fascinating area of research within cryptography that required me to learn about hardware vulnerabilities.
+#### Side-Channel Attacks
+The Power Analysis exercise introduced me to the hands-on application of side-channel attacks, where I learned to analyze cryptographic operations by measuring power consumption. This approach required a mix of precision and knowledge about how power variations can reveal sensitive data, which significantly broadened my understanding of cryptography.
 ### Cryptography Fixes :wrench:
 Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. 
 
@@ -280,17 +287,17 @@ Assembly Language      ├── gdb
     │   └── Ghidra
     └── C programming language
 ```
+#### Disassemblers
+Once getting a grip of the basics of gdb and BinaryNinja, much of the obstacles involved staying mentally switched on with the flow of the programs. 
+#### Debuggers
+Learning how to use `gdb` was a fundamental skill to obtain.
+
 #### Assembly Language
 Reverse engineering required similar foundational skills as binary exploitation, with an added emphasis on using disassemblers and debuggers. Since I had limited experience with assembly language and machine code, learning to interpret disassembly output required understanding each instruction's purpose, as well as recognizing common patterns such as loops, conditional branches, and function calls.
-#### Debuggers
-
-
 
 #### C Programming Language
 Getting a deeper grasp of the `C` language was a necessary skill to build. 
 
-#### Disassemblers
-Once getting a grip of the basics of gdb and BinaryNinja, much of the obstacles involved staying mentally switched on with the flow of the programs. 
 
 I spent considerable time experimenting with different debugging techniques, using breakpoints and stepping through code to monitor how variables and memory addresses changed. 
 ### Reverse Engineering Fixes :wrench:
@@ -305,7 +312,7 @@ Other issues were more logistical but still affected my workflow. Commonly encou
 
 Other challenges included the ability to convey a new concept in text. This tested both my ability to assimulate the knowledge aswell as communicate it. 
 
-### Meta-challenges
+####  Meta-challenges
 Learning basic markdown formatting was a nice skill to have in my back pocket. It provides nice features such as in-built. Converting the `.md` $\rightarrow$ `.html` $\rightarrow$ `.pdf` proved to be a non-trivial task. 
 
 ## Diary Reflection
@@ -414,15 +421,20 @@ Learning basic markdown formatting was a nice skill to have in my back pocket. I
 
     ### How to fix errors?
 ## Overall Growth
-!!! note
+!!! note Reflecting
     This section summarises the overall personal growth provided by this project. It culminates all the challenges experienced with the weekly diary to provide the final output.
-To sum up, this project was relatively challenging mainly due to the wide-range of skills I was required to learn. Balancing the development of new skills with other tasks in the academic term was an intellectually stimulating and fulfilling experience. 
+
+    Upon further reflection more time taken to convert the `.html` file into a deployed website could have made the experience easier for the viewer. i FOUND 
+    
+    To sum up, this project was relatively challenging mainly due to the wide-range of skills I was required to learn. Balancing the development of new skills with other tasks in the academic term was an intellectually stimulating and fulfilling experience. 
+
+    I thank the staff and other students for making this course so fun :)
 ### References
 #### Binary Exploitation
 - https://security.stackexchange.com/questions/136647/why-must-a-ret2libc-attack-follow-the-order-system-exit-command/136659#136659
 - https://github.com/longld/peda
-- 
-- 
+- https://book.hacktricks.xyz/binary-exploitation/rop-return-oriented-programing
+- https://tc.gts3.org/cs6265/tut/tut06-02-advrop.html
 -
 - 
 #### Cryptography

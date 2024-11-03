@@ -24,7 +24,7 @@ gzip -d disk.img.gz
 ```
 Upon doing this I run `mmls` from the Sleuth Kit library on the disk image as per the question's instructions. 
 
-![alt text](image.png)
+![alt text](images/image.png)
 >Output from `mmls disk.img`
 
 Reading the `man` page on `mmls` it states that `mmls` "displays the layout of parititions of a volume system."
@@ -34,7 +34,7 @@ A challenge here was first understanding what **partitions** were and what a **v
 ### Attack Phase
 Running the given remote server the program asks for the length of the Linux Partition. Using the output from `mmls` it was 202752 which ascertained from the `Length` column corresponding to the `Linux` description from the output above.
 ### Final Solution/Payload
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ### Lessons Learnt
 

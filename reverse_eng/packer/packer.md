@@ -37,14 +37,11 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{U9X_UnP4ck1N6
 - Upon doing this I ran `strings out` and was finally able to see alot more information. I ran `strings out | grep -i password` (Case-insensitive) in order to obtain the password: 
 ![alt text](images/image-10.png)
 - `7069636f4354467b5539585f556e5034636b314e365f42316e34526933535f35646565343434317d`, appeared to likely be a hexadecimal number therefore used CyberChef to obtain and decode: 
-![alt text](images/image-9.png)
 
-
-### Step 3: [Third Step Title]
-- Continue to describe subsequent steps until the solution is reached. 
 
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+![alt text](images/image-9.png)
+
 
 ## Lessons Learned
 - Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.

@@ -1,37 +1,29 @@
-# CTF Write-Up: [Operation Oni][Forensics]
+# CTF Write-Up: [Challenge Name][Challenge Type]
 
 ## Description
-![alt text](images/image.png)
-
+>A brief description of the challenge
 ## Flag
-The flag you obtained after solving the challenge. (e.g., `picoCTF{example_flag}`)
+`picoCTF{example_flag}`
 
 ## Difficulty
-- **Difficulty Level:** [medium]
+- **Difficulty Level:** [easy/medium/hard]
 
 ## Tools Used
-- List any tools or resources you used to solve the challenge (e.g., Wireshark, Burp Suite, Python, etc.).
-
+- Use of `gdb` or other tools?
 ## Write-Up
 
-### Step 1: [First Step Title]
-- I had to understand what a disk image was first. 
-### Step 2: [Second Step Title]
-- Upon downloading the `disk.img.gz` file I had to decompress it since `.gz` is a compressed file. 
-- This was conducted via `gzip -d disk.img.gz`
-### Step 3: [Third Step Title]
-- Running `xxd disk.img` broke the web-shell
-- Therefore I ran `xxd disk.img | grep picoCTF` but it didn't work
-- I then ran `xxd disk.img | grep password`
-![alt text](images/image-1.png)
-- Quite interesting as I found 
+### Preparatory Phase
+- Research phase
+- Conducting basic static analysis and/or dynamic analysis
 
+### Attack Phase
+- Using the prep from above, walking through the steps taken to conduct a successful attack
 ### Final Solution/Payload
-- Summarize how you arrived at the final solution and any critical insights that helped you solve the challenge.
+- If a payload was used place into here, otherwise use screenshot of the flag
 
-## Lessons Learned
-- Discuss what you learned from the challenge and any techniques or concepts you found particularly interesting.
-
+### Lessons Learnt
+- **What does boot sector mean**
+- **What does mounting to a /tmp mean**
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- TODO: Ensure these go into the `SUBMISSION_REPORT.md`
 

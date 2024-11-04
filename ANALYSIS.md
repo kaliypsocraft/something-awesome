@@ -411,7 +411,7 @@ NOTE: `L` $\rightarrow$ `\x4c` and `H` $\rightarrow$ `\x48`
 ---
 
 !!! info Conclusion
-    The information provided in this document is only a subset of the vast world that is the cyber-security community. The information provided is all the research conducted during the solving of `picoCTF` challenges. Please excuse some of the information as I was just a beginner through this whole process. It is an iterative process to becoming 
+    The information provided in this document is only a subset of the vast world that is the cyber-security community. The information provided is all the research conducted during the solving of `picoCTF` challenges. Please excuse some of the information as I was just a beginner through this whole process. It is an iterative process to becoming a competent security engineer.
 
 ## References
 

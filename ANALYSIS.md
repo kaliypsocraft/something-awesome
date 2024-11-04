@@ -203,7 +203,7 @@ Modern cryptography when used following correct procedures regarding parameter s
 However, side-channel attacks can in some cases obtain them using unintended information leaks. An example of a side-channel attack we can conduct in the real world is, consider the following scenario. 
 
 !!! info Analogy
-    Suppose you ask your indecisive friend where to eat. You ask them 'Do you want to go to Restaurant A or Restaurant B' 
+    Suppose you ask your indecisive friend where to eat. You ask them 'Do you want to go to Restaurant A or Restaurant B' They say I don't mind. You say what about Restaurant A, they pause and say ok... But when you say Restaurant B, they immediately say yes. You know it is Restaurant B which they want. This is an pseudo-example :).
 
 
 
@@ -255,10 +255,10 @@ Another useful command is `exiftool <filename>` which also provides the meta-dat
 
 
 ### Steganography
-Steganography conceals sensitive information within files like images, without obvious signs of hidden data. Unlike encryption, it embeds data discreetly by altering pixels or metadata, making it ideal for secure, undetectable communication.
+Steganography conceals sensitive information within files like images, without obvious signs of hidden data. Unlike encryption, it embeds data discreetly by altering pixels or metadata, making it ideal for secure communication. Usually in CTFs they use LSB Steganography which is insecure as it is so well known.
 
 ### Network Analysis
-Monitoring and examining network traffic is an essential part of security engineering. It can identify suspicious activity, unauthorized access, or malware. Tools like Wireshark capture packet data, helping security professionals detect threats, troubleshoot issues, and analyze network performance.
+Monitoring and examining network traffic is an essential part of security engineering. It can identify suspicious activity or malware. Tools like Wireshark capture packet data, helping security engineers detect threats, troubleshoot issues, and analyze network performance.
 ### Forensic Write-Ups
 - [Endianess V2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
 - [Sleuthkit Apprentice](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_apprentice/sleuthkit_apprentice.md)
@@ -344,6 +344,7 @@ For 64-bit systems it is different so be careful when conducting the exercises.
 The Global Offset Table (GOT) and Procedure Linkage Table (PLT) are tables used in dynamically linked executables to resolve function addresses at runtime. Dynamically linked executables can be identified by running `file <filename>`. These executables rely on functions that are not directly compiled into the binary but instead reference external shared libraries.
 
 **Analogy**
+
 Consider the PLT as a new retail shop worker, while the GOT is a device the worker uses to record where particular items are located. Imagine a binary as a customer who asks the worker where to find printf. Since the worker (PLT) is new, they don't know immediately and must get help from a friend called the Dynamic Linker. Together, they locate printf and record its address in the GOT. Now, each time the customer asks for printf, the PLT can simply direct the customer to the stored address in the GOT.
 
 In binary exploitation, an attacker can modify the GOT to redirect function calls, which is useful in certain types of attacks like ret2libc. In this analogy, let's assume that the GOT device can be easily manipulated by an attacker named Eve. Eve could change the address stored in the GOT to point to malicious code or use the stored information to execute harmful actions.

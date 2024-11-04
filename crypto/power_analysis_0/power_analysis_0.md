@@ -6,11 +6,11 @@
 `picoCTF{example_flag}`
 
 ## Difficulty
-- **Difficulty Level:** [easy/medium/hard]
+- **Difficulty Level:** hard
 
 ## Tools Used
 - pwntools
-- 
+- numpy
 ## Write-Up
 
 ### Preparatory Phase
@@ -34,10 +34,11 @@ def encrypt_and_leak(plaintext):
 
 ```
 
-### Attack Phase
-- Using the prep from above, walking through the steps taken to conduct a successful attack
-### Final Solution/Payload
-- If a payload was used place into here, otherwise use screenshot of the flag
+### Ethical Concerns
+- I did not fully understand the way to solve this problem. Hence I have decided to not follow through with writing a solution. Upon reading write-ups from other such as this 
+https://eshard.com/posts/pico-ctf-power-analysis-challenges 
+
+- Upon reading th
 
 ### Lessons Learnt
 - **List comprehensions in python**

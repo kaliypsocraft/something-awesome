@@ -8,24 +8,18 @@
     Please reference last-edit/commit to prove that editing of the document was not conducted after `1800 04 NOV 24`.
 
 !!! warning Mission Statement
-    The goal of this project was to deepen my understanding of foundational cybersecurity concepts while creating a tool that helps other beginners learn from my experience.
+    The main goal of this project was to **learn** and deepen my understanding of foundational cybersecurity concepts. A secondary goal was to creating a tool that helps **teach** other beginners about Jeopardy-style CTFs from my experience.
 
-    The intended outcome is to grasp essential cybersecurity principles and develop a set of introductory teaching tools that offer a strong foundation for further expansion. 
+    The intended end-state is to grasp essential cybersecurity principles and develop a set of introductory teaching tools that offer a strong foundation for further expansion as I develop as a security student. 
 
 ## Table of Contents
 - [How To Mark](#how-to-mark)
 - [Challenges Experienced](#challenges-experienced)
   - [Binary Exploitation](#binary-exploitation)
-  - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-wrench)
   - [Web Exploitation](#web-exploitation)
-  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-)
   - [Cryptography](#cryptography)
-  - [Cryptography Fixes 🔧](#cryptography-fixes-)
   - [Forensics](#forensics)
-  - [Forensics Fixes 🔧](#forensics-fixes-)
   - [Reverse Engineering](#reverse-engineering)
-  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-)
-
 - [Diary Reflection](#diary)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
@@ -84,16 +78,16 @@ On the Github, `ANALYSIS.md` provides write-ups of picoCTF. PicoCTF is a Jeopard
 !!! info Examples
     Below are some stand-out write-ups conducted on exercises which I got alot out of them.
     
-    **Binary Exploitation**: [ret2libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md), [use-after-free](), [format-string]()
+    **Binary Exploitation**: [ret2libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md), [use-after-free](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_3/heap_3.md)
 
-    **Cryptography**: [small-priv-exponent-rsa](), [chosen-plain-text-attack]()
+    **Cryptography**: [vigenere-solver](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/la%20cifra%20de/la%20cifra%20de.md), [small-priv-exponent-rsa](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/dachshund_attacks/dachshund_attacks.md), [chosen-plain-text-attack](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
     
-    **Web Exploitation**: [jwt](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md), [sql-injection]() 
+    **Web Exploitation**: [jwt](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md), [sql-injection](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_2/web_gauntlet_2.md) 
 
 
-    **Forensics**: [network-analysis](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md), [disk-imaging](), [steganography]()
+    **Forensics**: [network-analysis](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md), [disk-imaging](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_apprentice/sleuthkit_apprentice.md), [steganography](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
 
-    **Reverse Engineering**: [anti-debugger](), [disassembler-used]()
+    **Reverse Engineering**: [anti-debugger](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x100/win_anti_dbg_0x100.md), [disassembler-used](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/not_crypto/not_crypto.md)
 
 
 ## Challenges Experienced 
@@ -152,9 +146,9 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     2. Another key skill was grasping calling conventions, especially for ret2libc challenges. Sometimes I would spend hours troubleshooting, only to discover that differences between 32-bit and 64-bit calling conventions were causing issues. 
 
 
-    3. For example, ret2libc challenges often involved complex concepts. Occasionally, I struggled to understand why certain steps e.g. like selecting specific gadgets were necessary in online tutorials. Tackling these new concepts often created a web of dependencies, which required focused study and practice to unravel.
+    3. I struggled to understand why certain steps e.g. selecting specific gadgets from online tutorials. For example, I didn't initially understand why we kept choosing `pop rdi, ret` for 64-bit based `ret2libc` challenges. Tackling these new concepts often created a web of dependencies, which required focused study and practice to unravel. 
 
-    4. Understanding the GOT/PLT was al
+    4. Understanding the GOT/PLT was initially abit confusing. In the past I took for granted that functions were compiled within a program rather than being dynamically linked with some external shared library. Knowing this background knowledge was essential in exploiting `ret2libc` attacks.
 
 !!!! warning Format String Vulnerabilities
 
@@ -162,13 +156,13 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 
     NOTE: This is still an area which requires more tinkering. The challenge which I wrote to an address was conducted using pwntools and the payload it produced used alot of different-sized 
 !!! info Fixes :wrench:
-    Using a story made understanding GOT/PLT easier. I made an analogy which is noted in `REPORT.md` about a new retail shop worker (`PLT`), their work directory to find items (`GOT`) and the customer (the binary). 
+    Using a story/analogy made understanding GOT/PLT easier. I made an analogy which is noted in `REPORT.md` about a new retail shop worker (`PLT`), their work directory to find items (`GOT`) and the customer (the binary). In hindsight I should've made everything a story as this would have improved my understanding even more.  
 
-    Watching online tutorials from peop
+    Watching online tutorials from people such as [John Hammond](https://www.youtube.com/@_JohnHammondand) and [Razvi Overflow](https://www.youtube.com/playlist?list=PLchBW5mYosh_F38onTyuhMTt2WGfY-yr7) do binary exploitation exercises helped me map the same method to the `picoCTF` problems. Often times this was conducted if I spent a few hours not making any progress and hence had to to resort to 
 
-    To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visual aids, such as online stack visualization tools, also allowed me to grasp the flow of stack frames and memory layouts. 
-
-    Visualising format string vulnerabilities via drawing out a stack 
+    To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visually drawing out a stack was useful in understanding what was occuring whenever I called a function or assigned a value to a variable.
+    
+    Visualising format string vulnerabilities via drawing out a stack and visualising what the stack frame which encapsualte the `printf` function was doing.
     Reading the documentation provided by `printf(3) man` ([link](https://man7.org/linux/man-pages/man3/printf.3.html)) solidified my understanding. 
 
 
@@ -195,22 +189,21 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     
     Familiarity with web development frameworks and applications is essential for web exploitation, as is a strong grasp of the skills commonly used in penetration testing. My limited understanding of HTTP request headers, including `GET`, `POST`, `PUT`, and `DELETE`, initially hindered my progress.
 
-    Having a poor understanding of web frameworks and how code interacts between a client and server was a liability in my journey to web exploitation.
+    Having a poor understanding of web frameworks and how code interacts between a client and server was a liability in my overall understanding of web exploits.
 
 !!! warning  Injection-based Attacks
-    SQL injection challenges, in particular, required a deep understanding of syntax. For example, certain tasks included keyword filters, prompting research into alternative SQL commands or obfuscation techniques to bypass these restrictions. 
+    SQL injection challenges, in particular, required a deep understanding of syntax. For example, certain tasks included keyword filters, prompting research into alternative SQL commands or obfuscation techniques to bypass these restrictions. XSS injection challenges also required some basic understanding of HTML syntax in order to be effective. 
     
     A note worthy challenge was me not noticing that column number mattered and kept querying a database that expected $n$ columns but only providing $k$ column in a search, where $n \neq k$. 
     
-    XSS injection challenges also required some basic understanding of HTML syntax in order to be effective. 
 
 
 !!! info Fixes :wrench:
-    Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols.
+    Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols. Taking a front-end course and/or data-base course can enhance ones ability to exploit potential web vulnerabilites.
 
     For SQL injection tasks, I experimented with different types from SQLite to MySQL to understand their syntax differences. 
 
-    Using applications like `Burp Suite` improved my understanding of request/response patterns and helped in identifying and exploiting vulnerabilities.
+    Using applications like `Burp Suite` improved my understanding of request/response headers. Further readings into how this works is required to become a competent web-exploitation
 
 ---
 
@@ -229,17 +222,21 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 ```
 
 !!! info Overview of Obstacle
-    My experience in cryptography provided a helpful foundation for tackling challenges, yet integrating pwntools for payload crafting and optimization still posed a learning curve. 
+    My experience in cryptography provided a helpful foundation for tackling challenges. However, I was still stumped by the power analysis challenges. They were the first time I was introduced to practically implementing a side-channel attack and I struggled.
 
 !!! warning Manual Decryption
-    I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. For example more advanced frequency-based attacks using logarithm tables and 'fitness' scores were a non-trivial task to understand. Source:  This exercise helped deepen my understanding of encryption techniques and respect for even classical ciphers.
+    I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. For example more advanced frequency-based attacks using logarithm tables and 'fitness' scores were a non-trivial task to understand. Source: [] 
+    
+    This exercise helped deepen my understanding of encryption techniques and respect for even classical ciphers. However, my implementation of a Vigenere cipher did not seem to work very well.
 
 !!! warning  Side-Channel Attacks
     The Power Analysis exercise introduced me to the hands-on application of side-channel attacks, where I learned to analyze cryptographic operations by measuring power consumption. This approach required a mix of precision and knowledge about how power variations can reveal sensitive data.
 
-    I vastly underestimated my ability to assimulate the information 
+    I vastly underestimated my ability to assimulate the information leaving it witin the last two days of the due date. However, I came across an ethical dilemma as I did 
 !!! info Fixes :wrench:
-    Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. 
+    Writing down the mathematics, especially with the RSA related questions assisted in obtaining the answer. It can be hard to simply use the bandwidth of the mind 
+
+    Using real-life analogies of side-channel attacks helped understand the high-level concepts. Further research into this area is required for a more detailed understanding.
 
     Building custom decryptors using taught me practical cryptanalysis skills, which I complemented by researching side-channel attacks to better understand physical vulnerabilities in cryptographic systems.
 
@@ -263,7 +260,7 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     The main challenge I experienced with digital forensics was just a lack of knowledge within the field of files, network analysis and steganography. Furthermore, it required some 
 
 !!! warning File Formats
-    Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved a comprehensive understanding of file signatures, types, and low-level data structures. I worked with Linux command-line tools such as `strings` and `xxd` to extract hidden data and identify file characteristics, which helped build an understanding of file system layouts and common forensic analysis techniques.
+    Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved an understanding of file signatures and formats. I worked with Linux command-line tools such as `strings` and `xxd` to extract  metadata and identify file characteristics, which assisted build an understanding of file system layouts and common forensic analysis techniques.
 !!! warning Network Analysis
     The main challenge associated with network analysis was getting a basic understanding of the fundamentals of networks. By extension, grasping the fundamentals of Wireshark. The latter software from face value had a lot fo moving parts and functionality. It at times caused decision paralysis as I did not know the best tool for the job or had suspcions that it had 
 
@@ -281,7 +278,7 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 !!! info Fixes :wrench:
     To build my forensics skills, I spent time learning Linux commands more thoroughly, focusing on tools like `xxd`, `strings`, and `hexdump` to analyze file structures and metadata. 
 
-    Learning to use Sleuthkit
+    Learning to become better at forensics was quite simple. It just involved reading the documentation in relation to disk images, steganography and the tools associated with them such as Autopsy and Sleuthkit. I found this section to be less technically intensive compared to other challenges and invovled more theortical knwoeldge.
 
 
 ---
@@ -306,13 +303,16 @@ Assembly Language      ├── gdb
 
 !!! warning Debuggers
     Learning how to use `gdb` was a fundamental skill to obtain.
-    I spent considerable time experimenting with different debugging techniques, using breakpoints and stepping through code to monitor how variables and memory addresses changed. This challenge stemmed over into binary exploitation, however in this case
+    I spent considerable time experimenting with different debugging techniques and using breakpoints. Being tactical and intentional with breakpoints and stepping through a program is a skill I need to develop more of. This liekly comes down to experience and being mentally switched on to the flow of a program. This challenge stemmed over into binary exploitation, however in this case I found myself using the `ni` (next instruction) and `s` (step) commands more comapred to the binarye xplotaiton.
 
 !!! warning Assembly Language 
-    Since I had limited experience with assembly language and machine code, interpreting disassembly output required me to understand each instruction’s purpose and how it affected the program’s flow. I had to recognize common patterns, such as loops, conditional branches, and function calls, and learn to navigate register manipulation, memory addressing, and the stack layout. Additionally, understanding the differences between architectures (e.g., x86 vs. x64) was essential, as each has unique conventions and instruction sets.
+    Since I had limited experience with assembly language apart from `MIPS`, interpreting assembly code required me to understand each instruction’s purpose and how it affected the program’s flow. This linked closely with my understanding of calling conventiosn as usually with assembly I would try to see times when arugmens were pushed onto the stack or when the stack pointer would move value.
+    
+    Additionally, understanding the differences between architectures (e.g., x86 vs. x64) was essential, as each has unique conventions and instruction sets.
 
 !!! warning C Programming Language 
-    Gaining depth in the C language was essential, as many low-level operations rely heavily on C for interacting closely with system resources. I worked on strengthening my understanding of pointers, memory management, and data structures like linked lists and binary trees. Knowing how C translates to assembly also helped me connect high-level code to low-level execution, which was crucial for debugging and for recognizing vulnerabilities like buffer overflows or format string exploits.
+    Gaining depth in the C language was essential, as many low-level operations rely heavily on C for interacting closely with system resources. I worked on strengthening my understanding of pointers, memory management, and data structures like linked lists. The latter was important as in `gdb` there were moments where the heap allocated memory seemed to make a linked list for some reason? Perhaps this is knowledge which can be improved upon taking an operating systems course.
+    
 
 
 !!! info Fixes :wrench:
@@ -320,11 +320,14 @@ Assembly Language      ├── gdb
 
     Regular practice with `gdb` step-through debugging helped me better interpret function calls and memory allocations in unfamiliar binary files, ultimately boosting my confidence with low-level code.
 
+    The low-level challenges were fixed using the techniques from binary exploitation. There was an intersection between the skills developed in both challenge types. For example, knowing how function arguments and the stack operated gave me a deeper udnersandign of the flow of a program.
 ---
 
 ### Other Challenges
 !!! warning Communication and Logistics 
     Other issues were logistical but still impacted my workflow. I frequently encountered PATH issues and package errors that required considerable time and patience to resolve. Often, I turned to Stack Overflow or community forums for troubleshooting. In some cases, the solutions required manual adjustments to environment settings or reconfiguration of dependencies to ensure all tools worked smoothly.
+
+    In the final few hours whilst I wanted to push a new commit up I kept one of the `.img` files from the forensics exercises. Due to the sheer scale of it, `git push` did not work and I was forced to use `git filter-repo --path forensics/op_orchid/disk.flag.img --invert-paths`. This however caused some extra issues as now I had to reissue myself a fine-grained token in order to contribute to my own repo. In future, remove all `.img` files and be cognizant of what I am pushing into repos.
 
     Another challenge was effectively conveying new concepts in text. This tested my ability not only to understand the knowledge deeply but also to communicate it clearly.
 
@@ -447,15 +450,17 @@ Assembly Language      ├── gdb
     - Continue to reflect on ways to better security engineer and in general a better problem solver.
 ## Overall Growth
 !!! note Reflecting
-    This section summarizes the overall personal growth provided by this project. It encapsulates all the challenges experienced through the weekly diary to present the final output. The task developed a "jack of all trades, master of none" attitude; I could not double down and focus on a single concept. 
-    
-    The experience of learning various topics and then communicating that information in a form intended for teaching others was a good experience. 
-    
-    The rationale in not following through with the website as 
+    This section summarizes the overall personal growth provided by this project, encapsulating all the challenges experienced through the weekly diary to present the final output. The task fostered a "jack of all trades, master of none" attitude, as I could not really double down and focus on a single concept.
 
-    To sum up, this project was relatively challenging, mainly due to the wide range of skills I was required to learn. Balancing the development of new skills with other tasks during the academic term was an intellectually stimulating and fulfilling experience.
+    The experience of learning various topics and then communicating that information in a format intended for teaching others was enriching.
 
-    I thank the staff and other students for making this course so enjoyable! :)
+    The rationale for not pursuing the website as displayed in the initial plan was due to balancing time constraints with the overall mission. I felt that using a website as a medium would require unnecessary administrative time and add minimal value to my learning or the conveyance of the information. Therefore, I opted to use a simple Markdown format instead.
+
+    In summary, this project was relatively challenging, mainly because of the wide range of skills I was required to learn. Balancing the development of new skills with other tasks during the academic term was an intellectually stimulating and fulfilling experience.
+
+    I would like to thank the staff and other students for making this course so enjoyable! :)
+
+
 !!! info Future Improvements
      1. Upon further reflection, spending more time converting the `.html` file into a deployed website could have made the experience easier for the viewer. 
      

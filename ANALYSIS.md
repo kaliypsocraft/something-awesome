@@ -200,12 +200,12 @@ To generate the keys, the following steps are performed:
 
 ### RSA Crypt-analysis
 We must note that the generic RSA, known as textbook RSA is deemed insecure since it is not chosen-plain text secure. An example of a chosen-plaintext attack is conducted in `no padding no problem`.
-### Wiener's Attack
+#### Wiener's Attack
 For small private keys $ d $, we can conduct [Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack), which exploits the fact that if $ d $. A RSA cipher is vulnerable to this if 
 1. The modulus $N = pq$ with $q < p < 2q$ 
 2. The private exponent $d$ satisfying $d < \frac{1}{3} N^{1/4}$
 
-### Brute Force for Small Moduli
+#### Dangers of a small moduli
 For small modulus $ n $, one can easily brute-force the factorization using `gmpy2` in Python. The feasibility of this method is due to the fact that the complexity of factorization increases rapidly with the size of the modulus. This vulnerability is particularly pronounced in situations where $ n $ is less than a certain threshold, making it possible for attackers to discover the prime factors with relative ease. 
 
 
@@ -216,7 +216,7 @@ Modern cryptography when used following correct procedures regarding parameter s
 However, side-channel attacks can in some cases obtain them using unintended information leaks. An example of a side-channel attack we can conduct in the real world is, consider the following scenario. 
 
 !!! info Analogy
-    Suppose you ask your 
+    Suppose you ask your indecisive friend where to eat. You ask them 'Do you want to go to Restaurant A or Restaurant B' 
 
 
 

@@ -30,12 +30,14 @@ There appears to a few conditions for this to occur.
 3. We also need the `rax` register to equal `fsbase + 0x28` - This part I was abit confused at first. However it seemed that `rax` was declared as `fsbase + 0x28`.
 ![alt text](images/image-2.png)
 
-I now needed to see what `var_38` stored and it appeared to store the MD5 Hash of `picoCTF{br1ng_y0ur_0wn_k3y_`
+I now needed to see what `var_38` stored and it appeared to store the MD5 Hash of a part of the key `picoCTF{br1ng_y0ur_0wn_k3y_`
 
 ### Attack Phase
 
-### Final Solution/Payload
+Using this information perhaps using `gdb` I can use a breakpoint 
 
+### Final Solution/Payload
+- This challenge I was unable to complete under the time-frame. 
 
 ### Lessons Learnt
 

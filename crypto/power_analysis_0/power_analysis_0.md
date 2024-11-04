@@ -56,5 +56,5 @@ for i in range(16):
 
 - **What is a power analysis attack**
 ## References
-- TODO: Ensure these go into the `SUBMISSION_REPORT.md`
+- https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html
 

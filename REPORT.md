@@ -1,55 +1,32 @@
 # Something Awesome Project 
 
+!!! tip GitHub Link
+    The project is on a [Github link](https://github.com/kaliypsocraft/something-awesome) containing the write-ups and challenges conducted in `picoCTF`. The link to this page is [here](https://github.com/kaliypsocraft/something-awesome).
+    
+    **NOTE**: Using the Github version to view `REPORT.md` via the preview tab may be easier to navigate due to the table of contents on the right-hand side. Be advised the callout blocks (`!!! tip` and `!!! warning`) do not render on the Github preview.
+
+    Please reference last-edit/commit to prove that editing of the document was not conducted after `1800 04 NOV 24`.
+
 !!! warning Mission Statement
-    This file provides the culmination of research, analysis 
-    The project provides write-ups of picoCTF. The purpose of this is to provide a learning tool for
-    beginners to learn about the foundations of capture-the-flag challenges. PicoCTF is a Jeopardy-style
-    CTF consisting of challenges related to  [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation).
+    The goal of this project was to deepen my understanding of foundational cybersecurity concepts while creating a tool that helps other beginners learn from my experience.
+
+    The intended outcome is to grasp essential cybersecurity principles and develop a set of introductory teaching tools that offer a strong foundation for further expansion. 
 
 ## Table of Contents
-- [Disclaimer](#disclaimer)
-- [Features](#features)
-- [Challenges](#challenges)
-  - [General Skills](#general-skills)
-  - [Cryptography](#cryptography)
-  - [Classical Ciphers](#classical-ciphers)
-    - [Classical Cipher Notation](#classical-ciphers-notation)
-    - [Caesar Cipher](#caesar-cipher)
-    - [Caesar Crypt-analysis](#caesar-crypt-analysis)
-    - [Vigenere Cipher](#vigenere-cipher)
-    - [Vigenere Crypt-analysis](#vigenere-crypt-analysis)
-    - [Substitution Cipher](#substitution-cipher)
-    - [Substitution Crypt-analysis](#substitution-crypt-analysis)
-    - [Classical Cipher Crypt-analysis](#classical-cipher-crypt-analysis)
-    - [RSA](#rsa)
-    - [RSA Crypt-analysis](#rsa-crypt-analysis)
-    - [Side-Channel Attacks](#side-channel-attacks)
-  - [Web Exploitation](#web-exploitation)
-    - [SQL Injection](#sql-injection)
-    - [XSS Injection](#xss-injection)
-    - [PHP](#php)
-    
-  - [Forensics](#forensics)
-    - [File Formats](#file-formats)
-    - [Meta-Data](#meta-data)
-    - [Disk Imaging](#disk-imaging)
-    - [Steganography](#steganography)
-    
-  - [Reverse Engineering](#reverse-engineering)
-    - [Disassemblers](#disassemblers)
-    - [Debuggers](#debuggers)
-    
+- [How To Mark](#how-to-mark)
+- [Challenges Experienced](#challenges-experienced)
   - [Binary Exploitation](#binary-exploitation)
-    - [Stack](#stack)
-    - [Registers](#registers)
-    - [Calling Conventions](#calling-conventions)
-    - [Buffer Overflow](#buffer-overflow)
-    - [ret2win](#ret2win)
-    - [ret2libc](#ret2libc)
-    - [GOT](#got)
-    - [Format String Vulnerabilities](#format-string-vulnerabilities)
+  - [Binary Exploitation Fixes 🔧](#binary-exploitation-fixes-wrench)
+  - [Web Exploitation](#web-exploitation)
+  - [Web Exploitation Fixes 🔧](#web-exploitation-fixes-)
+  - [Cryptography](#cryptography)
+  - [Cryptography Fixes 🔧](#cryptography-fixes-)
+  - [Forensics](#forensics)
+  - [Forensics Fixes 🔧](#forensics-fixes-)
+  - [Reverse Engineering](#reverse-engineering)
+  - [Reverse Engineering Fixes 🔧](#reverse-engineering-fixes-)
 
-- [Diary](#diary)
+- [Diary Reflection](#diary)
   - [Week 1](#week-1)
   - [Week 2](#week-2)
   - [Week 3](#week-3)
@@ -58,367 +35,475 @@
   - [Week 6](#week-6)
   - [Week 7](#week-7)
   - [Week 8](#week-8)
-- [Conclusion](#conclusion)
 - [References](#references)
-## Disclaimer
-The information below is to be taken with a grain of salt. It has been my intepretation from the resources I've consumed. There may be some mistakes and details which may be incorrect.
 
-## Problem Sets
-!!! info Purpose
-    The following sections involve a **theory** component consisting of the basic research and background knowledge required to conduct the CTF. Within each sub-section there is also the practical component which provides a hyperlink to a write-up. The template run-down is given in `SAP_REPORT.md`. It is also on the given Github [link](https://github.com/kaliypsocraft/something-awesome) within `WRITE_UP_TEMPLATE.md`.
+## How to Mark
 
-## Cryptography
-Cryptography is the process of obsfucating information from unauthorised people. Usually modern cryptographic algorithms must
-satisfy three properties: 
-TODO: Add definitions
-1. Confidentiality
-2. Integrity
-3. Authentication
+This document is solely to document the summary of obstacles experienced. includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type containing 5-10 write-ups providing the **analysis**, **critical-thinking** and **reflection** component. The following sub-sections goes into more detail about how to intepret each document on the repository. 
 
-Within CTF challenges they usually begin with basic classical ciphers such as the Caesar cipher. Moderate challenges may include
-a substitution cipher or Vigenere ciphers which may require a more sophisticated cryptanalytic attack.
+!!! note `cat REPORT.[pdf|md]`
+    At each section it includes a tree of obstacles/challenges - obtained along the way in learning how to solve these CTF problem. For example conducting buffer-overflow attacks requires knowledge on how the stack operates $\rightarrow$ role of certain registers such as `eip` or `rip`. Note these trees are **non-exhaustive** and they simply are what I experienced thus far in the 6-7 weeks of conducting `picoCTF`. They are constantly growing as I gain more knowledge.
 
-!!! info Classical Ciphers
-    These tend to be part of the easy-medium level challenges within the CTF. Classical ciphers in the real world refers to cryptographic schemes which typically were used prior to the 1970s where *strong* algorithms which relied on computers paved the way for modern cryptography. 
-    #### Classical Ciphers Notation 
-    - $c_i$ is the $i^{th}$ character of the ciphertext.
-    - $m_i$ is the $i^{\text{th}}$ character of the decrypted plaintext.
-    - $k_i$ is the $i^{\text{th}}$ character of the key.
-    - $k$ is the key used during encryption.
-    - $||$ means concatentation
-### Caesar Cipher
-The Caesar Cipher is one of the most simple and recognizable ciphers in the world named after the Roman leader Julius Caesar. It functions by shifting all letters of the alphabet by a fixed number. They are amongst the most **beginner** friendly cryptography challenges.
-
-Suppose we want to encrypt the message $m = m_1 || m_2 || m_3 || ... || m_n$. The encryption algorithm $E$ is defined as:
-
-$$
-E(k) = (m_i + k) \mod 26 = c_i
-$$
-
-The ciphertext would be:
-
-$$
-c = c_1 || c_2 || ... || c_n
-$$
-
-Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$, the decryption algorithm $D$ is defined as:
-
-$$
-D(k) = (c_i - k) \mod 26 = m_i
-$$
-![image](https://github.com/user-attachments/assets/7c7de9e7-0ea4-4136-bd1a-496de73eeb3b)
-### Caesar Crypt-analysis
-Assuming the key-space is consisting of English letters [A-Z], there are only 26 possible keys. Therefore it would be 
-trivial for any attacker to brute force all keys. For example,
 ```
-def decrypt(ciphertext):
-    english_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    candidate_plaintext = []
-    ciphertext = ciphertext.upper()
-
-    # Loops through all possible shifts 
-    for shift in range(0, 25):
-        decrypted_message = ''
-        for char in ciphertext:
-            if char in alphabet:
-                original_index = (alphabet.index(char) - shift) % 26
-                decrypted_message += alphabet[original_index]
-            else:
-                decrypted_message += char 
-        candidate_plaintext.append((shift, decrypted_message))
-    return results
+└── <Problem Type>
+    ├── <Challenge 1>
+    │   ├── <Sub-Challenge 1>
+    |   ├── <Sub-Challenge 2>
+    │   └── <Sub-Challenge 3>
+    │
+    ├── <Challenge 2>
+    │   ├── <Sub-Challenge 1>
+    │   └── <Sub-Challenge 2>
+    └── <Challenge n>
 ```
-### Vigenere Cipher
+> Example tree of obstacles
 
-The Vigenère cipher is a method of encrypting alphabetic text using a simple form of polyalphabetic substitution. A keyword is used to determine the shift for each letter in the plaintext. It essentially encrypts each letter of the plain-text
+#### Other Files
+On the Github, `ANALYSIS.md` provides write-ups of picoCTF. PicoCTF is a Jeopardy-style CTF consisting of challenges related to [cryptography](#cryptography), [web exploitation](#web-exploitation), [forensics](#forensics), [reverse engineering](#reverse-engineering) and [binary exploitation](#binary-exploitation). In the given Github [link](https://github.com/kaliypsocraft/something-awesome) contains an `ANALYSIS.md` file which contains the following:
 
-Given a plaintext $m = m_1 || m_2 || m_3 || ... || m_n$ and a keyword $k = k_1 || k_2 || k_3 || ... || k_n$, the encryption algorithm $E$ is defined as:
+!!! note `cat ANALYSIS.md`
+     It includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type there are two components. A **theoretical component** which is a compilation of my background **research** on the topics and a **practical component** which are represented by the write-ups. The write-ups contains much of the **analysis**, findings and **personal reflections** along the way. The write-ups are represented by a hyper-link to a particular challenge with approximately 5-10 write-ups per challenge-type. Below are some examples:
 
-$$c_i = (m_i + k_i) \mod 26$$
+![alt text](report_images/image-1.png)
+> Example of theoretical component 
 
-Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and a repeating key $k = k_1 || k_2 || k_3 || ... || k_n$, the decryption algorithm $D$ is defined as:
+![alt text](report_images/image-3.png)
+> Example of practical component
 
-$$m_i = (c_i - k_i + 26) \mod 26$$
+!!! note What is in a write-up
+    
+    Within each **write-up** it is divided up as per the template provided on the Github repo.  
+    1. There is a initial **preparatory stage** which involves the initial **research**, static and dynamic analysis of the program. 
 
-### Vigenere Crypt-analysis
-Unlike a typical Caesar cipher it can be impractical to attempt all $26!$ possible keys. However a frequency analysis attack can be conducted after obtaining the key-size. 
-### Substitution Cipher
-Suppose an example substitution dict is as follows `dict` is as follows 
-| Plaintext | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-|-----------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Ciphertext| Q | W | E | R | T | Y | U | I | O | P | A | S | D | F | G | H | J | K | L | Z | X | C | V | B | N | M |
+    2. There is then an **attack phase** which dictates the payload and method of exploitation utilised in order to obtain the flag. 
 
-Given a plaintext $m = m_1 || m_2 || m_3 || ... || m_n$ and a substitution dictionary `dict`, the encryption algorithm $E$ is defined as:
+    3. There is then a **lessons-learnt** tab which dictates the **challenges** which were required in order to overcome the problem. 
+![alt text](report_images/image-2.png)
+> Example template for each write-up
 
-$$c_i = dict(m_i)$$
+!!! info Examples
+    Below are some stand-out write-ups conducted on exercises which I got alot out of them.
+    
+    **Binary Exploitation**: [ret2libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md), [use-after-free](), [format-string]()
 
-For example, $dict(A) = Q, dict(B) = W \cdots dict(Z) = M$
-
-Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and the substitution dictionary `dict`, the decryption algorithm $D$ is defined as:
-
-$$m_i = dict^{-1}(c_i)$$
-where, $dict^{-1}$ is as follows (the inverse table)
-
-| Ciphertext | Q | W | E | R | T | Y | U | I | O | P | A | S | D | F | G | H | J | K | L | Z | X | C | V | B | N | M |
-|------------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Plaintext  | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-
-### Substitution Crypt-analysis
-Online software usually can easily defeat subsitution ciphers using frequency analysis. 
-
-!!! info Modern Cryptography
-    These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes when used correctly are deemed mathematically strong and secure. However, side-channe
-
-### RSA
-
-Perhaps one of the most famous modern-day ciphers, RSA has become a hall of fame candidate in the world of public key cryptography. The security of RSA is derived from the assumed hardness of factoring large integers.  
-
-### RSA Crypt-analysis
-For small private keys $d$, we can conduct Wieners attack
-
-For small modulus $n$, one can easily bruteforce the factoring with `gmpy`.
-
-For small exponent $e$ and 
-
-### Side-Channel Attacks
-
-Modern cryptography when used following correct procedures regarding parameter size and operational security are often infeasible to attack directly. For example it is considered impractical to obtain an AES's 128-bit key using any traditional cryptanalysis. 
-
-However, side-channel attacks can in some cases obtain them using unintended information leaks. An example of a side-channel attack we can conduct in the real world is, consider the following scenario. 
-> Suppose you suspect your friend of taking your popsticle.
-
-Within the cryptography world side channel attacks come in many forms from timing attacks to power analysis. In the case of `picoCTF` the challenges I conducted focused around power analysis. 
-
-### Cryptography Write-Ups
-- [Lac Cifre De](ttps://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/custom_encryption.md)
-- [Custom Encryption](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/custom_encryption/custom_encryption.md)
-- [Mini RSA](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mini_rsa/mini_rsa.md)
-- [Pixelated](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/pixelated/pixelated.md)
-- [Dachshund Attacks](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/dachshund_attacks/dachshund_attacks.md)
-- [Mind Your P and Qs](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/mind_your_p_and_qs/mind_your_p_and_qs.md)
-- [No Padding No Prob](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/no_padding_no_prob/no_padding_no_prob.md)
-- [Substitution 1](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/substitution_1/substitution_1.md)
-- [Power Analysis: Warm Up](https://github.com/kaliypsocraft/something-awesome/blob/main/crypto/power_analysis_0/power_analysis_0.md)
-
-## Web Exploitation
-### SQL Injection
-  It is one of the first web exploitation techniques a student learns when undertaking an introduction to security course. It involves an 
-  attacker inserting malicious SQL queries into an entry field. It is a common attack vector against websites. It is an example of the dangers of 
-  mixing **data** and **control**. 
-### XSS Injection
-XSS Injections typically involve an attacker injecting malicious HTML into a website. 
-Cross-site injections come in three forms - reflected, stored and DOM-based. 
-
-### PHP
-TODO: Add content for PHP.
-
-### Web Exploitation Write-Ups
-- [Java Code Analysis](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md)
-- [More SQLi](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/more_sqli/more_sqli.md)
-- [Most Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/most_cookies/most_cookies.md)
-- [Picobrowser](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/picobrowser/picobrowser.md)
-- [Web Cookies](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_cookies/web_cookies.md)
-- [Web Gauntlet 1](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_1/web_gauntlet_1.md)
-- [Web Gauntlet 2](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/web_gauntlet_2/web_gauntlet_2.md)
-- [Notepad](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/notepad/notepad.md)
-- [Javascript Kiddie](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javascript_kiddie/javascript_kiddie.md)
+    **Cryptography**: [small-priv-exponent-rsa](), [chosen-plain-text-attack]()
+    
+    **Web Exploitation**: [jwt](https://github.com/kaliypsocraft/something-awesome/blob/main/web_exploit/javacode_analysis/javacode_analysis.md), [sql-injection]() 
 
 
-!!! info ## Forensics
-    Forensics challenges typically involve analysing a static file compared to other challenge-types whereby an executable program/remote server is involved. Within the context of CTFs they require candidates to find or reconstruct hidden information within these static files.
-### File Formats/Signatures
-Recognising file formats and signatures can be useful in CTF challenges.
-File formats are a way for data to be encoded for computer storage. For example, `.pdf` or `.png` files.
+    **Forensics**: [network-analysis](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md), [disk-imaging](), [steganography]()
 
- File signatures are used to identify and verify the contents of a file.  It can be found via running `xxd <file_name> | head`. This prints the first 10 lines (given by the `head` command) of a [hexdump](#hexdump) of a file. Running `xxd image-1.png | head` provided the following output: ![alt text](images/image-4.png) 
-> Note: first line is PNG
-
-This [page](https://en.wikipedia.org/wiki/List_of_file_signatures) has a table of file signatures. For example this can be useful in challenges where the endianness of a file is swapped. Therefore knowing or revising magic numbers associated with common file types such as `.jpg` can be useful. 
-
-Another useful command is `exiftool <filename>` which also provides the meta-data in the form: ![alt text](images/image-5.png)
-
-### Disk Imaging
-Disk images serve as a snapshot of 
-
-### Steganography
-Steganography is the act of hiding/obsfucating sensitive data within an image.
-### Network Analysis
-Analysing network traffic is an essential aspect of security engineering. 
-### Forensic Write-Ups
-- [Disk Disk Sleuth](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/disk_disk_sleuth/disk_disk_sleuth.md)
-- [Endianess V2](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/endianess_v2/endianess_v2.md)
-- [Op Oni](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_oni/op_oni.md)
-- [Sleuthkit Apprentice](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_apprentice/sleuthkit_apprentice.md)
-- [Trivial Flag Transfer Protocol](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/trivial_flag_transfer_protocol/trivial_flag_transfer_protocol.md)
-- [Eavesdropping](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/eavesdropping/eavesdropping.md)
-- [Like 1000](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/like_1000/like_1000.md)
-- [Op Orchid](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/op_orchid/op_orchid.md)
-- [Sleuthkit Intro](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/sleuthkit_intro/sleuthkit_intro.md)
-- [Web Net 0](https://github.com/kaliypsocraft/something-awesome/blob/main/forensics/web_net_0/web_net_0.md)
-
-!!! info ## Reverse Engineering
-    TODO: Define Reverse Engineering
-    Reverse engineering often requires students to interpret machine code or bytecode to understand its functionality. Once they can interpret the machine code, they typically manipulate it to obtain the flag. In a challenge, a candidate is usually presented with a compiled C program. They must use a combination of disassemblers and debuggers to analyze the program's control flow.
-    TODO: Insert typical challenges
-### Disassemblers
-Disassemblers converts machine code into human readable assembly code - in some cases even into 'pseudo' C such as in BinaryNinja and Ghidra for example. This makes it an excellent tool for reverse engineering challenges as it enables the candidate to have an enhanced understanding of the control flow. Disassemblers such as BinaryNinja also provide a control-flow graph view to provide a clearer picture of the logic-flow of code.
-
-![alt text](images/image-3.png)
-> BinaryNinja's graph view - Credits: https://binary.ninja/
-
-### Debuggers
-Debuggers are used for dynamic code analysis enabling a user to view and alter the state of a program in run-time. `gdb` (GNU debugger) is a common debugger used in CTFs in general, for example above in [binary exploitation](#binary-exploitation).
-### Reverse Engineering Write-Ups
-- [Crack Me 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/crack_me_0x100/crack_me_0x100.md)
-- [Picker 1](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_1/picker_1.md)
-- [Picker 2](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_2/picker_2.md)
-- [Picker 3](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/picker_3/picker_3.md)
-- [Packer](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/packer/packer.md)
-- [Win Anti Dbg 0x100](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/win_anti_dbg_0x100/win_anti_dbg_0x100.md)
-- [GDB Baby Step 4](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/gdb_baby_step_4/gdb_baby_step_4.md)
-- [Keygenme](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/keygenme/keygenme.md)
-- [Not Crypto](https://github.com/kaliypsocraft/something-awesome/blob/main/reverse_eng/not_crypto/not_crypto.md)
+    **Reverse Engineering**: [anti-debugger](), [disassembler-used]()
 
 
-## Binary Exploitation
-TODO: Add format strings and buffer overflow definition
-### Stack
-The stack exists in a computer's RAM and 
+## Challenges Experienced 
+!!! note Introduction
+    The CTF medium provides immediate feedback on the progress of tasks. The concepts and techniques required were often just out-of-reach and required reading documentation and online material in order to attack problems. 
+    
+    The following sections outlines the specific obstacles experienced along the way during the conduct of the CTF and the writing of the report. There are two main components - first consists of the hurdles experienced (marked with an orange warning sign) and second the fixes utilised to rectify the issues.
 
 
-![alt text](images/image-2.png)
-> Image courtesy of [here](https://www.cameronwickes.co.uk/stack-frames-pointers/)
 
-### Registers
-Registers are accessible memory locations within a processor that hold data crucial for computation, such as memory addresses, instructions, and numbers used for calculations. In CTFs, understanding various registers is essential for tracking the **return address**, **stack pointer**, and **base pointers**.
 
-Modern processors typically have either 32-bit or 64-bit registers, meaning they can hold up to 32 or 64 bits of data, respectively. Key registers for binary exploitation include:
-- **Instruction Pointer**: Holds the address of the next instruction to be executed.
-  - `eip` (32-bit)
-  - `rip` (64-bit)
-- **Stack Pointer**: Points to the top of the stack.
-  - `esp` (32-bit)
-  - `rsp` (64-bit)
+###  General Obstacles
+!!! info Overview of Obstacle
+    The general consensus with most of the challenges was knowing **where to start** and **what tools to use** - by extension **how to use the tools**. Since I was a beginner to CTFs intepreting a problem was difficult as I had no frame of reference for some challenges.
 
-![Example of 32-bit registers denoted by `e`](images/image-1.png)
-> Example of 32-bit registers
+!!! warning Where To Start?
+    Most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 
-![Example of 64-bit registers denoted by `r`](images/image.png)
-> Example of 64-bit registers
+    Often-times in medium-hard problems  I would be led down a rabbit-hole thinking it would solve the problem. However, it often would lead to deadends and further discourage the candidate. For example, spending an hour researching a topic and attempting to apply it to no avail. This obstacles span beyond CTFs and into real-world professional development. 
+
+    These experiences were essential in the development of skills 
 
 ---
 
-### Calling Conventions
-Calling conventions are standardized ways of passing function parameters, either on the stack or stored in registers. This standardization enables interoperability between machines and compilers. If `Machine A` and `Machine B` used different conventions for passing arguments, they could produce different outputs for the same function.
 
-In a 32-bit system, function arguments are typically pushed onto the stack **from right to left**. For example:
 
-```c
-int equation(int a, int b, int c) {
-  return a + b - c;
-}
+### Binary Exploitation
 
 ```
-The order of arguments pushed onto the stack would be: c $\rightarrow$ b $\rightarrow$ a. If this convention is not followed, the function may behave unexpectedly:
-
+└── Binary Exploitation
+    ├── Buffer Overflow ──── Heap Overflow
+    │   ├── ret2win                 └── use-after-free 
+    |   │       └── gdb
+    │   ├── rop chains 
+    │   │       └── return oriented programming 
+    │   └── ret2libc                └── gadgets
+    │           └── registers
+    ├── Format String Vulnerabilities
+    │   ├── arbitary read
+    │   └── arbitary write
+    │                   └── format specifiers
+    │                              └── specific sizes   
+    ├── Gdb
+    ├── Ghidra
+    └── BinaryNinja
+     
 ```
-equation(1, 2, 3) = 0
-equation(3, 2, 1) = 4
+The main sub-challenge types I encountered in the binary-exploitation class were **buffer overflows** and **format string exploitations**. There was also one challenge which involved a **heap overflow**, exploiting a **use-after-free exploit**.
 
+!!! info Overview of Obstacle
+    In general, binary exploitation exercises required me to implement attacks such as buffer overflows and format string exploitations. 
+
+!!! warning Buffer Overflows
+    1. The primary challenges with **buffer overflows** emerged when basic protections like **NX and canaries** were introduced, requiring a higher level of skill to bypass. Exploiting these vulnerabilities also demanded a solid understanding of **gdb** and how the **stack** functioned. Initially, using gdb was challenging, but it became essential for navigating these attacks.
+
+    2. Another key skill was grasping calling conventions, especially for ret2libc challenges. Sometimes I would spend hours troubleshooting, only to discover that differences between 32-bit and 64-bit calling conventions were causing issues. 
+
+
+    3. For example, ret2libc challenges often involved complex concepts. Occasionally, I struggled to understand why certain steps e.g. like selecting specific gadgets were necessary in online tutorials. Tackling these new concepts often created a web of dependencies, which required focused study and practice to unravel.
+
+    4. Understanding the GOT/PLT was al
+
+!!!! warning Format String Vulnerabilities
+
+    1. Learning format string exploits extended upon the knowledge from buffer overflows. The main challenges associated with format string vulnerabilities was understanding the impact of certain format specifiers. For example using `%p | %p` or `%x | %x` to find the offset was relatively straightforward. However, then using this information to conduct arbitary writes took some time to wrap my head around. 
+
+    NOTE: This is still an area which requires more tinkering. The challenge which I wrote to an address was conducted using pwntools and the payload it produced used alot of different-sized 
+!!! info Fixes :wrench:
+    Using a story made understanding GOT/PLT easier. I made an analogy which is noted in `REPORT.md` about a new retail shop worker (`PLT`), their work directory to find items (`GOT`) and the customer (the binary). 
+
+    Watching online tutorials from peop
+
+    To improve in binary exploitation, I practiced with tools like `GDB` (GNU Debugger) and `pwntools`, which helped me better understand register manipulation and memory management. Visual aids, such as online stack visualization tools, also allowed me to grasp the flow of stack frames and memory layouts. 
+
+    Visualising format string vulnerabilities via drawing out a stack 
+    Reading the documentation provided by `printf(3) man` ([link](https://man7.org/linux/man-pages/man3/printf.3.html)) solidified my understanding. 
+
+
+---
+
+### Web Exploitation
+```
+└── Web Exploitation
+    ├── Web Frameworks
+    │    └── Injection-based attacks
+    │       ├── SQL ── different version syntax
+    |       ├── XSS
+    │       └── CSRF
+    │
+    ├── Web Tokens
+    │   └──JWT
+    │   
+    └── Request Headers
+```
+!!! info Overview of Obstacle
+    Web exploitation presented several challenges, primarily due to my limited knowledge of web development and network fundamentals. It was overwhelming taking in all the data from learning basic `.html` and all the nuances associated with web development. In the end however, it has spurred a new interest in this world which hopefully will be reinforce din COMP6483.
+
+!!! warning Web Frameworks
+    
+    Familiarity with web development frameworks and applications is essential for web exploitation, as is a strong grasp of the skills commonly used in penetration testing. My limited understanding of HTTP request headers, including `GET`, `POST`, `PUT`, and `DELETE`, initially hindered my progress.
+
+    Having a poor understanding of web frameworks and how code interacts between a client and server was a liability in my journey to web exploitation.
+
+!!! warning  Injection-based Attacks
+    SQL injection challenges, in particular, required a deep understanding of syntax. For example, certain tasks included keyword filters, prompting research into alternative SQL commands or obfuscation techniques to bypass these restrictions. 
+    
+    A note worthy challenge was me not noticing that column number mattered and kept querying a database that expected $n$ columns but only providing $k$ column in a search, where $n \neq k$. 
+    
+    XSS injection challenges also required some basic understanding of HTML syntax in order to be effective. 
+
+
+!!! info Fixes :wrench:
+    Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols.
+
+    For SQL injection tasks, I experimented with different types from SQLite to MySQL to understand their syntax differences. 
+
+    Using applications like `Burp Suite` improved my understanding of request/response patterns and helped in identifying and exploiting vulnerabilities.
+
+---
+
+### Cryptography
+```
+└── Cryptography
+    ├── Classical Ciphers
+    │   ├── Caesar Cipher/ROT-13
+    |   ├── Vigenere Cipher
+    │   └── Substitution Cipher
+    │
+    ├── Modern Cryptography
+    │   ├── RSA ── Wieners Attack 
+    │   └── Side channel attacks 
+    └── XOR Ciphers
 ```
 
-### Buffer Overflow
-A buffer overflow occurs when data exceeds the allocated memory buffer size, potentially accessing or overwriting other areas of memory. Unsafe functions like gets can lead to buffer overflows. For example:
-``` c
+!!! info Overview of Obstacle
+    My experience in cryptography provided a helpful foundation for tackling challenges, yet integrating pwntools for payload crafting and optimization still posed a learning curve. 
 
-void unsafe() {
-  int buffer[5];
-  gets(buffer);
-}
+!!! warning Manual Decryption
+    I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. For example more advanced frequency-based attacks using logarithm tables and 'fitness' scores were a non-trivial task to understand. Source:  This exercise helped deepen my understanding of encryption techniques and respect for even classical ciphers.
+
+!!! warning  Side-Channel Attacks
+    The Power Analysis exercise introduced me to the hands-on application of side-channel attacks, where I learned to analyze cryptographic operations by measuring power consumption. This approach required a mix of precision and knowledge about how power variations can reveal sensitive data.
+
+    I vastly underestimated my ability to assimulate the information 
+!!! info Fixes :wrench:
+    Improving my skills in cryptography meant getting more hands-on experience with `pwntools` for payload generation. 
+
+    Building custom decryptors using taught me practical cryptanalysis skills, which I complemented by researching side-channel attacks to better understand physical vulnerabilities in cryptographic systems.
+
+---
+### Forensics 
+```
+└── Forensics
+    ├── File Formats
+    │   ├── Hex Dumps
+    |   ├── Metadata
+    │   └── Endianness
+    │
+    ├── Network Analysis
+    │   ├── Wireshark
+    │   └── Packet Capture Analysis
+    ├── Disk Imaging
+    └── Steganography
 ```
 
-In this case, if a user inputs more than 5 bytes of data, they can access unintended areas of the stack.
+!!! info Overview of Obstacle
+    The main challenge I experienced with digital forensics was just a lack of knowledge within the field of files, network analysis and steganography. Furthermore, it required some 
 
-### Global Offset Table (GOT) and Procedure Linkage Table (PLT)
-The Global Offset Table (GOT) and Procedure Linkage Table (PLT) are tables used in dynamically linked executables to resolve function addresses at runtime. When a function is first called, its address is stored in the GOT via the PLT, so future calls can directly access the function without additional lookups.
+!!! warning File Formats
+    Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved a comprehensive understanding of file signatures, types, and low-level data structures. I worked with Linux command-line tools such as `strings` and `xxd` to extract hidden data and identify file characteristics, which helped build an understanding of file system layouts and common forensic analysis techniques.
+!!! warning Network Analysis
+    The main challenge associated with network analysis was getting a basic understanding of the fundamentals of networks. By extension, grasping the fundamentals of Wireshark. The latter software from face value had a lot fo moving parts and functionality. It at times caused decision paralysis as I did not know the best tool for the job or had suspcions that it had 
 
-- PLT: Acts as an intermediary, initially directing calls to dynamically linked functions to their proper locations by using the GOT.
-- GOT: Stores the resolved addresses of functions, allowing direct access on subsequent calls.
-In binary exploitation, modifying the GOT can enable redirection of function calls, which is helpful in specific types of attacks like ret2libc.
+!!! warning  Disk Imaging
+    Analysing disks and having an understanding of basic data storage lingo such as partitions, volume system and file system types required research. Without this knowledge using tools such as `Sleuthkit` lacked intention and often was just copied from the documentation. 
 
-### ret2win
-In ret2win challenges, the goal is to override the return address (stored in eip on a 32-bit system or rip on a 64-bit system) with the address of a function that prints or contains the flag. These challenges typically involve:
+    Using Autopsy was also a new software I learnt. However with the challenges I did in this CTF is was relatively straightforward to open a case and click around until I found something of interest. Therefore, this can be an area of improvement in terms of developing my intentional use of tools such as Autopsy.
 
-Finding the address of the target function.
-Using input to overflow the stack and overwrite the return address, redirecting it to the target function.
+!!! warning  Steganography
+    My only prior knowledge was LSB Steganography and so it was still a relatively new skill to learn about. It was challenging to be intentional with the use of forensic photo apps such as [this](https://29a.ch/photo-forensics/#forensic-magnifier). I often just turn the dials hoping for the best. 
 
-### ret2libc
-ret2libc attacks aim to execute code in the C standard library (libc) to gain shell access or execute other functions on a remote server. To achieve this, the attacker:
+    Using new libraries such as `steghide` also required some reading of documentation and more research online. 
 
-Leverages the GOT to obtain the libc base address.
-Locates the addresses of system, a command string like /bin/sh, and exit.
-Constructs an input that sets the return address to system, with /bin/sh as the argument.
-This approach allows attackers to bypass the need for shellcode by leveraging already-present code in the binary.
 
-Note there are differences between 32-bit and 64-bit architectures.
-### Format String Vulnerabilities
-A format string vulnerability occurs when user input is improperly passed as the format argument to variadic functions (can take a variable number of parameters) like `printf` or `scanf`. For example, 
+!!! info Fixes :wrench:
+    To build my forensics skills, I spent time learning Linux commands more thoroughly, focusing on tools like `xxd`, `strings`, and `hexdump` to analyze file structures and metadata. 
 
-```c
-char str[] = "Hello world!"
-printf("%s", &str)
+    Learning to use Sleuthkit
+
+
+---
+### Reverse Engineering
 ```
-> The `printf` function expects a single argument.
-
-A vulnerable example is, 
-
-```c
-printf("%p %p %p %p %p %p")
+└── Reverse Engineering
+    ├──────────── Debuggers
+Assembly Language      ├── gdb
+    │                  └── windbg
+    │
+    ├── Disassemblers
+    │   ├── BinaryNinja
+    │   └── Ghidra
+    └── C programming language
 ```
-> The `printf` function expects 5 arguments but receives none from the user. It then reads data from the stack which it may unauthorised to do so.
 
-![alt text](images/image-14.png)
+!!! info Overview of Obstacle
+    The obstacles encountered in reverse engineering were closely tied to those in binary exploitation. However, this was more related to a tool-based understanding. In binary exploitation, challenges often stemmed from a lack of technical knowledge about low-level systems. In most reverse engineering tasks I conducted, however, it was sometimes difficult to interpret the information provided by the tools.
 
-> Photo credits: [here](https://www.youtube.com/watch?v=QOgD3jPHyRY)
+!!! warning Disassemblers
+    Getting a grip of the basics of Ghidra and BinaryNinja, much of the obstacles involved staying mentally switched on with the flow of the programs. These devices had a lot of control over flow and diagram views which at times was confusing. Often with all these tools at my disposal, knowing what to use was down to trial and error.
 
-For example, if the format string is "`%x.%x.%x.%x`", printf will output four consecutive values from the stack in hexadecimal, potentially exposing critical data such as memory addresses, return pointers, or hidden values. i.e. conduct arbitary reads
+!!! warning Debuggers
+    Learning how to use `gdb` was a fundamental skill to obtain.
+    I spent considerable time experimenting with different debugging techniques, using breakpoints and stepping through code to monitor how variables and memory addresses changed. This challenge stemmed over into binary exploitation, however in this case
 
-Additionally, format strings like "`%n$x`" allow an attacker to specify which stack argument to read, providing more control over what is accessed.
+!!! warning Assembly Language 
+    Since I had limited experience with assembly language and machine code, interpreting disassembly output required me to understand each instruction’s purpose and how it affected the program’s flow. I had to recognize common patterns, such as loops, conditional branches, and function calls, and learn to navigate register manipulation, memory addressing, and the stack layout. Additionally, understanding the differences between architectures (e.g., x86 vs. x64) was essential, as each has unique conventions and instruction sets.
 
-One of the most dangerous format specifiers is `%n`, which causes `printf` to write the number of characters printed so far into a memory address specified by the attacker. This can be exploited to overwrite sensitive areas in memory - i.e. conduct arbitary writes.
+!!! warning C Programming Language 
+    Gaining depth in the C language was essential, as many low-level operations rely heavily on C for interacting closely with system resources. I worked on strengthening my understanding of pointers, memory management, and data structures like linked lists and binary trees. Knowing how C translates to assembly also helped me connect high-level code to low-level execution, which was crucial for debugging and for recognizing vulnerabilities like buffer overflows or format string exploits.
 
-For example, suppose we want to override a variable on the stack. We can write to this address with a new value we want.
 
-Example payload 1:
-Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
-> `%3$llnaaH\xa0\x04\x08`
+!!! info Fixes :wrench:
+    For reverse engineering, I used disassemblers like `Ghidra` and debuggers such as `Gdb` to develop a structured approach to understanding disassembly. Working withassembly code snippets allowed me to understand common instruction sets and patterns. This further assisted in the obstacles in the binary exploitation problem sets.
 
-Example payload 2:
-Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 10 $\rightarrow$ 0x0804a04c
->`%5c%6$lln%5c%7$hhnaaH\xa0\x04\x08L\xa0\x04\x08`
+    Regular practice with `gdb` step-through debugging helped me better interpret function calls and memory allocations in unfamiliar binary files, ultimately boosting my confidence with low-level code.
 
-Example payload 3:
-Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
->`%5c%4$llnaaaH\xa0\x04\x0`
+---
 
-Example payload 4:
-Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 5 $\rightarrow$ 0x0804a04c
->`%5$lln%5c%6$hhnaH\xa0\x04\x08L\xa0\x04\x08`
+### Other Challenges
+!!! warning Communication and Logistics 
+    Other issues were logistical but still impacted my workflow. I frequently encountered PATH issues and package errors that required considerable time and patience to resolve. Often, I turned to Stack Overflow or community forums for troubleshooting. In some cases, the solutions required manual adjustments to environment settings or reconfiguration of dependencies to ensure all tools worked smoothly.
 
-NOTE: `L` $\rightarrow$ `\x4c` and `H` $\rightarrow$ `\x48`
+    Another challenge was effectively conveying new concepts in text. This tested my ability not only to understand the knowledge deeply but also to communicate it clearly.
 
-TODO: Insert more information about broader topics
-### Binary Exploitation Write-Ups
-- [Basic File Exploit](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/basic_file_exploit/basic_file_exploit.md)
-- [Buffer Overflow 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/buffer_overflow_2/buffer_overflow_2.md)
-- [Fmt Str 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/fmt_str_2/fmt_str_2.md)
-- [Heap 1](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_1/heap_1.md)
-- [Heap 2](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_2/heap_2.md)
-- [Heap 3](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/heap_3/heap_3.md)
-- [VNE](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/vne/vne.md)
-- [Here is Libc](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/here_is_libc/here_is_libc.md)
-- [Ropfu](https://github.com/kaliypsocraft/something-awesome/blob/main/bin_exploit/ropfu/ropfu.md)
+### Meta-Challenges
 
-## Conclusion
+!!! warning Formatting of Markdown
+    Learning basic Markdown formatting turned out to be a useful skill to keep in my toolkit, as documentation is often written in Markdown. Converting files from `.md` $\rightarrow$ `.html` $\rightarrow$ `.pdf` proved to be a non-trivial task. The preview mode was in dark mode, which was more visually appealing, but upon switching to browser mode, it reverted to light mode. Additionally, exporting as a `.pdf` often cut off the page borders, which required reformatting.
 
-## References
+    Another issue I noticed was differences in formatting between Github's preview and my text editor's preview of Markdown. For example, on the `.pdf`
+
+
+## Diary Reflection
+ 
+
+!!! note Intention
+    The diary serves as a logbook for weekly evaluations to enhance productivity and maintain purpose. Reflecting on myself is a vital part of professional development, and this diary forms an integral part of that process.
+
+    The intention behind keeping the diary is to be mindful and maximize intent with all daily activities. It also provides a high-level overview of consistent weaknesses while helping to identify some strengths too. :)
+
+!!! info Week 1
+    ### What I did?
+    - Week 1 was just getting the cogs moving and selecting between projects. At this stage, I was debating between a cryptography research project or a CTF write-up.
+
+    ### What I need to improve?
+    - Reduce screen time
+    - Be swift and decisive with choosing a project
+
+    ### How to fix errors?
+    - Be mindful and deliberate with the selection of tasks and projects.
+!!! note Week 2
+    ### What I did?
+    - Solving SQL Injections and Buffer Overflows (being hands-on)
+    - These tasks further assisted me on my CTF write-ups/tutorial project.
+    - They exposed me to more CTF-related challenges and gave me some insight into the thinking patterns required for CTFs and the psychology behind them.
+
+    ### What I need to improve?
+    - Develop a deeper understanding of SQL injection techniques and their real-world applications.
+    - Practice more buffer overflow exercises to improve my confidence in exploiting this vulnerability.
+
+    ### How to fix errors?
+    - Use online platforms like Hack The Box and TryHackMe to practice SQL injections and buffer overflow challenges.
+    - Set weekly goals for specific vulnerabilities to focus on, ensuring steady progress.
+
+!!! tip Week 3
+    ### What I did?
+    - Conducted Wargames specifically on XSS Injection-related tasks.
+    - Continued my Something Awesome Project - made a website via Canva.
+    - Finished 12 CTF challenges related to SAP.
+    - Attended B-Sides!
+    - There was a talk on exploitation of AI models and modern cryptographic attacks which intrigued me.
+    - Developed a better understanding of different types of XSS attacks in class - namely reflected and stored.
+
+    ### What I need to improve?
+    - Strengthen my knowledge of different types of web vulnerabilities beyond XSS.
+    - Enhance my ability to articulate findings and strategies in my write-ups for better clarity.
+
+    ### How to fix errors?
+    - Dedicate time to researching and practicing additional web vulnerabilities, such as CSRF and RCE.
+    - Seek feedback on my write-ups from peers or mentors to improve my communication skills and technical accuracy.
+
+!!! info Week 4
+    ### What I did?
+    - Completed advanced web exploitation challenges, particularly focusing on session management vulnerabilities.
+    - Began learning about heap exploitation techniques, which will add depth to my Something Awesome Project.
+    - Drafted additional CTF write-ups for the ongoing project, covering techniques like Cross-Site Scripting (XSS) and SQL Injection.
+
+    ### What I need to improve?
+    - Refine my understanding of heap exploitation, as some concepts are still unclear.
+    - Improve time management between different tasks (CTF challenges, research, and project write-ups).
+
+    ### How to fix errors?
+    - Set aside focused study sessions specifically for heap exploitation concepts, using resources like wargames or tutorials.
+    - Create a more structured daily schedule to balance CTF challenges, project progress, and personal research.
+
+!!! note Week 5
+    ### What I did?
+    - This week conducted format strings practice on picoCTF as that is what we learnt in the Thursday Extended lecture
+    - Conducted post-quantum cryptography research specifically post-quantum digital signatures
+    ### What I need to improve?
+    - Once again phone has stolen my attention at times.
+    - Rushing into a problem rather than taking the time to slow down and think.
+    - Hitting dead ends in problems and feeling demoralised.
+    ### How to fix errors?
+    - Set aside time to be cognizant of *how to* solve a problem rather than diving straight in.
+    - Be mindful and intentional in everything I do and be methodical in my thinking
+!!! tip Week 6
+    ### What I did?
+    - During flexibility week I conducted further studies into mainly binary exploitation as that area is what I am most interested in. 
+    - We recently learnt about format string vulnerabiltiies in class and applying them to `picoCTF` problems was very fulfilling.
+
+    ### What I need to improve?
+    - Spending more time on challenges which I may not enjoy as much such as forensics and 
+    ### How to fix errors?
+    - Given a deadline of approximately 14 days. I need to conduct approximately 8-10 exercises a day. Since there is five challenge types, it would be wise
+    to conduct one-two exercises per challenge-type a day.
+    - The end-state of this is that I will be finished within a week. This will enable me another week to edit and flesh out the responses. I will give myself 30 minutes per challenge. Therefore at the very least it will be 3 - 5 hours of work per day.
+    - Break this up into 2-3 deep work blocks. 
+
+!!! info Week 7
+    ### What I did?
+    - I made the decision not to follow through with the website. The reason being was due to time constraints
+    - I had to remove some CTF challenges which did not offer as much impact for my learning. For example for forensics and cryptography there were multiple challenges that repeated skills in Sleuthkit and RSA respectively. Hence I removed them to save on time.
+    ### What I need to improve?
+    - Keeping on schedule with tasks, as I often go down a research rabbit-hole with a single problem. If the context of my mission was just a singluar topic area this would have been okay but since the CTF encompasses multiple facets it was unideal.
+    ### How to fix errors?
+    - Keep in mind the bigger picture and always have perspective on what I need to learn next.
+
+!!! note Week 8
+    ### What I did?
+    - Final five hour plan
+    **Hour 1**: Edit and check for formating issues within `SAP_REPORT.md`
+    **Hour 2**: Edit `REPORT.md` and ensure formatting of `SAP_REPORT.[html|pdf]` is pretty
+    **Hour 3**: Go through write-ups and ensure formating and wording is rectified
+    **Hour 4 - 4.5**: Finalise references, culminated from write-ups
+    **Hour 4.5**: Upload and be proud of personal achievement
+    ### What I need to improve?
+    - In future, perhaps use a better medium in order to show the content. The `.html` output online was not ideal
+    ### How to fix errors?
+    - Just put my head down and send it for the final few days
+    - Continue to reflect on ways to better security engineer and in general a better problem solver.
+## Overall Growth
+!!! note Reflecting
+    This section summarizes the overall personal growth provided by this project. It encapsulates all the challenges experienced through the weekly diary to present the final output. The task developed a "jack of all trades, master of none" attitude; I could not double down and focus on a single concept. 
+    
+    The experience of learning various topics and then communicating that information in a form intended for teaching others was a good experience. 
+    
+    The rationale in not following through with the website as 
+
+    To sum up, this project was relatively challenging, mainly due to the wide range of skills I was required to learn. Balancing the development of new skills with other tasks during the academic term was an intellectually stimulating and fulfilling experience.
+
+    I thank the staff and other students for making this course so enjoyable! :)
+!!! info Future Improvements
+     1. Upon further reflection, spending more time converting the `.html` file into a deployed website could have made the experience easier for the viewer. 
+     
+     2. Spending more consistent time on the broader picture rather than jumping into rabbit holes of detail may have assisted in my learning. At times jumping into the details without the required prequisite 'bigger' picture did not allow me to make the links which are essential in learning.
+    
+### References
+#### Binary Exploitation
+Security Stack Exchange. (2016). Why must a ret2libc attack follow the order system; exit; command? Available at: https://security.stackexchange.com/questions/136647/why-must-a-ret2libc-attack-follow-the-order-system-exit-command/136659#136659 (Accessed: 3 November 2024).
+
+Long Le. (2016). PEDA - Python Exploit Development Assistance for GDB. Available at: https://github.com/longld/peda (Accessed: 3 November 2024).
+
+HackTricks. (2024). ROP (Return-Oriented Programming) - Binary Exploitation. Available at: https://book.hacktricks.xyz/binary-exploitation/rop-return-oriented-programing (Accessed: 3 November 2024).
+
+CS6265 Course, Georgia Tech. (2024). Advanced ROP Tutorial. Available at: https://tc.gts3.org/cs6265/tut/tut06-02-advrop.html (Accessed: 3 November 2024).
+
+Chester Rebeiro, Indian Institute of Technology Madras. (2024). Buffer Overflows. Available at: https://www.cse.iitm.ac.in/~chester/courses/17o_sse/slides/3_BufOverflows.pdf (Accessed: 3 November 2024).
+
+Total Phase, Inc. (2023). What is a Register in a CPU and How Does It Work? Available at: https://www.totalphase.com/blog/2023/05/what-is-register-in-cpu-how-does-it-work/ (Accessed: 3 November 2024).
+
+- https://www.automox.com/blog/vulnerability-definition-use-after-free
+- https://cwe.mitre.org/data/definitions/416.html
+- https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free
+- [Recent example of Firefox case study](#https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html)
+#### Cryptography
+- https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
+- 
+- 
+- 
+-
+- 
+#### Forensics
+- 
+- 
+- 
+- 
+-
+- 
+#### Web Exploitation
+- 
+- 
+- 
+- 
+-
+- 
+#### Other 
+- [How the best hackers learn their craft](https://www.youtube.com/watch?v=6vj96QetfTg)
+- [How processor clocks work](https://www.youtube.com/watch?v=PVNAPWUxZ0g)
+- 
+- 
+-
+- 

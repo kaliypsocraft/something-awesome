@@ -26,14 +26,13 @@ Next, I ran `xxd <file_name>` to obtain a [[hex dump]] of the file. Within the f
 The first 4 bytes denoted by `0xe0ffd8ff` appeared to represent the file signature of a JPEG in reverse order, indicating a wrong endian format. To address this issue, I wrote a script that converted the file from little-endian to big-endian.
 
 After running this script, I obtained an output file that contained the flag.
-
-
 ### Final Solution/Payload
+
+NOTE: This script was courtesy of Youtuber [Martin Carlisie](https://www.youtube.com/@carlislemc)
 ``` py
 import struct
 
-NOTE: This script was courtesy of ChatGPT
-def convert_endian(input_file: str, output_file: str, word_size: int = 4):
+def flip_endian(input_file: str, output_file: str, word_size: int = 4):
     with open(input_file, 'rb') as infile, open(output_file, 'wb') as outfile:
         while chunk := infile.read(word_size):
             if len(chunk) < word_size:
@@ -51,7 +50,8 @@ if __name__ == '__main__':
 
 ### Lessons Learnt
 - **What are file signatures**
+They are usually found in the first 2-4 bytes of a file and identify the format of the file. For example whether it is a `.jpg` or `.bmp` file. They can usually be found via `xxd <filename> | tail`. It can be useful information if there is no vision extension on a file.
 
 ## References
-- Link to any external resources, write-ups, or documentation that were helpful in solving the challenge.
+- https://en.wikipedia.org/wiki/List_of_file_signatures
 

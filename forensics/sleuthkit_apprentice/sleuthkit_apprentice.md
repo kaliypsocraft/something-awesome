@@ -52,14 +52,5 @@ Opening up the file in Autopsy and conducting a `File search by attribute` and s
 > Alternate Solution via Autopsy
 ![alt text](images/image-4.png)
 
-### Lessons Learnt
-- **What is a volume system?**
 
-- **What commands did I learn in Sleuthkit?**
-
-`mmls <disk.img>` 
-- **What is inode?**
-
-## References
-- TODO: Ensure these go into the `SUBMISSION_REPORT.md`
 

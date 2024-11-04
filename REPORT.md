@@ -58,7 +58,7 @@ On the Github, `ANALYSIS.md` provides write-ups of picoCTF. PicoCTF is a Jeopard
 !!! note `cat ANALYSIS.md`
      It includes **five main-subsections** corresponding to **each CTF challenge-type**. Within each challenge-type there are two components. A **theoretical component** which is a compilation of my background **research** on the topics and a **practical component** which are represented by the write-ups. The write-ups contains much of the **analysis**, findings and **personal reflections** along the way. The write-ups are represented by a hyper-link to a particular challenge with approximately 5-10 write-ups per challenge-type. Below are some examples:
 
-![alt text](report_images/image-1.png)
+![alt text](image.png)
 > Example of theoretical component 
 
 ![alt text](report_images/image-3.png)
@@ -106,9 +106,7 @@ On the Github, `ANALYSIS.md` provides write-ups of picoCTF. PicoCTF is a Jeopard
 !!! warning Where To Start?
     Most challenges whereby I had limited-no experience required atleast an hour of background reading and researching in order to tackle them. The following sub-sections dictates the specific challenges experienced within each challenge-type.
 
-    Often-times in medium-hard problems  I would be led down a rabbit-hole thinking it would solve the problem. However, it often would lead to deadends and further discourage the candidate. For example, spending an hour researching a topic and attempting to apply it to no avail. This obstacles span beyond CTFs and into real-world professional development. 
-
-    These experiences were essential in the development of skills 
+    Often-times in medium-hard problems  I would be led down a rabbit-hole thinking it would solve the problem. However, it often would lead to deadends and further discourage the candidate. For example, spending an hour researching a topic and attempting to apply it to no avail. These obstacles span beyond CTFs and into real-world professional development - managing multiple tasks. 
 
 ---
 
@@ -152,7 +150,7 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 
 !!!! warning Format String Vulnerabilities
 
-    1. Learning format string exploits extended upon the knowledge from buffer overflows. The main challenges associated with format string vulnerabilities was understanding the impact of certain format specifiers. For example using `%p | %p` or `%x | %x` to find the offset was relatively straightforward. However, then using this information to conduct arbitary writes took some time to wrap my head around. 
+    1. Learning format string exploits extended upon the knowledge from buffer overflows. The main challenges associated with format string vulnerabilities was understanding the impact of certain format specifiers. For example using `%p | %p` or `%x | %x` to find the offset was relatively straightforward. However, then using this information to conduct arbitary writes took some time to wrap my head around especially when using specific sizes such as `%hhn` to write a single byte e.t.c.
 
     NOTE: This is still an area which requires more tinkering. The challenge which I wrote to an address was conducted using pwntools and the payload it produced used alot of different-sized 
 !!! info Fixes :wrench:
@@ -183,27 +181,25 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     └── Request Headers
 ```
 !!! info Overview of Obstacle
-    Web exploitation presented several challenges, primarily due to my limited knowledge of web development and network fundamentals. It was overwhelming taking in all the data from learning basic `.html` and all the nuances associated with web development. In the end however, it has spurred a new interest in this world which hopefully will be reinforce din COMP6483.
+    Web exploitation presented several challenges, primarily due to my limited knowledge of web development and network fundamentals. Learning basic HTML and the various nuances associated with web development was overwhelming. However, this experience has sparked a new interest in this field, which I hope to reinforce in COMP6483.
 
 !!! warning Web Frameworks
     
-    Familiarity with web development frameworks and applications is essential for web exploitation, as is a strong grasp of the skills commonly used in penetration testing. My limited understanding of HTTP request headers, including `GET`, `POST`, `PUT`, and `DELETE`, initially hindered my progress.
+    Familiarity with web development frameworks and applications is essential for web exploitation, as is a strong grasp of the skills commonly used in penetration testing. My limited understanding of HTTP request headers, including GET, POST, PUT, and DELETE, initially hindered my progress.
 
-    Having a poor understanding of web frameworks and how code interacts between a client and server was a liability in my overall understanding of web exploits.
+    Furthermore, my inadequate understanding of web frameworks and how code interacts between a client and server impacted my comprehension of web exploits.
 
 !!! warning  Injection-based Attacks
-    SQL injection challenges, in particular, required a deep understanding of syntax. For example, certain tasks included keyword filters, prompting research into alternative SQL commands or obfuscation techniques to bypass these restrictions. XSS injection challenges also required some basic understanding of HTML syntax in order to be effective. 
+    SQL injection challenges, in particular, required at the very least an elementary understanding of syntax. However, when keywords were filtered this prompted research into alternative SQL commands or obfuscation techniques to bypass these restrictions. XSS injection challenges also required some basic understanding of HTML syntax in order to be effective. 
     
     A note worthy challenge was me not noticing that column number mattered and kept querying a database that expected $n$ columns but only providing $k$ column in a search, where $n \neq k$. 
     
 
 
 !!! info Fixes :wrench:
-    Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols. Taking a front-end course and/or data-base course can enhance ones ability to exploit potential web vulnerabilites.
+    Addressing challenges in web exploitation required learning web fundamentals, so I worked through beginner courses in SQL, HTML, and network protocols. For example, [this](https://www.youtube.com/watch?v=S2mQBXcW3P0&list=PL1H1sBF1VAKX9Mz0UVU2eR7EdGmtb5XJK) playlist assited in this leanring. Taking a front-end course and/or data-base course can enhance ones ability to exploit potential web vulnerabilites.
 
-    For SQL injection tasks, I experimented with different types from SQLite to MySQL to understand their syntax differences. 
-
-    Using applications like `Burp Suite` improved my understanding of request/response headers. Further readings into how this works is required to become a competent web-exploitation
+    Using applications like `Burp Suite` improved my understanding of request/response headers. Further readings into how this works is required to become a competent web-exploitation. In the future, enrolling in COMP6843 and maybe even a front-end course will further enhance my understanding.
 
 ---
 
@@ -225,14 +221,14 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     My experience in cryptography provided a helpful foundation for tackling challenges. However, I was still stumped by the power analysis challenges. They were the first time I was introduced to practically implementing a side-channel attack and I struggled.
 
 !!! warning Manual Decryption
-    I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. For example more advanced frequency-based attacks using logarithm tables and 'fitness' scores were a non-trivial task to understand. Source: [] 
+    I also challenged myself to manually develop decryptors for classical ciphers like Vigenère and substitution ciphers, avoiding automated tools. For example more advanced frequency-based attacks using logarithm tables and 'fitness' scores were a non-trivial task to understand. Source: [here](https://stackoverflow.com/questions/36620231/understanding-fitness-function) 
     
     This exercise helped deepen my understanding of encryption techniques and respect for even classical ciphers. However, my implementation of a Vigenere cipher did not seem to work very well.
 
 !!! warning  Side-Channel Attacks
     The Power Analysis exercise introduced me to the hands-on application of side-channel attacks, where I learned to analyze cryptographic operations by measuring power consumption. This approach required a mix of precision and knowledge about how power variations can reveal sensitive data.
 
-    I vastly underestimated my ability to assimulate the information leaving it witin the last two days of the due date. However, I came across an ethical dilemma as I did 
+    I vastly underestimated my ability to assimulate the information leaving it witin the last two days of the due date. However, I came across an ethical dilemma as I could not complete a task. Namely the power analysis task due to me being completely lost.
 !!! info Fixes :wrench:
     Writing down the mathematics, especially with the RSA related questions assisted in obtaining the answer. It can be hard to simply use the bandwidth of the mind 
 
@@ -257,10 +253,11 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 ```
 
 !!! info Overview of Obstacle
-    The main challenge I experienced with digital forensics was just a lack of knowledge within the field of files, network analysis and steganography. Furthermore, it required some 
+    The main challenge I experienced with digital forensics was just a lack of knowledge within the field of files, network analysis and steganography. Furthermore, it required some basic elementary understanding of the tools of the trade such as Autopsy and Sleuthkit.
 
 !!! warning File Formats
-    Forensics required research into file formats, forensic tools, and interpreting hex dumps. This involved an understanding of file signatures and formats. I worked with Linux command-line tools such as `strings` and `xxd` to extract  metadata and identify file characteristics, which assisted build an understanding of file system layouts and common forensic analysis techniques.
+    Forensics required research into file formats and interpreting hex dumps. This involved an understanding of file signatures and formats. I had to learn Linux command-line tools such as `strings` and `xxd` to extract  metadata which assisted build an understanding of file system layouts.
+
 !!! warning Network Analysis
     The main challenge associated with network analysis was getting a basic understanding of the fundamentals of networks. By extension, grasping the fundamentals of Wireshark. The latter software from face value had a lot fo moving parts and functionality. It at times caused decision paralysis as I did not know the best tool for the job or had suspcions that it had 
 
@@ -270,7 +267,7 @@ The main sub-challenge types I encountered in the binary-exploitation class were
     Using Autopsy was also a new software I learnt. However with the challenges I did in this CTF is was relatively straightforward to open a case and click around until I found something of interest. Therefore, this can be an area of improvement in terms of developing my intentional use of tools such as Autopsy.
 
 !!! warning  Steganography
-    My only prior knowledge was LSB Steganography and so it was still a relatively new skill to learn about. It was challenging to be intentional with the use of forensic photo apps such as [this](https://29a.ch/photo-forensics/#forensic-magnifier). I often just turn the dials hoping for the best. 
+    My only prior knowledge was LSB Steganography and so it was still a relatively new skill to learn about. It was challenging to be intentional with the use of forensic photo apps such as [this](https://29a.ch/photo-forensics/#forensic-magnifier). I often just turn the dials on 'exposure' and 'noise' hoping for the best. 
 
     Using new libraries such as `steghide` also required some reading of documentation and more research online. 
 
@@ -278,7 +275,7 @@ The main sub-challenge types I encountered in the binary-exploitation class were
 !!! info Fixes :wrench:
     To build my forensics skills, I spent time learning Linux commands more thoroughly, focusing on tools like `xxd`, `strings`, and `hexdump` to analyze file structures and metadata. 
 
-    Learning to become better at forensics was quite simple. It just involved reading the documentation in relation to disk images, steganography and the tools associated with them such as Autopsy and Sleuthkit. I found this section to be less technically intensive compared to other challenges and invovled more theortical knwoeldge.
+    Learning to become better at forensics was quite simple. It just involved reading the documentation in relation to disk images, steganography and the tools associated with them such as Autopsy and Sleuthkit. I found this section to be less technically intensive compared to other challenges and invovled more theortical knowledge.
 
 
 ---
@@ -299,28 +296,24 @@ Assembly Language      ├── gdb
     The obstacles encountered in reverse engineering were closely tied to those in binary exploitation. However, this was more related to a tool-based understanding. In binary exploitation, challenges often stemmed from a lack of technical knowledge about low-level systems. In most reverse engineering tasks I conducted, however, it was sometimes difficult to interpret the information provided by the tools.
 
 !!! warning Disassemblers
-    Getting a grip of the basics of Ghidra and BinaryNinja, much of the obstacles involved staying mentally switched on with the flow of the programs. These devices had a lot of control over flow and diagram views which at times was confusing. Often with all these tools at my disposal, knowing what to use was down to trial and error.
+    Getting a grip of the basics of Ghidra and BinaryNinja was hard; much of the obstacles involved staying mentally switched on with the flow of the programs. This was similar to the dilemma I had with Wireshark. With great power came alot of responsbility and I had no idea how to intepret much of the data. These devices had a lot of control over flow and diagram views which at times was confusing. Often with all these tools at my disposal, knowing what to use was down to trial and error.
 
 !!! warning Debuggers
-    Learning how to use `gdb` was a fundamental skill to obtain.
-    I spent considerable time experimenting with different debugging techniques and using breakpoints. Being tactical and intentional with breakpoints and stepping through a program is a skill I need to develop more of. This liekly comes down to experience and being mentally switched on to the flow of a program. This challenge stemmed over into binary exploitation, however in this case I found myself using the `ni` (next instruction) and `s` (step) commands more comapred to the binarye xplotaiton.
+    Learning how to use `gdb` was a fundamental skill to acquire. I spent considerable time experimenting with different debugging techniques and utilizing breakpoints. Developing a tactical and intentional approach to using breakpoints and stepping through a program is a skill I need to enhance further. This challenge likely comes down to experience and being mentally engaged with the flow of a program. This difficulty extended into binary exploitation; however, in this context, I found myself using the `ni` (next instruction) and `s` (step) commands more frequently compared to web exploitation.
 
 !!! warning Assembly Language 
     Since I had limited experience with assembly language apart from `MIPS`, interpreting assembly code required me to understand each instruction’s purpose and how it affected the program’s flow. This linked closely with my understanding of calling conventiosn as usually with assembly I would try to see times when arugmens were pushed onto the stack or when the stack pointer would move value.
     
-    Additionally, understanding the differences between architectures (e.g., x86 vs. x64) was essential, as each has unique conventions and instruction sets.
+    Additionally, understanding the differences between architectures (e.g., x86 vs. x64) was essential, as each has their own calling conventions and instruction sets.
 
-!!! warning C Programming Language 
-    Gaining depth in the C language was essential, as many low-level operations rely heavily on C for interacting closely with system resources. I worked on strengthening my understanding of pointers, memory management, and data structures like linked lists. The latter was important as in `gdb` there were moments where the heap allocated memory seemed to make a linked list for some reason? Perhaps this is knowledge which can be improved upon taking an operating systems course.
-    
 
 
 !!! info Fixes :wrench:
-    For reverse engineering, I used disassemblers like `Ghidra` and debuggers such as `Gdb` to develop a structured approach to understanding disassembly. Working withassembly code snippets allowed me to understand common instruction sets and patterns. This further assisted in the obstacles in the binary exploitation problem sets.
+    For reverse engineering, I used disassemblers like `Binary Ninja` and debuggers such as `Gdb` to develop a structured approach to understanding disassembly. More practice with the tools makes the most out of their abilties.
 
     Regular practice with `gdb` step-through debugging helped me better interpret function calls and memory allocations in unfamiliar binary files, ultimately boosting my confidence with low-level code.
 
-    The low-level challenges were fixed using the techniques from binary exploitation. There was an intersection between the skills developed in both challenge types. For example, knowing how function arguments and the stack operated gave me a deeper udnersandign of the flow of a program.
+    The low-level challenges were also fixed using the techniques from binary exploitation. There was an intersection between the skills developed in both challenge types. For example, knowing how function arguments and the stack operated gave me a deeper udnersandign of the flow of a program.
 ---
 
 ### Other Challenges
@@ -454,7 +447,7 @@ Assembly Language      ├── gdb
 
     The experience of learning various topics and then communicating that information in a format intended for teaching others was enriching.
 
-    The rationale for not pursuing the website as displayed in the initial plan was due to balancing time constraints with the overall mission. I felt that using a website as a medium would require unnecessary administrative time and add minimal value to my learning or the conveyance of the information. Therefore, I opted to use a simple Markdown format instead.
+    The rationale for not pursuing the website as displayed in the initial plan was due to balancing time constraints with the overall mission. I felt that using a website as a medium would require unnecessary administrative time and add minimal value to my learning. Therefore, I opted to use a simple Markdown format instead. However the conveyance of the information may have been more appealing to viewers and easier to navigate. 
 
     In summary, this project was relatively challenging, mainly because of the wide range of skills I was required to learn. Balancing the development of new skills with other tasks during the academic term was an intellectually stimulating and fulfilling experience.
 
@@ -467,48 +460,40 @@ Assembly Language      ├── gdb
      2. Spending more consistent time on the broader picture rather than jumping into rabbit holes of detail may have assisted in my learning. At times jumping into the details without the required prequisite 'bigger' picture did not allow me to make the links which are essential in learning.
     
 ### References
-#### Binary Exploitation
-Security Stack Exchange. (2016). Why must a ret2libc attack follow the order system; exit; command? Available at: https://security.stackexchange.com/questions/136647/why-must-a-ret2libc-attack-follow-the-order-system-exit-command/136659#136659 (Accessed: 3 November 2024).
 
-Long Le. (2016). PEDA - Python Exploit Development Assistance for GDB. Available at: https://github.com/longld/peda (Accessed: 3 November 2024).
+- Security Stack Exchange. (2016). Why must a ret2libc attack follow the order system; exit; command? Available at: https://security.stackexchange.com/questions/136647/why-must-a-ret2libc-attack-follow-the-order-system-exit-command/136659#136659 (Accessed: 3 November 2024).
 
-HackTricks. (2024). ROP (Return-Oriented Programming) - Binary Exploitation. Available at: https://book.hacktricks.xyz/binary-exploitation/rop-return-oriented-programing (Accessed: 3 November 2024).
+- Long Le. (2016). PEDA - Python Exploit Development Assistance for GDB. Available at: https://github.com/longld/peda (Accessed: 3 November 2024).
 
-CS6265 Course, Georgia Tech. (2024). Advanced ROP Tutorial. Available at: https://tc.gts3.org/cs6265/tut/tut06-02-advrop.html (Accessed: 3 November 2024).
+- HackTricks. (2024). ROP (Return-Oriented Programming) - Binary Exploitation. Available at: https://book.hacktricks.xyz/binary-exploitation/rop-return-oriented-programing (Accessed: 3 November 2024).
 
-Chester Rebeiro, Indian Institute of Technology Madras. (2024). Buffer Overflows. Available at: https://www.cse.iitm.ac.in/~chester/courses/17o_sse/slides/3_BufOverflows.pdf (Accessed: 3 November 2024).
+- CS6265 Course, Georgia Tech. (2024). Advanced ROP Tutorial. Available at: https://tc.gts3.org/cs6265/tut/tut06-02-advrop.html (Accessed: 3 November 2024).
 
-Total Phase, Inc. (2023). What is a Register in a CPU and How Does It Work? Available at: https://www.totalphase.com/blog/2023/05/what-is-register-in-cpu-how-does-it-work/ (Accessed: 3 November 2024).
+- Chester Rebeiro, Indian Institute of Technology Madras. (2024). Buffer Overflows. Available at: https://www.cse.iitm.ac.in/~chester/courses/17o_sse/slides/3_BufOverflows.pdf (Accessed: 3 November 2024).
 
-- https://www.automox.com/blog/vulnerability-definition-use-after-free
-- https://cwe.mitre.org/data/definitions/416.html
-- https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free
-- [Recent example of Firefox case study](#https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html)
-#### Cryptography
-- https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
-- 
-- 
-- 
--
-- 
-#### Forensics
-- 
-- 
-- 
-- 
--
-- 
-#### Web Exploitation
-- 
-- 
-- 
-- 
--
-- 
+- Total Phase, Inc. (2023). What is a Register in a CPU and How Does It Work? Available at: https://www.totalphase.com/blog/2023/05/what-is-register-in-cpu-how-does-it-work/ (Accessed: 3 November 2024).
+
+- Automox (n.d.). Vulnerability Definition: Use After Free. Available at: [https://www.automox.com/blog/vulnerability-definition-use-after-free](https://www.automox.com/blog/vulnerability-definition-use-after-free) (Accessed: 3 November 2024).
+- CWE (n.d.). Use After Free. Available at: [https://cwe.mitre.org/data/definitions/416.html](https://cwe.mitre.org/data/definitions/416.html) (Accessed: 3 November 2024).
+- CTF Recipes (n.d.). Heap Exploitation: Use After Free. Available at: [https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free](https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free) (Accessed: 3 November 2024).
+- The Hacker News (2024). Mozilla Warns of Active Exploitation. Available at: [https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html](https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html) (Accessed: 3 November 2024).
+- NIST (2023). FIPS 197 - Advanced Encryption Standard (AES). Available at: [https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf) (Accessed: 3 November 2024).
+- Stanford University (n.d.). A Survey of RSA Cryptography. Available at: [https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf](https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf) (Accessed: 3 November 2024).
+- Varonis (n.d.). How to Use Ghidra. Available at: [https://www.varonis.com/blog/how-to-use-ghidra](https://www.varonis.com/blog/how-to-use-ghidra) (Accessed: 3 November 2024).
+- Real Python (n.d.). Python eval Function. Available at: [https://realpython.com/python-eval-function/](https://realpython.com/python-eval-function/) (Accessed: 3 November 2024).
+- Binary Ninja (n.d.). Available at: [https://binary.ninja/](https://binary.ninja/) (Accessed: 3 November 2024).
+- Autopsy (n.d.). Digital Forensics. Available at: [https://www.autopsy.com/](https://www.autopsy.com/) (Accessed: 3 November 2024).
+- Coastal White (n.d.). Modeling AES with Power Analysis. Available at: [https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html](https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html) (Accessed: 3 November 2024).
+- The Sleuth Kit (n.d.). Available at: [https://www.sleuthkit.org/sleuthkit/docs.php](https://www.sleuthkit.org/sleuthkit/docs.php) (Accessed: 3 November 2024).
+- Cryptii (n.d.). Vigenère Cipher. Available at: [https://cryptii.com/pipes/vigenere-cipher](https://cryptii.com/pipes/vigenere-cipher) (Accessed: 3 November 2024).
+- GitHub (n.d.). PayloadsAllTheThings: SQL Injection - SQLite Injection. Available at: [https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md) (Accessed: 3 November 2024).
+- CTF 101 (n.d.). Web Exploitation Overview. Available at: [https://ctf101.org/web-exploitation/overview/](https://ctf101.org/web-exploitation/overview/) (Accessed: 3 November 2024).
+- W3Schools (n.d.). SQL Injection. Available at: [https://www.w3schools.com/sql/sql_injection.asp](https://www.w3schools.com/sql/sql_injection.asp) (Accessed: 3 November 2024).
+- OWASP (n.d.). Cross-Site Scripting (XSS). Available at: [https://owasp.org/www-community/attacks/xss/](https://owasp.org/www-community/attacks/xss/) (Accessed: 3 November 2024).
+
+
 #### Other 
+- [Recent example of Firefox case study](#https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html)
 - [How the best hackers learn their craft](https://www.youtube.com/watch?v=6vj96QetfTg)
 - [How processor clocks work](https://www.youtube.com/watch?v=PVNAPWUxZ0g)
-- 
-- 
--
-- 
+

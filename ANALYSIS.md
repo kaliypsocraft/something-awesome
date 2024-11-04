@@ -24,20 +24,13 @@
   - [Web Exploitation](#web-exploitation)
     - [SQL Injection](#sql-injection)
     - [XSS Injection](#xss-injection)
-    - [PHP](#php)
-    
   - [Forensics](#forensics)
     - [File Formats](#file-formats)
-    - [Meta-Data](#meta-data)
-    - [Disk Imaging](#disk-imaging)
-    - [Steganography](#steganography)
-    
+    - [Steganography](#steganography) 
   - [Reverse Engineering](#reverse-engineering)
     - [Disassemblers](#disassemblers)
     - [Debuggers](#debuggers)
-    
   - [Binary Exploitation](#binary-exploitation)
-    - [Stack](#stack)
     - [Registers](#registers)
     - [Calling Conventions](#calling-conventions)
     - [Buffer Overflow](#buffer-overflow)
@@ -104,9 +97,9 @@ trivial for any attacker to brute force all keys. For example,
 def decrypt(ciphertext):
     english_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     candidate_plaintext = []
+    # lower-cases ruins the ASCII calculations
     ciphertext = ciphertext.upper()
 
-    # Loops through all possible shifts 
     for shift in range(0, 25):
         decrypted_message = ''
         for char in ciphertext:
@@ -120,7 +113,7 @@ def decrypt(ciphertext):
 ```
 ### Vigenere Cipher
 
-The Vigenère cipher is a method of encrypting alphabetic text using a simple form of polyalphabetic substitution. A keyword is used to determine the shift for each letter in the plaintext. It essentially encrypts each letter of the plain-text
+The Vigenère cipher is a method of encrypting alphabetic text using a different 'Caesar' key at each index of the key. A keyword is used to determine the shift for each letter in the plaintext. 
 
 Given a plaintext $m = m_1 || m_2 || m_3 || ... || m_n$ and a keyword $k = k_1 || k_2 || k_3 || ... || k_n$, the encryption algorithm $E$ is defined as:
 
@@ -131,7 +124,7 @@ Given a ciphertext $c = c_1 || c_2 || c_3 || ... || c_n$ and a repeating key $k 
 $$m_i = (c_i - k_i + 26) \mod 26$$
 
 ### Vigenere Crypt-analysis
-Unlike a typical Caesar cipher it can be impractical to attempt all $26!$ possible keys. However a frequency analysis attack can be conducted after obtaining the key-size. 
+Unlike a typical Caesar cipher it can be impractical to attempt all $26!$ possible keys. However a frequency analysis attack can be conducted after obtaining the key-size using [Kasiski examination's method](https://en.wikipedia.org/wiki/Kasiski_examination)
 ### Substitution Cipher
 Suppose an example substitution dict is as follows `dict` is as follows 
 | Plaintext | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
@@ -161,9 +154,6 @@ Online software usually can easily defeat subsitution ciphers using frequency an
 !!! info Modern Cryptography
     These challenges tend to be medium-hard level questions which exploit a deliberate use of *weak* parameters. In the real-world these schemes when used correctly are deemed mathematically strong and secure. Usually they involve the hardness of the discrete logarithm problem or factoring problem. In the case of RSA which most of the intermediate-hardlevel cryptography problems are, it deals with the factoring problem. However, side-channe
 
-    **Modern Cryptography Notation**
-
-
 
 ### RSA
 
@@ -177,7 +167,7 @@ $$
 
 Where:
 - $c$ is the ciphertext.
-- $m$ is the plaintext message (an integer in the range $0$ to $n-1$).
+- $m$ is the plaintext message.
 
 Given the ciphertext $c$ and a private key $(d, n)$, where $d$ is the decryption exponent, the decryption algorithm $D$ is defined as:
 
@@ -191,7 +181,7 @@ Where:
 ### Parameter Generation
 To generate the keys, the following steps are performed:
 
-1. **Choose two distinct prime numbers** p and q.
+1. **Choose two distinct prime numbers** $p$ and $q$.
 2. **Compute** $n = p \cdot q.$
 3. **Calculate the totient** $φ(n) = (p-1)(q-1).$
 4. **Choose an integer** $e$ such that $1 < e < φ(n)$ and $gcd(e, φ(n)) = 1$.
@@ -204,9 +194,6 @@ We must note that the generic RSA, known as textbook RSA is deemed insecure sinc
 For small private keys $ d $, we can conduct [Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack), which exploits the fact that if $ d $. A RSA cipher is vulnerable to this if 
 1. The modulus $N = pq$ with $q < p < 2q$ 
 2. The private exponent $d$ satisfying $d < \frac{1}{3} N^{1/4}$
-
-#### Dangers of a small moduli
-For small modulus $ n $, one can easily brute-force the factorization using `gmpy2` in Python. The feasibility of this method is due to the fact that the complexity of factorization increases rapidly with the size of the modulus. This vulnerability is particularly pronounced in situations where $ n $ is less than a certain threshold, making it possible for attackers to discover the prime factors with relative ease. 
 
 
 ### Side-Channel Attacks
@@ -266,11 +253,9 @@ This [page](https://en.wikipedia.org/wiki/List_of_file_signatures) has a table o
 
 Another useful command is `exiftool <filename>` which also provides the meta-data in the form: ![alt text](images/image-5.png)
 
-### Disk Imaging
-Disk images are exact snapshot of a storage drive, including all files, system data, and even deleted content. It preserves data integrity for forensic analysis without altering the original, enabling investigators to recover data or examine malware securely. Typically tools such as `Autopsy` and `Sleuthkit` provide a suite of tools to conduct forensic analysis of disks to recover lost data or suspsicious data.
 
 ### Steganography
-Steganography conceals sensitive information within files like images, audio, or video, without obvious signs of hidden data. Unlike encryption, it embeds data discreetly by altering pixels or metadata, making it ideal for secure, undetectable communication.
+Steganography conceals sensitive information within files like images, without obvious signs of hidden data. Unlike encryption, it embeds data discreetly by altering pixels or metadata, making it ideal for secure, undetectable communication.
 
 ### Network Analysis
 Monitoring and examining network traffic is an essential part of security engineering. It can identify suspicious activity, unauthorized access, or malware. Tools like Wireshark capture packet data, helping security professionals detect threats, troubleshoot issues, and analyze network performance.
@@ -309,12 +294,6 @@ Debuggers are used for dynamic code analysis enabling a user to view and alter t
 
 ## Binary Exploitation
 
-### Stack
-The stack exists in a computer's RAM and does the following:
-1. store function arguments
-2. local variables 
-
-The addresses
 
 ![alt text](images/image-2.png)
 > Image courtesy of [here](https://www.cameronwickes.co.uk/stack-frames-pointers/)
@@ -356,7 +335,7 @@ equation(1, 2, 3) = 0
 equation(3, 2, 1) = 4
 
 ```
-For 64-bit systems
+For 64-bit systems it is different so be careful when conducting the exercises.
 
 
 
@@ -369,17 +348,12 @@ Consider the PLT as a new retail shop worker, while the GOT is a device the work
 
 In binary exploitation, an attacker can modify the GOT to redirect function calls, which is useful in certain types of attacks like ret2libc. In this analogy, let's assume that the GOT device can be easily manipulated by an attacker named Eve. Eve could change the address stored in the GOT to point to malicious code or use the stored information to execute harmful actions.
 
-### ret2win
-In ret2win challenges, the goal is to overwrite the return address (stored in eip on a 32-bit system or rip on a 64-bit system) with the address of a function that prints or contains the flag. These challenges typically involve:
-
-Finding the address of the target function.
-Using input to overflow the stack and overwrite the return address, redirecting it to the target function.
 
 ### ret2libc
 ret2libc attacks aim to execute code in the C standard library (libc) to gain shell access or execute other functions on a remote server. To achieve this, the attacker:
 
 Leverages the GOT to obtain the base address of libc.
-Locates the addresses of system, a command string like /bin/sh, and exit.
+Locates the addresses of system, a command string like /bin/sh, and exit. I like to call system and /bin/sh (Bonnie and Clyde) as they typically are the main culprits in my attacks.
 Constructs input that sets the return address to system, with /bin/sh as the argument.
 This approach allows attackers to bypass the need for shellcode by leveraging existing code in the binary.
 
@@ -414,18 +388,10 @@ One of the most dangerous format specifiers is `%n`, which causes `printf` to wr
 For example, suppose we want to override a variable on the stack. We can write to this address with a new value we want.
 
 Example payload 1:
-Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
-> `%3$llnaaH\xa0\x04\x08`
-
-Example payload 2:
 Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 10 $\rightarrow$ 0x0804a04c
 >`%5c%6$lln%5c%7$hhnaaH\xa0\x04\x08L\xa0\x04\x08`
 
-Example payload 3:
-Given an offset of 1, we write 5 $\rightarrow$ 0x0804a048 and 0 $\rightarrow$ 0x0804a04c
->`%5c%4$llnaaaH\xa0\x04\x0`
-
-Example payload 4:
+Example payload 2:
 Given an offset of 1, we write 0 $\rightarrow$ 0x0804a048 and 5 $\rightarrow$ 0x0804a04c
 >`%5$lln%5c%6$hhnaH\xa0\x04\x08L\xa0\x04\x08`
 
@@ -444,6 +410,43 @@ NOTE: `L` $\rightarrow$ `\x4c` and `H` $\rightarrow$ `\x48`
 ---
 
 !!! info Conclusion
-    The information provided in this document is only a subset of the vast world that is the cyber-security community. The information provided is all the research conducted during the solving of `picoCTF` challenges.
+    The information provided in this document is only a subset of the vast world that is the cyber-security community. The information provided is all the research conducted during the solving of `picoCTF` challenges. Please excuse some of the information as I was just a beginner through this whole process. It is an iterative process to becoming 
 
 ## References
+
+- Security Stack Exchange. (2016). Why must a ret2libc attack follow the order system; exit; command? Available at: https://security.stackexchange.com/questions/136647/why-must-a-ret2libc-attack-follow-the-order-system-exit-command/136659#136659 (Accessed: 3 November 2024).
+
+- Long Le. (2016). PEDA - Python Exploit Development Assistance for GDB. Available at: https://github.com/longld/peda (Accessed: 3 November 2024).
+
+- HackTricks. (2024). ROP (Return-Oriented Programming) - Binary Exploitation. Available at: https://book.hacktricks.xyz/binary-exploitation/rop-return-oriented-programing (Accessed: 3 November 2024).
+
+- CS6265 Course, Georgia Tech. (2024). Advanced ROP Tutorial. Available at: https://tc.gts3.org/cs6265/tut/tut06-02-advrop.html (Accessed: 3 November 2024).
+
+- Chester Rebeiro, Indian Institute of Technology Madras. (2024). Buffer Overflows. Available at: https://www.cse.iitm.ac.in/~chester/courses/17o_sse/slides/3_BufOverflows.pdf (Accessed: 3 November 2024).
+
+- Total Phase, Inc. (2023). What is a Register in a CPU and How Does It Work? Available at: https://www.totalphase.com/blog/2023/05/what-is-register-in-cpu-how-does-it-work/ (Accessed: 3 November 2024).
+
+- Automox (n.d.). Vulnerability Definition: Use After Free. Available at: [https://www.automox.com/blog/vulnerability-definition-use-after-free](https://www.automox.com/blog/vulnerability-definition-use-after-free) (Accessed: 3 November 2024).
+- CWE (n.d.). Use After Free. Available at: [https://cwe.mitre.org/data/definitions/416.html](https://cwe.mitre.org/data/definitions/416.html) (Accessed: 3 November 2024).
+- CTF Recipes (n.d.). Heap Exploitation: Use After Free. Available at: [https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free](https://www.ctfrecipes.com/pwn/heap-exploitation/use-after-free) (Accessed: 3 November 2024).
+- The Hacker News (2024). Mozilla Warns of Active Exploitation. Available at: [https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html](https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html) (Accessed: 3 November 2024).
+- NIST (2023). FIPS 197 - Advanced Encryption Standard (AES). Available at: [https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf) (Accessed: 3 November 2024).
+- Stanford University (n.d.). A Survey of RSA Cryptography. Available at: [https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf](https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf) (Accessed: 3 November 2024).
+- Varonis (n.d.). How to Use Ghidra. Available at: [https://www.varonis.com/blog/how-to-use-ghidra](https://www.varonis.com/blog/how-to-use-ghidra) (Accessed: 3 November 2024).
+- Real Python (n.d.). Python eval Function. Available at: [https://realpython.com/python-eval-function/](https://realpython.com/python-eval-function/) (Accessed: 3 November 2024).
+- Binary Ninja (n.d.). Available at: [https://binary.ninja/](https://binary.ninja/) (Accessed: 3 November 2024).
+- Autopsy (n.d.). Digital Forensics. Available at: [https://www.autopsy.com/](https://www.autopsy.com/) (Accessed: 3 November 2024).
+- Coastal White (n.d.). Modeling AES with Power Analysis. Available at: [https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html](https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html) (Accessed: 3 November 2024).
+- The Sleuth Kit (n.d.). Available at: [https://www.sleuthkit.org/sleuthkit/docs.php](https://www.sleuthkit.org/sleuthkit/docs.php) (Accessed: 3 November 2024).
+- Cryptii (n.d.). Vigenère Cipher. Available at: [https://cryptii.com/pipes/vigenere-cipher](https://cryptii.com/pipes/vigenere-cipher) (Accessed: 3 November 2024).
+- GitHub (n.d.). PayloadsAllTheThings: SQL Injection - SQLite Injection. Available at: [https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md) (Accessed: 3 November 2024).
+- CTF 101 (n.d.). Web Exploitation Overview. Available at: [https://ctf101.org/web-exploitation/overview/](https://ctf101.org/web-exploitation/overview/) (Accessed: 3 November 2024).
+- W3Schools (n.d.). SQL Injection. Available at: [https://www.w3schools.com/sql/sql_injection.asp](https://www.w3schools.com/sql/sql_injection.asp) (Accessed: 3 November 2024).
+- OWASP (n.d.). Cross-Site Scripting (XSS). Available at: [https://owasp.org/www-community/attacks/xss/](https://owasp.org/www-community/attacks/xss/) (Accessed: 3 November 2024).
+
+
+#### Other 
+- [Recent example of Firefox case study](#https://thehackernews.com/2024/10/mozilla-warns-of-active-exploitation-in.html)
+- [How the best hackers learn their craft](https://www.youtube.com/watch?v=6vj96QetfTg)
+- [How processor clocks work](https://www.youtube.com/watch?v=PVNAPWUxZ0g)
+

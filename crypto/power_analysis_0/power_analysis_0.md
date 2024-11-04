@@ -53,9 +53,9 @@ for i in range(16):
 
 ```
 - **What are side-channel attacks**
+Modern cryptography when used following correct procedures regarding parameter size and operational security are often infeasible to attack directly. For example it is considered impractical to obtain an AES's 128-bit key using any traditional cryptanalysis. 
 
 
-- **What is a power analysis attack**
 ## References
 - https://coastalwhite.github.io/intro-power-analysis/aes/modeling.html
 

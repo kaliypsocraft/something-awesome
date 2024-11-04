@@ -37,8 +37,8 @@ The flag you obtained after solving the challenge. (e.g., `picoCTF{d3bug_f0r_th3
 
 ## Lessons Learned
 - **What Anti-Debuggers are**
+Anti-debuggers are techniques used in software to detect and prevent debugging activities. They aim to thwart reverse engineering attempts via `gdb` for example. This was the first time I came across them and they were very interesting to exploit - albeit this was a very simple example
 
-- **How to use BinaryNinja to control flow**
 
 ## References
 - https://www.youtube.com/watch?v=HlEk7P_VZfg
